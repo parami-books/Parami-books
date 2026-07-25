@@ -121,7 +121,7 @@ function renderCatalog(market) {
     
     card.innerHTML = `
       <div class="book-cover-container">
-        <img class="book-cover-img" src="${book.coverImage}" alt="Portada de ${book.title}" onerror="this.src='https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=300&auto=format&fit=crop'">
+        <img class="book-cover-img" src="https://images-na.ssl-images-amazon.com/images/P/${book.asin}.01.LZZZZZZZ.jpg" alt="Portada de ${book.title}" onerror="this.src='https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=300&auto=format&fit=crop'">
       </div>
       <div class="book-details">
         <h2 class="book-title">${book.title}</h2>
