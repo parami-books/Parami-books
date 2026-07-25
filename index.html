@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parami Books - Libros para Colorear</title>
+  
+  <!-- Estilos base -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Aurora decorative background glows -->
+  <div class="aurora-glow-1"></div>
+  <div class="aurora-glow-2"></div>
+
+  <!-- Contenedor principal de ancho móvil -->
+  <div class="container">
+    
+    <!-- Encabezado de la página -->
+    <header>
+      <div class="logo-container">
+        <div class="logo-bg"></div>
+        <div class="brand-icon">
+          <span>PB</span>
+        </div>
+      </div>
+      <h1 class="js-brand-name">Parami Books</h1>
+      <p class="tagline js-brand-tagline">Cargando colección...</p>
+      
+      <!-- Redes Sociales Orgánicas (TikTok + Opcionales) -->
+      <div class="social-buttons">
+        <a href="#" class="social-link js-tiktok-link" target="_blank" rel="noopener noreferrer" title="Síguenos en TikTok">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+          </svg>
+        </a>
+        <a href="#" class="social-link js-insta-link" target="_blank" rel="noopener noreferrer" title="Síguenos en Instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </a>
+      </div>
+    </header>
+
+    <!-- Indicador dinámico de tienda por país -->
+    <div id="countryBanner" class="country-banner">
+      <span class="flag">🌐</span>
+      <span>Detectando portal de Amazon más cercano...</span>
+    </div>
+
+    <!-- Catálogo interactivo de libros renderizados dinámicamente -->
+    <main id="bookCatalog" class="catalog">
+      <!-- Tarjetas de libros cargando -->
+      <p style="text-align: center; color: var(--text-muted); font-size: 14px; padding: 20px;">Cargando catálogo...</p>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+      <p>&copy; <span id="year">2026</span> <span class="js-brand-name">Parami Books</span>. Todos los derechos reservados.</p>
+    </footer>
+
+  </div>
+
+  <!-- Carga de Configuración General y script de lógica -->
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+  <script>
+    // Actualizar el año de copyright automáticamente
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
