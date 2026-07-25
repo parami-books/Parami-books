@@ -1,37 +1,35 @@
+// Variable de Estado Global para el Idioma Seleccionado (es / en)
+let currentLanguage = "es";
+
 document.addEventListener("DOMContentLoaded", () => {
-  // Inicializar marca y textos generales
-  document.title = CONFIG.brandName;
-  const brandNameEls = document.querySelectorAll(".js-brand-name");
-  brandNameEls.forEach(el => el.textContent = CONFIG.brandName);
-  
-  const brandTaglineEl = document.querySelector(".js-brand-tagline");
-  if (brandTaglineEl) brandTaglineEl.textContent = CONFIG.brandTagline;
-
-  // Configurar enlace de TikTok
-  const tiktokLinkEl = document.querySelector(".js-tiktok-link");
-  if (tiktokLinkEl && CONFIG.socialLinks.tiktok) {
-    tiktokLinkEl.href = CONFIG.socialLinks.tiktok;
-  } else if (tiktokLinkEl) {
-    tiktokLinkEl.style.display = "none";
+  // 1. Detectar el idioma inicial (localStorage o Navegador)
+  const savedLang = localStorage.getItem("preferredLanguage");
+  if (savedLang === "es" || savedLang === "en") {
+    currentLanguage = savedLang;
+  } else {
+    const browserLang = (navigator.language || navigator.userLanguage || "").toLowerCase();
+    currentLanguage = browserLang.startsWith("es") ? "es" : "en";
   }
 
-  // Configurar enlace de Instagram
-  const instaLinkEl = document.querySelector(".js-insta-link");
-  if (instaLinkEl && CONFIG.socialLinks.instagram) {
-    instaLinkEl.href = CONFIG.socialLinks.instagram;
-  } else if (instaLinkEl) {
-    instaLinkEl.style.display = "none";
-  }
-
-  // 1. Detección Inteligente del Mercado de Amazon (País)
-  const userMarket = detectAmazonMarketplayce();
-  
-  // 2. Renderizar indicator de país
-  renderCountryBanner(userMarket);
-  
-  // 3. Renderizar catálogo de libros con sus enlaces correspondientes
-  renderCatalog(userMarket);
+  // 2. Aplicar el idioma y configurar la UI
+  updateLanguageUIAndRender();
 });
+
+// Mensajes de traducción del portal
+const TRANSLATIONS = {
+  es: {
+    redirecting: "Redirigiendo a",
+    buyButton: "VER EN AMAZON",
+    loading: "Cargando catálogo...",
+    copyright: "Todos los derechos reservados."
+  },
+  en: {
+    redirecting: "Redirecting to",
+    buyButton: "VIEW ON AMAZON",
+    loading: "Loading catalog...",
+    copyright: "All rights reserved."
+  }
+};
 
 // Mapeo de sufijos de tiendas a nombres completos y banderas
 const MARKET_INFO = {
@@ -46,42 +44,89 @@ const MARKET_INFO = {
 };
 
 /**
+ * Cambia el idioma actual del portal y actualiza la página completa
+ */
+function changeLanguage(lang) {
+  if (lang !== "es" && lang !== "en") return;
+  currentLanguage = lang;
+  localStorage.setItem("preferredLanguage", lang);
+  updateLanguageUIAndRender();
+}
+
+/**
+ * Actualiza todos los textos estáticos del portal y vuelve a renderizar las tarjetas de libros
+ */
+function updateLanguageUIAndRender() {
+  // Actualizar clases activas en los botones de selección
+  const btnEs = document.getElementById("btnLangEs");
+  const btnEn = document.getElementById("btnLangEn");
+  
+  if (btnEs && btnEn) {
+    if (currentLanguage === "es") {
+      btnEs.classList.add("active");
+      btnEn.classList.remove("active");
+    } else {
+      btnEn.classList.add("active");
+      btnEs.classList.remove("active");
+    }
+  }
+
+  // Actualizar Título y Tagline dinámicamente
+  document.title = CONFIG.brandName;
+  const brandNameEls = document.querySelectorAll(".js-brand-name");
+  brandNameEls.forEach(el => el.textContent = CONFIG.brandName);
+  
+  const brandTaglineEl = document.querySelector(".js-brand-tagline");
+  if (brandTaglineEl) {
+    brandTaglineEl.textContent = CONFIG.brandTagline[currentLanguage] || CONFIG.brandTagline.es;
+  }
+
+  // Configurar enlace de TikTok
+  const tiktokLinkEl = document.querySelector(".js-tiktok-link");
+  if (tiktokLinkEl && CONFIG.socialLinks.tiktok) {
+    tiktokLinkEl.href = CONFIG.socialLinks.tiktok;
+  } else if (tiktokLinkEl) {
+    tiktokLinkEl.style.display = "none";
+  }
+
+  // Detección del mercado geográfico del usuario (para saber si enviarle a amazon.es, amazon.com.mx, etc.)
+  const userMarket = detectAmazonMarketplace();
+  
+  // Renderizar indicador de país
+  renderCountryBanner(userMarket);
+  
+  // Renderizar catálogo con los libros traducidos y portadas en base al idioma seleccionado
+  renderCatalog(userMarket);
+}
+
+/**
  * Detecta el mercado de Amazon idóneo basándose en el idioma/región del navegador del usuario.
  */
-function detectAmazonMarketplayce() {
+function detectAmazonMarketplace() {
   const languages = navigator.languages || [navigator.language || ""];
-  
-  // Unimos todo en un string para buscar coincidencias fácilmente
   const langString = languages.join(",").toLowerCase();
 
-  // Mapear por prioridad
   if (langString.includes("-mx") || langString.includes("es-mx")) return "mx";
   if (langString.includes("-es") || langString.includes("es-es")) return "es";
   
-  // Si no es específico pero es español, miramos si podemos discernir. 
-  // Por defecto derivamos el español genérico a "es" o "mx" dependiendo de la zona horaria del usuario.
   if (langString.includes("es")) {
     const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
-    // Zonas horarias de América Latina usuales para redirección a Amazon más cercana (MX o USA)
     if (tz.includes("America/Mexico") || tz.includes("America/Monterrey") || tz.includes("America/Tijuana")) {
       return "mx";
     }
     if (tz.includes("America/")) {
-      // Para Sudamérica/Centroamérica que no tienen tienda propia, Amazon.com (USA) suele ser más idóneo por costo de envío
-      return "com";
+      return "com"; // Amazon USA para Latinoamérica
     }
-    return "es"; // Por defecto para España/Europa
+    return "es"; // Amazon España para Europa
   }
 
-  // Idiomas específicos europeos/norteamericanos
   if (langString.includes("-ca") || langString.includes("ca-")) return "ca";
   if (langString.includes("-gb") || langString.includes("en-gb") || langString.includes("en-ie")) return "uk";
   if (langString.includes("de")) return "de";
   if (langString.includes("fr")) return "fr";
   if (langString.includes("it")) return "it";
 
-  // Relevancia por defecto
-  return CONFIG.defaultMarketplace || "com";
+  return "com";
 }
 
 /**
@@ -92,40 +137,46 @@ function renderCountryBanner(market) {
   if (!bannerEl) return;
 
   const info = MARKET_INFO[market] || MARKET_INFO.com;
+  const labelPre = TRANSLATIONS[currentLanguage].redirecting;
   bannerEl.innerHTML = `
     <span class="flag">${info.flag}</span>
-    <span>Redirigiendo a <strong>${info.name}</strong></span>
+    <span>${labelPre} <strong>${info.name}</strong></span>
   `;
 }
 
 /**
- * Renderiza el listado de libros con el enlace geolocalizado correspondiente
+ * Renderiza el listado de libros con el título, descripción y portada correspondiente a la edición del idioma
  */
 function renderCatalog(market) {
   const catalogEl = document.getElementById("bookCatalog");
   if (!catalogEl) return;
 
-  catalogEl.innerHTML = ""; // Limpiar placeholder
+  catalogEl.innerHTML = ""; // Limpiar antes de rellenar
 
   CONFIG.books.forEach(book => {
-    // Resolver el enlace correcto de Amazon combinando el dominio regional con el ASIN
+    // Obtener los detalles traducidos del libro correspondientes al idioma seleccionado
+    const details = book.languages[currentLanguage] || book.languages.es;
+    const asin = details.asin;
+
+    // Construir el enlace a Amazon de forma dinámica usando el dominio de la tienda y el ASIN de la edición seleccionada
     let targetLink = "#";
-    if (book.asin) {
+    if (asin) {
       const info = MARKET_INFO[market] || MARKET_INFO.com;
-      targetLink = `https://www.${info.domain}/dp/${book.asin}`;
+      targetLink = `https://www.${info.domain}/dp/${asin}`;
     }
 
-    // Estructura HTML de la Card del libro (Mobile-First Horizontal, Orlas y Tinta de Oro)
+    // Estructura HTML de la Card del libro (Personalizada por ID del libro para aplicar fondos dinámicos en CSS)
     const card = document.createElement("div");
-    card.className = "book-card";
+    card.className = `book-card book-card-${book.id}`;
+    card.id = `card-${book.id}`;
     
     card.innerHTML = `
       <div class="book-cover-container">
-        <img class="book-cover-img" src="https://images-na.ssl-images-amazon.com/images/P/${book.asin}.01.LZZZZZZZ.jpg" alt="Portada de ${book.title}" onerror="this.src='https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=300&auto=format&fit=crop'">
+        <img class="book-cover-img" src="https://images-na.ssl-images-amazon.com/images/P/${asin}.01.LZZZZZZZ.jpg" alt="Portada de ${details.title}" onerror="this.src='https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=300&auto=format&fit=crop'">
       </div>
       <div class="book-details">
-        <h2 class="book-title">${book.title}</h2>
-        <div class="book-subtitle">${book.subtitle}</div>
+        <h2 class="book-title">${details.title}</h2>
+        <div class="book-subtitle">${details.subtitle}</div>
         
         <!-- Adorno divisor dorado interior -->
         <div class="card-separator">
@@ -135,13 +186,13 @@ function renderCatalog(market) {
           </svg>
         </div>
 
-        <p class="book-desc">${book.description}</p>
+        <p class="book-desc">${details.description}</p>
         
         <a href="${targetLink}" target="_blank" rel="noopener noreferrer" class="amazon-btn">
           <svg class="btn-amazon-logo" viewBox="0 0 24 24" fill="currentColor">
             <path d="M15.9,11.3c0-0.1,0-0.3,0-0.4c0-2.4-1.2-3.8-3.9-3.8c-2.5,0-4,1.4-4,3.4c0,1.9,1.3,2.8,3,2.8c1.3,0,2.3-0.5,2.9-1.2C14,12,14.1,12,14,12.1c-0.2,0.3-0.7,0.9-0.7,0.9c-0.1,0.1-0.2,0.1-0.3,0c-0.4,0.3-1,0.6-1.7,0.6c-1,0-1.8-0.6-1.8-1.8c0-1.4,1.2-1.9,3.1-1.9c0.7,0,1.4,0.1,1.9,0.2C14.7,11.3,14.7,11.3,15.9,11.3z M18.4,18.4c-3.1,2.4-7.9,3.1-11.8,2c-0.4-0.1-0.6,0.3-0.2,0.6c3.4,2.2,9.3,2.2,12.3-0.6C19.1,20.1,18.8,18.1,18.4,18.4z M19.4,20c0.3-0.2,0.3-0.5,0.1-0.7c-0.6-0.7-1.8-2.6-1.8-2.6s-0.1-0.1-0.2,0l-0.3,0.3c-0.1,0.1-0.1,0.2,0,0.3c0,0,1.2,1.8,1.6,2.5C19,20.1,19.2,20.1,19.4,20z"/>
           </svg>
-          VER EN AMAZON
+          ${TRANSLATIONS[currentLanguage].buyButton}
         </a>
       </div>
       
