@@ -108,18 +108,13 @@ function renderCatalog(market) {
   catalogEl.innerHTML = ""; // Limpiar placeholder
 
   CONFIG.books.forEach(book => {
-    // Resolver el enlace correcto: intentar el del país detectado, si no, buscar en 'com', y si no, cualquiera disponible
-    let targetLink = book.links[market];
-    if (!targetLink) targetLink = book.links.com;
-    if (!targetLink) {
-      // Tomar el primer enlace disponible si no existe el del país ni el genérico .com
-      const keys = Object.keys(book.links);
-      if (keys.length > 0) {
-        targetLink = book.links[keys[0]];
-      } else {
-        targetLink = "#";
-      }
+    // Resolver el enlace correcto de Amazon combinando el dominio regional con el ASIN
+    let targetLink = "#";
+    if (book.asin) {
+      const info = MARKET_INFO[market] || MARKET_INFO.com;
+      targetLink = `https://www.${info.domain}/dp/${book.asin}`;
     }
+
 
     // Estructura HTML de la Card del libro
     const card = document.createElement("div");
