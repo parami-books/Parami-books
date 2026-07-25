@@ -26,7 +26,7 @@ const CONFIG = {
       subtitle: "Bold & Easy Coloring Book",
       description: "Patrones florales simétricos y hermosos especialmente diseñados en trazos fáciles y gruesos para fomentar la concentración y la paz mental.",
       coverImage: "cover_mandalas.png",
-      asin: "B0DYYYYYY2"
+      asin: "B0GVB26115"
     },
     {
       id: "smiling-animals",
