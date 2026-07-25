@@ -13,7 +13,7 @@ const CONFIG = {
   books: [
     {
       id: "mandalas-flowers",
-      title: "Mandalas Flowers",
+      title: "Mandalas & Flowers",
       subtitle: "Bold & Easy Coloring Book",
       description: "Patrones florales simétricos y hermosos especialmente diseñados en trazos fáciles y gruesos para fomentar la concentración y la paz mental.",
       coverImage: "cover_mandalas.png",

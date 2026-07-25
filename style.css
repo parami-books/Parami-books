@@ -1,24 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap');
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Paleta cromática - Inspiración Cozy & Magia */
-  --bg-primary: #12101b;
-  --bg-secondary: rgba(26, 22, 43, 0.6);
-  --text-active: #ffffff;
-  --text-muted: #afacc4;
+  /* Paleta cromática - Inspiración Oro y Lago Alpino */
+  --gold-gradient: linear-gradient(135deg, #ffe082 0%, #e5a93b 30%, #fff8e1 55%, #c68a23 85%, #b27a1c 100%);
+  --gold-primary: #e5a93b;
+  --gold-secondary: #ffe082;
+  --gold-dark: #b27a1c;
   
-  --accent-pastel-pink: #fbbcca;
-  --accent-pastel-purple: #c5b3e6;
-  --accent-pastel-teal: #a2e8dd;
+  --bg-overlay: linear-gradient(180deg, rgba(5, 23, 38, 0.45) 0%, rgba(3, 14, 24, 0.75) 100%);
+  --bg-card: linear-gradient(135deg, rgba(8, 28, 44, 0.85) 0%, rgba(3, 14, 24, 0.95) 100%);
+  --card-border: 1.5px solid #d4af37;
   
-  --btn-gradient: linear-gradient(135deg, #c5b3e6 0%, #fbbcca 100%);
-  --btn-text: #12101b;
+  --text-light: #ffffff;
+  --text-gold: #ffe082;
+  --text-muted: #d0d7de;
   
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-shadow: rgba(0, 0, 0, 0.3);
-  
+  --max-width: 480px; /* Tamaño móvil / Link-in-bio */
   --transition-speed: 0.3s;
-  --max-width: 480px; /* Ancho optimizado para pantallas de móvil (Link-in-bio) */
 }
 
 * {
@@ -29,41 +28,20 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  color: var(--text-active);
-  background-color: var(--bg-primary);
+  font-family: 'Montserrat', sans-serif;
+  color: var(--text-light);
+  /* Fondo espectacular del lago de montaña */
+  background-image: var(--bg-overlay), url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1600&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  position: relative;
-  overflow-x: hidden;
   padding: 24px 16px;
-}
-
-/* Efectos de fondo Aurora (Glows estéticos) */
-.aurora-glow-1 {
-  position: fixed;
-  top: -10%;
-  left: -20%;
-  width: 70vw;
-  height: 70vw;
-  background: radial-gradient(circle, rgba(197, 179, 230, 0.15) 0%, rgba(0,0,0,0) 70%);
-  z-index: -1;
-  pointer-events: none;
-  filter: blur(40px);
-}
-
-.aurora-glow-2 {
-  position: fixed;
-  bottom: -10%;
-  right: -20%;
-  width: 70vw;
-  height: 70vw;
-  background: radial-gradient(circle, rgba(251, 188, 202, 0.12) 0%, rgba(0,0,0,0) 70%);
-  z-index: -1;
-  pointer-events: none;
-  filter: blur(40px);
+  overflow-x: hidden;
 }
 
 /* Contenedor principal de la app */
@@ -77,125 +55,161 @@ body {
 
 /* Encabezado del Perfil */
 header {
-  text-align: center;
-  margin-bottom: 32px;
-  animation: fadeInDown 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-.logo-container {
-  position: relative;
-  width: 90px;
-  height: 90px;
-  margin: 0 auto 16px;
-}
-
-/* Círculo estético detrás del logo */
-.logo-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: var(--btn-gradient);
-  opacity: 0.15;
-  filter: blur(8px);
+  text-align: center;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.brand-icon {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0.15);
+/* Contenedor del Logo con alas laterales doradas */
+.logo-outer-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(30, 26, 48, 0.85);
-  font-family: 'Outfit', sans-serif;
-  font-size: 28px;
-  font-weight: 800;
-  color: #ffffff;
-  box-shadow: 0 8px 32px var(--glass-shadow);
-  backdrop-filter: blur(8px);
+  width: 105%;
+  margin-bottom: 12px;
+}
+
+.logo-outer-container::before,
+.logo-outer-container::after {
+  content: '';
+  flex: 1;
+  height: 1.5px;
+  background: var(--gold-gradient);
+  opacity: 0.8;
+}
+
+/* Dibujar pequeñas flores/rombos dorados en las alas */
+.logo-container {
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.brand-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid var(--gold-primary);
+  background: radial-gradient(circle, #0e273b -10%, #031320 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cinzel', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-gold);
+  /* Sombra dorada exterior de metal bruñido */
+  box-shadow: 
+    0 0 15px rgba(229, 169, 59, 0.45), 
+    inset 0 0 10px rgba(229, 169, 59, 0.35);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  letter-spacing: -2px;
+  padding-right: 2px; /* Corrección óptica por serif */
   user-select: none;
 }
 
-.brand-icon span {
-  background: var(--btn-gradient);
+/* Título de la web en Oro */
+h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 42px;
+  font-weight: 700;
+  background: var(--gold-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0px 3px 5px rgba(0, 0, 0, 0.9));
+  margin-bottom: 2px;
+  letter-spacing: 0.5px;
 }
 
-h1 {
-  font-family: 'Outfit', sans-serif;
-  font-size: 26px;
-  font-weight: 700;
-  margin-bottom: 8px;
-  letter-spacing: -0.5px;
+/* Divisor del Header con filigrana dorada */
+.header-separator {
+  width: 55%;
+  margin: 8px 0 14px;
 }
 
+.ornament-svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* Tagline del Perfil */
 .tagline {
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 400;
-  color: var(--text-muted);
+  color: var(--text-light);
   line-height: 1.5;
-  max-width: 90%;
-  margin: 0 auto;
+  max-width: 92%;
+  margin: 0 auto 16px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 0, 0, 0.4);
 }
 
-/* Redes Sociales */
+/* Botones Sociales (TikTok) */
 .social-buttons {
   display: flex;
-  gap: 12px;
-  margin-top: 16px;
   justify-content: center;
+  margin-top: 4px;
 }
 
 .social-link {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  background: var(--bg-secondary);
-  border: 1px solid var(--glass-border);
-  color: var(--text-muted);
-  font-size: 18px;
+  border: 1.5px solid var(--gold-primary);
+  background: radial-gradient(circle, #0e273b 0%, #031320 100%);
+  color: var(--text-gold);
   text-decoration: none;
   transition: all var(--transition-speed);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(229, 169, 59, 0.25), 0 4px 8px rgba(0,0,0,0.5);
   backdrop-filter: blur(4px);
 }
 
 .social-link:hover {
-  color: var(--text-active);
-  background: rgba(255, 255, 255, 0.1);
-  transform: translateY(-2px);
-  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 16px rgba(229, 169, 59, 0.4), 0 4px 10px rgba(0,0,0,0.6);
+  border-color: var(--text-gold);
+  color: #ffffff;
 }
 
-/* Selector Dinámico de Tienda (Indicador de País) */
+.social-link svg {
+  fill: currentColor;
+}
+
+/* Banner de redirección regional */
 .country-banner {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--glass-border);
-  padding: 8px 16px;
-  border-radius: 50px;
-  font-size: 12px;
+  background: rgba(4, 18, 30, 0.75);
+  border: 1.2px solid var(--gold-primary);
+  padding: 6px 20px;
+  border-radius: 30px;
+  font-size: 12.5px;
+  font-weight: 500;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   margin-bottom: 24px;
-  color: var(--accent-pastel-purple);
-  animation: fadeIn 0.8s ease both;
-  backdrop-filter: blur(4px);
+  color: var(--text-gold);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+}
+
+.country-banner strong {
+  color: #ffffff;
+  font-weight: 600;
 }
 
 .country-banner .flag {
   font-size: 14px;
 }
 
-/* Catálogo de Libros */
+/* Catálogo de libros */
 .catalog {
   width: 100%;
   display: flex;
@@ -203,54 +217,39 @@ h1 {
   gap: 20px;
 }
 
-/* Tarjeta de Libro (Glassmorphism Premium) */
+/* Tarjeta del Libro */
 .book-card {
   width: 100%;
-  background: var(--bg-secondary);
-  border: 1px solid var(--glass-border);
-  border-radius: 20px;
+  background: var(--bg-card);
+  border: var(--card-border);
+  border-radius: 12px;
   padding: 16px;
-  display: flex;
+  display: grid;
+  grid-template-columns: 105px 1fr;
   gap: 16px;
-  transition: all var(--transition-speed) cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 10px 30px var(--glass-shadow);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7), inset 0 0 12px rgba(229, 169, 59, 0.08);
   backdrop-filter: blur(12px);
   position: relative;
   overflow: hidden;
-  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-.book-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 100%);
-  pointer-events: none;
+  align-items: center;
+  transition: all var(--transition-speed) ease;
 }
 
 .book-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 15px 35px rgba(19, 14, 33, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8), inset 0 0 18px rgba(229, 169, 59, 0.15);
 }
 
-/* Contenedor de la Portada en 3D/Sombra */
+/* Portada del libro */
 .book-cover-container {
   flex-shrink: 0;
   width: 105px;
-  height: 136px;
-  border-radius: 12px;
+  height: 105px; /* Formato cuadrado o similar de las portadas */
+  border-radius: 6px;
   overflow: hidden;
   position: relative;
-  /* Sombra tridimensional */
-  box-shadow: 
-    4px 6px 15px rgba(0, 0, 0, 0.5), 
-    0 1px 2px rgba(255, 255, 255, 0.15) inset;
-  background: #1b1825;
-  transition: transform var(--transition-speed);
+  box-shadow: 3px 5px 12px rgba(0, 0, 0, 0.7);
+  background: #020b12;
 }
 
 .book-cover-img {
@@ -259,72 +258,80 @@ h1 {
   object-fit: cover;
 }
 
-.book-card:hover .book-cover-container {
-  transform: scale(1.03) rotate(-1deg);
-}
-
-/* Detalles del Libro */
+/* Detalles del libro (Derecha) */
 .book-details {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  flex: 1;
+  justify-content: center;
+  position: relative;
+  z-index: 2; /* Encima de la ilustración watermark */
 }
 
 .book-title {
-  font-family: 'Outfit', sans-serif;
-  font-size: 18px;
+  font-family: 'Cinzel', serif;
+  font-size: 20px;
   font-weight: 700;
-  margin-bottom: 2px;
-  color: var(--text-active);
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.8));
+  margin-bottom: 1px;
 }
 
 .book-subtitle {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--accent-pastel-pink);
+  letter-spacing: 1.2px;
+  color: var(--text-gold);
+  margin-bottom: 6px;
+}
+
+/* Línea de adorno interior para la card */
+.card-separator {
+  width: 100%;
   margin-bottom: 8px;
 }
 
-.book-desc {
-  font-size: 13px;
-  line-height: 1.4;
-  color: var(--text-muted);
-  margin-bottom: 16px;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+.card-ornament-svg {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
-/* Botón de Amazon Premium */
+.book-desc {
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--text-muted);
+  font-weight: 350;
+  margin-bottom: 14px;
+}
+
+/* Botón de Amazon Premium (Oro Brillante) */
 .amazon-btn {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  width: 100%;
-  padding: 10px 16px;
-  background: var(--btn-gradient);
-  border: none;
-  border-radius: 30px;
-  color: var(--btn-text);
-  font-family: 'Outfit', sans-serif;
+  align-self: flex-start;
+  padding: 8px 20px;
+  background: linear-gradient(to bottom, #f7d070 0%, #db9a17 50%, #c4830b 100%);
+  border: 1px solid #ffebad;
+  border-radius: 4px; /* Un poco más cuadrado como la imagen original */
+  color: #031320;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-size: 13.5px;
+  font-size: 12.5px;
+  letter-spacing: 0.2px;
   text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(219, 154, 23, 0.35), 0 2px 4px rgba(0,0,0,0.5);
   transition: all var(--transition-speed);
-  box-shadow: 0 4px 15px rgba(197, 179, 230, 0.3);
-  margin-top: auto;
 }
 
 .amazon-btn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(197, 179, 230, 0.45);
+  box-shadow: 0 6px 16px rgba(219, 154, 23, 0.5), 0 3px 6px rgba(0,0,0,0.6);
+  background: linear-gradient(to bottom, #ffe082 0%, #e2a628 50%, #d89617 100%);
 }
 
 .amazon-btn svg {
@@ -333,44 +340,66 @@ h1 {
   fill: currentColor;
 }
 
-/* Footer con copyright */
+/* Contenedor de la ilustración lineal de agua */
+.card-illustration-container {
+  position: absolute;
+  right: -5px;
+  bottom: 0;
+  width: 100px;
+  height: 110px;
+  pointer-events: none;
+  z-index: 1; /* Detrás del texto y botón, delante de la base */
+}
+
+.card-illustration {
+  width: 100%;
+  height: 100%;
+}
+
+/* Footer */
 footer {
-  margin-top: 48px;
+  margin-top: 40px;
+  padding-bottom: 20px;
   text-align: center;
   font-size: 11px;
   color: var(--text-muted);
-  opacity: 0.7;
+  opacity: 0.65;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
 }
 
-/* Animaciones */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+/* Ajustes Responsivos */
+@media (max-width: 440px) {
+  .book-card {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 20px;
+  }
+  
+  .book-cover-container {
+    width: 95px;
+    height: 95px;
+    margin: 0 auto;
+  }
+  
+  .book-details {
+    align-items: center;
+    text-align: center;
+  }
+  
+  .amazon-btn {
+    align-self: center;
+    width: 100%;
+  }
+  
+  .card-illustration-container {
+    opacity: 0.3; /* Menos opacidad en móvil para no interferir con el texto centrado */
+    right: 50%;
+    transform: translateX(50%);
+    width: 120px;
+    height: 130px;
+  }
+  
+  .logo-outer-container {
+    width: 100%;
+  }
 }
-
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Retrasar la animación de cada tarjeta para un efecto escalonado */
-.book-card:nth-child(1) { animation-delay: 0.15s; }
-.book-card:nth-child(2) { animation-delay: 0.3s; }
-.book-card:nth-child(3) { animation-delay: 0.45s; }

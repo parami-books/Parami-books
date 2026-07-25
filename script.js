@@ -115,8 +115,7 @@ function renderCatalog(market) {
       targetLink = `https://www.${info.domain}/dp/${book.asin}`;
     }
 
-
-    // Estructura HTML de la Card del libro
+    // Estructura HTML de la Card del libro (Mobile-First Horizontal, Orlas y Tinta de Oro)
     const card = document.createElement("div");
     card.className = "book-card";
     
@@ -127,16 +126,97 @@ function renderCatalog(market) {
       <div class="book-details">
         <h2 class="book-title">${book.title}</h2>
         <div class="book-subtitle">${book.subtitle}</div>
-        <p class="book-desc">${book.description}</p>
-        <a href="${targetLink}" target="_blank" rel="noopener noreferrer" class="amazon-btn">
-          <svg viewBox="0 0 24 24">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.36 15.5c-.88-.47-1.74-.75-2.61-.75-1.12 0-1.85.5-1.85 1.25 0 .61.42 1 1.25 1 .91 0 1.77-.47 2.45-1v-.5zm1.53.51c-.69 1.13-1.92 1.83-3.21 1.83-2.09 0-3.32-1.32-3.32-3.08 0-1.91 1.57-3.03 4.22-3.03h2.31v-.64c0-1.18-.58-1.86-1.95-1.86-.96 0-1.99.37-2.73.91l-.64-1.18c.96-.75 2.37-1.16 3.63-1.16 2.39 0 3.73 1.25 3.73 3.49v4.54c0 1.23.46 1.8 1.09 1.8.29 0 .54-.08.77-.2l.46 1.18c-.37.31-1.02.49-1.79.49-.96 0-1.42-.51-1.42-1.37v-.01z"/>
+        
+        <!-- Adorno divisor dorado interior -->
+        <div class="card-separator">
+          <svg viewBox="0 0 100 6" class="card-ornament-svg">
+            <path d="M0,3 L42,3 C43.2,3 44.5,2 45,1 L47.5,3 L49.5,1 L52,3 C52.5,2 53.8,3 55,3 L100,3" stroke="url(#goldGrad)" stroke-width="0.8" fill="none"/>
+            <polygon points="49.5,1 51,2.5 49.5,4 48,2.5" fill="url(#goldGrad)"/>
           </svg>
-          Ver en Amazon
+        </div>
+
+        <p class="book-desc">${book.description}</p>
+        
+        <a href="${targetLink}" target="_blank" rel="noopener noreferrer" class="amazon-btn">
+          <svg class="btn-amazon-logo" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M15.9,11.3c0-0.1,0-0.3,0-0.4c0-2.4-1.2-3.8-3.9-3.8c-2.5,0-4,1.4-4,3.4c0,1.9,1.3,2.8,3,2.8c1.3,0,2.3-0.5,2.9-1.2C14,12,14.1,12,14,12.1c-0.2,0.3-0.7,0.9-0.7,0.9c-0.1,0.1-0.2,0.1-0.3,0c-0.4,0.3-1,0.6-1.7,0.6c-1,0-1.8-0.6-1.8-1.8c0-1.4,1.2-1.9,3.1-1.9c0.7,0,1.4,0.1,1.9,0.2C14.7,11.3,14.7,11.3,15.9,11.3z M18.4,18.4c-3.1,2.4-7.9,3.1-11.8,2c-0.4-0.1-0.6,0.3-0.2,0.6c3.4,2.2,9.3,2.2,12.3-0.6C19.1,20.1,18.8,18.1,18.4,18.4z M19.4,20c0.3-0.2,0.3-0.5,0.1-0.7c-0.6-0.7-1.8-2.6-1.8-2.6s-0.1-0.1-0.2,0l-0.3,0.3c-0.1,0.1-0.1,0.2,0,0.3c0,0,1.2,1.8,1.6,2.5C19,20.1,19.2,20.1,19.4,20z"/>
+          </svg>
+          VER EN AMAZON
         </a>
+      </div>
+      
+      <!-- Ilustración lineal de fondo (marca de agua dorada) -->
+      <div class="card-illustration-container">
+        ${getCardIllustration(book.id)}
       </div>
     `;
 
     catalogEl.appendChild(card);
   });
+}
+
+/**
+ * Devuelve la ilustración vectorial (SVG) estilizada para cada libro
+ */
+function getCardIllustration(bookId) {
+  if (bookId === "mandalas-flowers") {
+    return `
+    <svg class="card-illustration" viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g stroke="url(#goldGrad)" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" opacity="0.45">
+        <!-- Ramillete de flores estilizado -->
+        <path d="M40,110 C43,85 43,70 33,52" />
+        <path d="M50,110 C50,80 50,60 50,42" />
+        <path d="M60,110 C57,85 57,75 67,57" />
+        
+        <!-- Flor izquierda -->
+        <circle cx="33" cy="45" r="7" />
+        <circle cx="33" cy="45" r="2" fill="url(#goldGrad)" />
+        <path d="M33,35 C36,35 38,38 33,45 C28,38 30,35 33,35 Z" />
+        <path d="M33,55 C36,55 38,52 33,45 C28,52 30,55 33,55 Z" />
+        
+        <!-- Flor central -->
+        <circle cx="50" cy="32" r="9" />
+        <circle cx="50" cy="32" r="3" fill="url(#goldGrad)" />
+        <path d="M50,20 C54,20 56,24 50,32 C44,24 46,20 50,20 Z" />
+        <path d="M50,44 C54,44 56,40 50,32 C44,40 46,44 50,44 Z" />
+        <path d="M38,32 C38,28 42,26 50,32 C42,38 38,36 38,32 Z" />
+        <path d="M62,32 C62,28 58,26 50,32 C58,38 62,36 62,32 Z" />
+        
+        <!-- Flor derecha -->
+        <circle cx="67" cy="50" r="7" />
+        <circle cx="67" cy="50" r="2" fill="url(#goldGrad)" />
+        <path d="M67,40 C70,40 72,43 67,50 C62,43 64,40 67,40 Z" />
+        <path d="M67,60 C70,60 72,57 67,50 C62,57 64,60 67,60 Z" />
+        
+        <!-- Hojas -->
+        <path d="M42,90 C32,85 30,76 30,76 C30,76 38,79 45,85" />
+        <path d="M58,85 C68,80 70,71 70,71 C70,71 62,74 55,80" />
+      </g>
+    </svg>`;
+  } else if (bookId === "smiling-animals") {
+    return `
+    <svg class="card-illustration" viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g stroke="url(#goldGrad)" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" opacity="0.45">
+        <!-- Silueta de perrito feliz sentadita -->
+        <path d="M32,45 C32,32 45,25 50,25 C55,25 68,32 68,45 C68,52 62,58 50,58 C38,58 32,52 32,45 Z" />
+        <path d="M32,35 C26,36 21,43 24,53 C27,62 33,56 33,50" /> <!-- Oreja izquierda -->
+        <path d="M68,35 C74,36 79,43 76,53 C73,62 67,56 67,50" /> <!-- Oreja derecha -->
+        
+        <!-- Ojos, hocico y sonrisa -->
+        <circle cx="43" cy="42" r="1.5" fill="url(#goldGrad)" />
+        <circle cx="57" cy="42" r="1.5" fill="url(#goldGrad)" />
+        <path d="M48,48 L52,48 L50,51 Z" fill="url(#goldGrad)" /> 
+        <path d="M47,53 Q50,55 53,53" /> 
+        
+        <!-- Cuerpo, patitas delanteras y traseras -->
+        <path d="M38,58 C35,68 32,80 32,95 C32,100 37,102 43,102 C47,102 47,97 50,97 C53,97 53,102 57,102 C63,102 68,100 68,95 C68,80 65,68 62,58" />
+        <path d="M45,75 L45,96" />
+        <path d="M55,75 L55,96" />
+        
+        <!-- Cola -->
+        <path d="M66,88 C76,86 82,75 84,80 C86,85 76,94 66,93" />
+      </g>
+    </svg>`;
+  }
+  return "";
 }
