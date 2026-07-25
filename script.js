@@ -20,18 +20,20 @@ const TRANSLATIONS = {
   es: {
     redirecting: "Redirigiendo a",
     buyButton: "VER EN AMAZON",
+    buyButtonCompact: "VER AMZN",
     loading: "Cargando catálogo...",
     copyright: "Todos los derechos reservados."
   },
   en: {
     redirecting: "Redirecting to",
     buyButton: "VIEW ON AMAZON",
+    buyButtonCompact: "BUY AMZN",
     loading: "Loading catalog...",
     copyright: "All rights reserved."
   }
 };
 
-// Mapeo de sufijos de tiendas a nombres completos y banderas
+// Mapeo de tiendas geográficas de Amazon
 const MARKET_INFO = {
   es: { name: "Amazon España", flag: "🇪🇸", domain: "amazon.es" },
   mx: { name: "Amazon México", flag: "🇲🇽", domain: "amazon.com.mx" },
@@ -42,6 +44,61 @@ const MARKET_INFO = {
   fr: { name: "Amazon Francia", flag: "🇫🇷", domain: "amazon.fr" },
   it: { name: "Amazon Italia", flag: "🇮🇹", domain: "amazon.it" }
 };
+
+/**
+ * Devuelve el diseño circular SVG para la bandera española (ES)
+ */
+function getEsFlagSvg() {
+  return `
+  <svg viewBox="0 0 100 100" class="flag-svg-icon" style="width: 14px; height: 14px; border-radius: 50%; overflow: hidden; display: inline-block; vertical-align: middle; border: 1px solid rgba(255,255,255,0.3);">
+    <rect width="100" height="25" fill="#AA151B" />
+    <rect y="25" width="100" height="50" fill="#F1BF00" />
+    <rect y="75" width="100" height="25" fill="#AA151B" />
+  </svg>
+  `;
+}
+
+/**
+ * Devuelve el diseño circular SVG bicultural para en inglés (Mitad USA - Mitad UK)
+ */
+function getEnFlagSvg() {
+  return `
+  <svg viewBox="0 0 100 100" class="flag-svg-icon" style="width: 14px; height: 14px; border-radius: 50%; overflow: hidden; display: inline-block; vertical-align: middle; border: 1px solid rgba(255,255,255,0.3);">
+    <!-- Mitad Izquierda: USA stars & stripes -->
+    <g>
+      <rect x="0" y="0" width="50" height="100" fill="#FFFFFF" />
+      <rect x="0" y="0" width="50" height="7.7" fill="#B22234" />
+      <rect x="0" y="15.4" width="50" height="7.7" fill="#B22234" />
+      <rect x="0" y="30.8" width="50" height="7.7" fill="#B22234" />
+      <rect x="0" y="46.2" width="50" height="7.7" fill="#B22234" />
+      <rect x="0" y="61.6" width="50" height="7.7" fill="#B22234" />
+      <rect x="0" y="77" width="50" height="7.7" fill="#B22234" />
+      <rect x="0" y="92.3" width="50" height="7.7" fill="#B22234" />
+      <rect x="0" y="0" width="26" height="53.8" fill="#3C3B6E" />
+      <circle cx="6" cy="10" r="1.2" fill="#FFFFFF" />
+      <circle cx="20" cy="10" r="1.2" fill="#FFFFFF" />
+      <circle cx="13" cy="20" r="1.2" fill="#FFFFFF" />
+      <circle cx="6" cy="30" r="1.2" fill="#FFFFFF" />
+      <circle cx="20" cy="30" r="1.2" fill="#FFFFFF" />
+      <circle cx="13" cy="40" r="1.2" fill="#FFFFFF" />
+    </g>
+    <!-- Mitad Derecha: UK Union Jack -->
+    <g>
+      <rect x="50" y="0" width="50" height="100" fill="#00247D" />
+      <!-- Cruz diagonal blanca -->
+      <path d="M50,0 L100,100 M100,0 L50,100" stroke="#FFFFFF" stroke-width="8" />
+      <!-- Cruz diagonal roja -->
+      <path d="M50,0 L100,100 M100,0 L50,100" stroke="#CF142B" stroke-width="3" />
+      <!-- Cruz recta blanca -->
+      <rect x="70" y="0" width="10" height="100" fill="#FFFFFF" />
+      <rect x="50" y="45" width="50" height="10" fill="#FFFFFF" />
+      <!-- Cruz recta roja -->
+      <rect x="72" y="0" width="6" height="100" fill="#CF142B" />
+      <rect x="50" y="47" width="50" height="6" fill="#CF142B" />
+    </g>
+  </svg>
+  `;
+}
 
 /**
  * Cambia el idioma actual del portal y actualiza la página completa
@@ -57,6 +114,12 @@ function changeLanguage(lang) {
  * Actualiza todos los textos estáticos del portal y vuelve a renderizar las tarjetas de libros
  */
 function updateLanguageUIAndRender() {
+  // Configurar las banderas vectoriales circulares personalizadas
+  const flagEsEl = document.getElementById("flagEs");
+  const flagEnEl = document.getElementById("flagEn");
+  if (flagEsEl) flagEsEl.innerHTML = getEsFlagSvg();
+  if (flagEnEl) flagEnEl.innerHTML = getEnFlagSvg();
+
   // Actualizar clases activas en los botones de selección
   const btnEs = document.getElementById("btnLangEs");
   const btnEn = document.getElementById("btnLangEn");
@@ -95,7 +158,7 @@ function updateLanguageUIAndRender() {
   // Renderizar indicador de país
   renderCountryBanner(userMarket);
   
-  // Renderizar catálogo con los libros traducidos y portadas en base al idioma seleccionado
+  // Renderizar catálogo filtrado
   renderCatalog(userMarket);
 }
 
@@ -145,7 +208,8 @@ function renderCountryBanner(market) {
 }
 
 /**
- * Renderiza el listado de libros con el título, descripción y portada correspondiente a la edición del idioma
+ * Renderiza el listado de libros con el título, descripción y portada correspondiente.
+ * FILTRA SOLO los libros que están disponibles en el idioma seleccionado.
  */
 function renderCatalog(market) {
   const catalogEl = document.getElementById("bookCatalog");
@@ -153,121 +217,43 @@ function renderCatalog(market) {
 
   catalogEl.innerHTML = ""; // Limpiar antes de rellenar
 
-  CONFIG.books.forEach(book => {
-    // Obtener los detalles traducidos del libro correspondientes al idioma seleccionado
-    const details = book.languages[currentLanguage] || book.languages.es;
+  // Filtrar libros que admitan el idioma actual (ej. Mandalas en es/en, Smiling Animals solo en en)
+  const availableBooks = CONFIG.books.filter(book => book.languages[currentLanguage]);
+
+  availableBooks.forEach(book => {
+    const details = book.languages[currentLanguage];
     const asin = details.asin;
 
-    // Construir el enlace a Amazon de forma dinámica usando el dominio de la tienda y el ASIN de la edición seleccionada
+    // Enlace dinámico según marketplace de Amazon y ASIN local
     let targetLink = "#";
     if (asin) {
       const info = MARKET_INFO[market] || MARKET_INFO.com;
       targetLink = `https://www.${info.domain}/dp/${asin}`;
     }
 
-    // Estructura HTML de la Card del libro (Personalizada por ID del libro para aplicar fondos dinámicos en CSS)
+    // Estructura HTML vertical y adaptada a la cuadrícula de 3 columnas
     const card = document.createElement("div");
     card.className = `book-card book-card-${book.id}`;
     card.id = `card-${book.id}`;
     
     card.innerHTML = `
       <div class="book-cover-container">
-        <img class="book-cover-img" src="https://images-na.ssl-images-amazon.com/images/P/${asin}.01.LZZZZZZZ.jpg" alt="Portada de ${details.title}" onerror="this.src='https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=300&auto=format&fit=crop'">
+        <img class="book-cover-img" src="https://images-na.ssl-images-amazon.com/images/P/${asin}.01.LZZZZZZZ.jpg" alt="Portada de ${details.title}" onerror="this.style.opacity=0.3">
       </div>
       <div class="book-details">
         <h2 class="book-title">${details.title}</h2>
         <div class="book-subtitle">${details.subtitle}</div>
-        
-        <!-- Adorno divisor dorado interior -->
-        <div class="card-separator">
-          <svg viewBox="0 0 100 6" class="card-ornament-svg">
-            <path d="M0,3 L42,3 C43.2,3 44.5,2 45,1 L47.5,3 L49.5,1 L52,3 C52.5,2 53.8,3 55,3 L100,3" stroke="url(#goldGrad)" stroke-width="0.8" fill="none"/>
-            <polygon points="49.5,1 51,2.5 49.5,4 48,2.5" fill="url(#goldGrad)"/>
-          </svg>
-        </div>
-
         <p class="book-desc">${details.description}</p>
         
         <a href="${targetLink}" target="_blank" rel="noopener noreferrer" class="amazon-btn">
           <svg class="btn-amazon-logo" viewBox="0 0 24 24" fill="currentColor">
             <path d="M15.9,11.3c0-0.1,0-0.3,0-0.4c0-2.4-1.2-3.8-3.9-3.8c-2.5,0-4,1.4-4,3.4c0,1.9,1.3,2.8,3,2.8c1.3,0,2.3-0.5,2.9-1.2C14,12,14.1,12,14,12.1c-0.2,0.3-0.7,0.9-0.7,0.9c-0.1,0.1-0.2,0.1-0.3,0c-0.4,0.3-1,0.6-1.7,0.6c-1,0-1.8-0.6-1.8-1.8c0-1.4,1.2-1.9,3.1-1.9c0.7,0,1.4,0.1,1.9,0.2C14.7,11.3,14.7,11.3,15.9,11.3z M18.4,18.4c-3.1,2.4-7.9,3.1-11.8,2c-0.4-0.1-0.6,0.3-0.2,0.6c3.4,2.2,9.3,2.2,12.3-0.6C19.1,20.1,18.8,18.1,18.4,18.4z M19.4,20c0.3-0.2,0.3-0.5,0.1-0.7c-0.6-0.7-1.8-2.6-1.8-2.6s-0.1-0.1-0.2,0l-0.3,0.3c-0.1,0.1-0.1,0.2,0,0.3c0,0,1.2,1.8,1.6,2.5C19,20.1,19.2,20.1,19.4,20z"/>
           </svg>
-          ${TRANSLATIONS[currentLanguage].buyButton}
+          <span class="btn-purchase-text">${TRANSLATIONS[currentLanguage].buyButtonCompact}</span>
         </a>
-      </div>
-      
-      <!-- Ilustración lineal de fondo (marca de agua dorada) -->
-      <div class="card-illustration-container">
-        ${getCardIllustration(book.id)}
       </div>
     `;
 
     catalogEl.appendChild(card);
   });
-}
-
-/**
- * Devuelve la ilustración vectorial (SVG) estilizada para cada libro
- */
-function getCardIllustration(bookId) {
-  if (bookId === "mandalas-flowers") {
-    return `
-    <svg class="card-illustration" viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g stroke="url(#goldGrad)" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" opacity="0.45">
-        <!-- Ramillete de flores estilizado -->
-        <path d="M40,110 C43,85 43,70 33,52" />
-        <path d="M50,110 C50,80 50,60 50,42" />
-        <path d="M60,110 C57,85 57,75 67,57" />
-        
-        <!-- Flor izquierda -->
-        <circle cx="33" cy="45" r="7" />
-        <circle cx="33" cy="45" r="2" fill="url(#goldGrad)" />
-        <path d="M33,35 C36,35 38,38 33,45 C28,38 30,35 33,35 Z" />
-        <path d="M33,55 C36,55 38,52 33,45 C28,52 30,55 33,55 Z" />
-        
-        <!-- Flor central -->
-        <circle cx="50" cy="32" r="9" />
-        <circle cx="50" cy="32" r="3" fill="url(#goldGrad)" />
-        <path d="M50,20 C54,20 56,24 50,32 C44,24 46,20 50,20 Z" />
-        <path d="M50,44 C54,44 56,40 50,32 C44,40 46,44 50,44 Z" />
-        <path d="M38,32 C38,28 42,26 50,32 C42,38 38,36 38,32 Z" />
-        <path d="M62,32 C62,28 58,26 50,32 C58,38 62,36 62,32 Z" />
-        
-        <!-- Flor derecha -->
-        <circle cx="67" cy="50" r="7" />
-        <circle cx="67" cy="50" r="2" fill="url(#goldGrad)" />
-        <path d="M67,40 C70,40 72,43 67,50 C62,43 64,40 67,40 Z" />
-        <path d="M67,60 C70,60 72,57 67,50 C62,57 64,60 67,60 Z" />
-        
-        <!-- Hojas -->
-        <path d="M42,90 C32,85 30,76 30,76 C30,76 38,79 45,85" />
-        <path d="M58,85 C68,80 70,71 70,71 C70,71 62,74 55,80" />
-      </g>
-    </svg>`;
-  } else if (bookId === "smiling-animals") {
-    return `
-    <svg class="card-illustration" viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g stroke="url(#goldGrad)" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" opacity="0.45">
-        <!-- Silueta de perrito feliz sentadita -->
-        <path d="M32,45 C32,32 45,25 50,25 C55,25 68,32 68,45 C68,52 62,58 50,58 C38,58 32,52 32,45 Z" />
-        <path d="M32,35 C26,36 21,43 24,53 C27,62 33,56 33,50" /> <!-- Oreja izquierda -->
-        <path d="M68,35 C74,36 79,43 76,53 C73,62 67,56 67,50" /> <!-- Oreja derecha -->
-        
-        <!-- Ojos, hocico y sonrisa -->
-        <circle cx="43" cy="42" r="1.5" fill="url(#goldGrad)" />
-        <circle cx="57" cy="42" r="1.5" fill="url(#goldGrad)" />
-        <path d="M48,48 L52,48 L50,51 Z" fill="url(#goldGrad)" /> 
-        <path d="M47,53 Q50,55 53,53" /> 
-        
-        <!-- Cuerpo, patitas delanteras y traseras -->
-        <path d="M38,58 C35,68 32,80 32,95 C32,100 37,102 43,102 C47,102 47,97 50,97 C53,97 53,102 57,102 C63,102 68,100 68,95 C68,80 65,68 62,58" />
-        <path d="M45,75 L45,96" />
-        <path d="M55,75 L55,96" />
-        
-        <!-- Cola -->
-        <path d="M66,88 C76,86 82,75 84,80 C86,85 76,94 66,93" />
-      </g>
-    </svg>`;
-  }
-  return "";
 }

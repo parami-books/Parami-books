@@ -42,41 +42,34 @@
   <!-- Contenedor principal de ancho móvil -->
   <div class="container">
     
-    <!-- Encabezado de la página -->
-    <header>
-      <!-- Selector de Idioma / País -->
-      <div class="lang-selector-container">
-        <button class="lang-btn" id="btnLangEs" onclick="changeLanguage('es')">
-          <span class="flag-emoji">🇪🇸</span> ESPAÑOL
-        </button>
-        <button class="lang-btn" id="btnLangEn" onclick="changeLanguage('en')">
-          <span class="flag-emoji">🇬🇧</span> ENGLISH
-        </button>
-      </div>
+    <!-- Encabezado de la página - Ultra Compacto y Horizontal -->
+    <header class="compact-header">
+      <div class="header-top-row">
+        <!-- Logo y Nombre de Marca alineados a la izquierda -->
+        <div class="brand-identity">
+          <div class="brand-icon-mini">PB</div>
+          <h1 class="brand-title-mini js-brand-name">Parami Books</h1>
+        </div>
 
-      <div class="logo-outer-container">
-        <div class="logo-container">
-          <div class="brand-icon">PB</div>
+        <!-- Selector de Idioma alineado a la derecha -->
+        <div class="lang-selector-container">
+          <button class="lang-btn" id="btnLangEs" onclick="changeLanguage('es')">
+            <span class="lang-flag-circle" id="flagEs"></span>
+            <span class="lang-text">ES</span>
+          </button>
+          <button class="lang-btn" id="btnLangEn" onclick="changeLanguage('en')">
+            <span class="lang-flag-circle" id="flagEn"></span>
+            <span class="lang-text">EN</span>
+          </button>
         </div>
       </div>
       
-      <h1 class="js-brand-name">Parami Books</h1>
-      
-      <!-- Separador clásico de orla dorada -->
-      <div class="header-separator">
-        <svg viewBox="0 0 100 10" class="ornament-svg">
-          <path d="M0,5 L40,5 C42,5 44,4 45,2 L48,5 L50,1 L52,5 L55,2 C56,4 58,5 60,5 L100,5" stroke="url(#goldGrad)" stroke-width="1.2" fill="none"/>
-          <polygon points="50,1.5 52.5,5 50,8.5 47.5,5" fill="url(#goldGrad)"/>
-        </svg>
-      </div>
-
-      <p class="tagline js-brand-tagline">Cargando colección...</p>
-      
-      <!-- Redes Sociales Orgánicas (TikTok) -->
-      <div class="social-buttons">
-        <a href="#" class="social-link js-tiktok-link" target="_blank" rel="noopener noreferrer" title="Síguenos en TikTok">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+      <div class="header-bottom-row">
+        <p class="tagline js-brand-tagline">Cargando colección...</p>
+        <!-- Enlace TikTok compacto -->
+        <a href="#" class="social-link-compact js-tiktok-link" target="_blank" rel="noopener noreferrer" title="TikTok">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.62 2.89 2.89 0 0 1 2.31-4.5 2.91 2.91 0 0 1 .52.05V9.43a6.31 6.31 0 0 0-.52-.02 6.35 6.35 0 0 0-6.35 6.35c0 3.5 2.85 6.34 6.35 6.34 3.5 0 6.34-2.85 6.34-6.34V6.69A8.25 8.25 0 0 0 19.59 8z"/>
           </svg>
         </a>
       </div>
