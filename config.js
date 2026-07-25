@@ -18,7 +18,7 @@ const CONFIG = {
       description: "Sumérgete en un mundo de pequeñas brujas acogedoras, pociones mágicas y rincones reconfortantes con líneas gruesas ideales para relajarte sin estrés.",
       // Ruta de la imagen de portada. Puedes poner la de amazon o subir una a la misma carpeta
       coverImage: "cover_cozy_witch.png", 
-      asin: "B0GVKCPFC6"
+      asin: "B0DXXXXXX1"
     },
     {
       id: "mandalas-flowers",
@@ -34,7 +34,7 @@ const CONFIG = {
       subtitle: "Bold & Easy Coloring Book",
       description: "Colección de animalitos entrañables y felices. Ideal tanto para niños como para adultos que buscan colorear figuras alegres con contornos gruesos y sencillos.",
       coverImage: "cover_smiling_animals.png",
-      asin: "B0DZZZZZZ3"
+      asin: "B0GVKCPFC6"
     }
   ]
 };
