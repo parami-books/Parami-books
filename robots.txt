@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://parami-books.github.io/Parami-books/sitemap.xml
