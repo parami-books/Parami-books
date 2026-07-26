@@ -209,7 +209,8 @@ function renderCountryBanner(market) {
 
 /**
  * Renderiza el listado de libros con el título, descripción y portada correspondiente.
- * FILTRA SOLO los libros que están disponibles en el idioma seleccionado.
+ * FILTRA SOLO los libros que están disponibles en el idioma seleccionado y añade un slider 
+ * interactivo de muestras (portada + páginas para colorear internas).
  */
 function renderCatalog(market) {
   const catalogEl = document.getElementById("bookCatalog");
@@ -238,15 +239,51 @@ function renderCatalog(market) {
       targetLink = `https://www.${info.domain}/dp/${asin}`;
     }
 
-    // Estructura HTML vertical y adaptada a la cuadrícula de 3 columnas
+    // Inicializar estado del carrusel para el libro
+    carouselStates[book.id] = 0;
+
+    const prefix = book.id === "mandalas-flowers" ? "mandalas" : "animals";
+    const coverUrl = `https://images-na.ssl-images-amazon.com/images/P/${asin}.01.LZZZZZZZ.jpg`;
+
+    // Estructura HTML vertical con carrusel de muestras
     const card = document.createElement("div");
     card.className = `book-card book-card-${book.id}`;
     card.id = `card-${book.id}`;
     
     card.innerHTML = `
-      <div class="book-cover-container">
-        <img class="book-cover-img" src="https://images-na.ssl-images-amazon.com/images/P/${asin}.01.LZZZZZZZ.jpg" alt="Portada de ${details.title}" onerror="this.style.opacity=0.3">
+      <div class="book-cover-container" id="carousel-${book.id}">
+        <div class="carousel-track" style="transform: translateX(0%);">
+          <div class="carousel-slide">
+            <img class="book-cover-img" src="${coverUrl}" alt="Portada de ${details.title}" onerror="this.src='images/${prefix}_page_1.png'">
+          </div>
+          <div class="carousel-slide">
+            <img class="book-cover-img" src="images/${prefix}_page_1.png" alt="Página para colorear 1">
+          </div>
+          <div class="carousel-slide">
+            <img class="book-cover-img" src="images/${prefix}_page_2.png" alt="Página para colorear 2">
+          </div>
+          <div class="carousel-slide">
+            <img class="book-cover-img" src="images/${prefix}_page_3.png" alt="Página para colorear 3">
+          </div>
+        </div>
+        
+        <!-- Flechas de navegación del carrusel -->
+        <button class="slider-arrow prev" onclick="moveSlide('${book.id}', -1)" title="Anterior">
+          <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+        </button>
+        <button class="slider-arrow next" onclick="moveSlide('${book.id}', 1)" title="Siguiente">
+          <svg viewBox="0 0 24 24"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>
+        </button>
+        
+        <!-- Puntos Indicadores del Carrusel -->
+        <div class="slider-dots">
+          <span class="dot active" onclick="setSlide('${book.id}', 0)"></span>
+          <span class="dot" onclick="setSlide('${book.id}', 1)"></span>
+          <span class="dot" onclick="setSlide('${book.id}', 2)"></span>
+          <span class="dot" onclick="setSlide('${book.id}', 3)"></span>
+        </div>
       </div>
+      
       <div class="book-details">
         <h2 class="book-title">${details.title}</h2>
         <div class="book-subtitle">${details.subtitle}</div>
@@ -262,5 +299,36 @@ function renderCatalog(market) {
     `;
 
     catalogEl.appendChild(card);
+  });
+}
+
+// ==========================================
+// Control del Carrusel de Muestras del Libro
+// ==========================================
+const carouselStates = {};
+
+function moveSlide(bookId, direction) {
+  const currentIndex = carouselStates[bookId] || 0;
+  const nextIndex = (currentIndex + direction + 4) % 4; // 4 imágenes en total
+  setSlide(bookId, nextIndex);
+}
+
+function setSlide(bookId, index) {
+  carouselStates[bookId] = index;
+  const container = document.getElementById(`carousel-${bookId}`);
+  if (!container) return;
+  
+  const track = container.querySelector(".carousel-track");
+  if (track) {
+    track.style.transform = `translateX(-${index * 25}%)`;
+  }
+  
+  const dots = container.querySelectorAll(".slider-dots .dot");
+  dots.forEach((dot, idx) => {
+    if (idx === index) {
+      dot.classList.add("active");
+    } else {
+      dot.classList.remove("active");
+    }
   });
 }
