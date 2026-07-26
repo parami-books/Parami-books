@@ -2,11 +2,11 @@
 const CONFIG = {
   brandName: "Parami Books",
   brandTagline: {
-    es: "Libros para colorear adorables y sencillos, para regalarte calma y desconexión.",
-    en: "Cute and easy coloring books, tailored to grant you a peaceful moment."
+    es: "Libros para colorear <strong class='highlight-red'>bonitos</strong> y <strong class='highlight-blue'>sencillos</strong>, para regalarte <strong class='highlight-green'>calma</strong> y <strong class='highlight-purple'>desconexión</strong>.",
+    en: "<strong class='highlight-red'>Cute</strong> and <strong class='highlight-blue'>easy</strong> coloring books, tailored to grant you <strong class='highlight-green'>calm</strong> and <strong class='highlight-purple'>peace</strong>."
   },
   socialLinks: {
-    tiktok: "https://www.tiktok.com/@paramibooks", // Enlace oficial TikTok
+    tiktok: "https://www.tiktok.com/@parami_records?is_from_webapp=1&sender_device=pc",
     instagram: "" // Enlace opcional
   },
   

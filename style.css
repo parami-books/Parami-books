@@ -49,68 +49,178 @@ body {
   align-items: center;
 }
 
-/* Cabecera Compacta / Horizontal */
+/* Cabecera Tipo Banner Juguetón 3D */
 .compact-header {
   width: 100%;
-  background: rgba(3, 15, 27, 0.75);
-  border: 1px solid rgba(229, 169, 59, 0.3);
-  padding: 10px 14px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(10px);
-  margin-bottom: 12px;
-}
-
-.header-top-row {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.brand-identity {
+  background: #0050b3; /* Azul idéntico a la imagen */
+  border: 4.5px solid #f2bb00; /* Borde gordo dorado */
+  border-radius: 20px;
+  padding: 10px 12px;
+  /* Doble borde simulado con box shadow + sombra exterior gorda */
+  box-shadow: 
+    0 0 0 2.5px #012255, 
+    0 6px 16px rgba(0, 0, 0, 0.6);
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
 }
 
-.brand-icon-mini {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: 1.5px solid var(--gold-primary);
-  background: radial-gradient(circle, #0e273b -10%, #031320 100%);
+/* Columna Izquierda: Logo circular Parami */
+.header-left {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Cinzel', serif;
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--text-gold);
-  box-shadow: 0 0 8px rgba(229, 169, 59, 0.35);
+  flex-shrink: 0;
+}
+
+.brand-logo-img {
+  width: 78px;
+  height: 78px;
+  object-fit: contain;
+  filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.4));
   user-select: none;
 }
 
+/* Columna Central: Título y Tagline */
+.header-center {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  min-width: 0; /* Evita desbordes */
+}
+
+/* Título de Marca Caricaturesco 3D */
 .brand-title-mini {
-  font-family: 'Cinzel', serif;
-  font-size: 18px;
-  font-weight: 700;
-  background: var(--gold-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.8));
+  display: flex;
+  gap: 5px;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 21px;
   letter-spacing: 0.5px;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.brand-title-mini .text-red {
+  color: #e52521; /* Rojo brillante caricatura */
+  -webkit-text-stroke: 1px #000000;
+  text-shadow: 
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000,
+     0px  3.5px 0px #f5a800, /* Grosor borde dorado 3D */
+     0px  4.5px 6px rgba(0,0,0,0.7);
+}
+
+.brand-title-mini .text-white {
+  color: #ffffff; /* Blanco */
+  -webkit-text-stroke: 1px #000000;
+  text-shadow: 
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000,
+     0px  3.5px 0px #ffe285,
+     0px  4.5px 6px rgba(0,0,0,0.7);
+}
+
+/* Burbuja de Diálogo Blanca */
+.tagline-bubble {
+  background: #ffffff;
+  border: 2.5px solid #f2bb00;
+  border-radius: 12px;
+  padding: 5px 10px;
+  position: relative;
+  box-shadow: 
+    inset 0 1px 2px rgba(0,0,0,0.1),
+    0 3px 6px rgba(0, 0, 0, 0.25);
+  margin-left: 6px; /* Deja espacio para el indicador de cola */
+  width: 96%;
+  box-sizing: border-box;
+}
+
+/* Cola de Burbuja de Diálogo que apunta al logo */
+.tagline-bubble::before {
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 8px solid #f2bb00;
+}
+
+.tagline-bubble::after {
+  content: "";
+  position: absolute;
+  left: -5.5px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-right: 7px solid #ffffff;
+}
+
+.tagline {
+  font-size: 10px;
+  font-weight: 700;
+  color: #0c2040; /* Azul oscuro legible */
+  line-height: 1.35;
+  margin: 0;
+  text-align: left;
+  text-shadow: none;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Resaltado de palabras de colorines de la burbuja */
+.tagline .highlight-red {
+  color: #e52521;
+}
+
+.tagline .highlight-blue {
+  color: #0b5da5;
+}
+
+.tagline .highlight-green {
+  color: #0d8362;
+}
+
+.tagline .highlight-purple {
+  color: #7209b7;
+}
+
+/* Columna Derecha: Selector de Idiomas y TikTok */
+.header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
 }
 
 /* Selector de Idiomas en cápsula compacta */
 .lang-selector-container {
   display: inline-flex;
   gap: 4px;
-  background: rgba(2, 9, 16, 0.75);
-  padding: 2px;
-  border-radius: 16px;
-  border: 1px solid rgba(229, 169, 59, 0.25);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  background: #02204d; /* Azul muy oscuro de fondo */
+  padding: 3px;
+  border-radius: 18px;
+  border: 1.5px solid #2a6fdb;
+  box-shadow: 
+    0 0 0 1.5px #01132f,
+    0 2px 5px rgba(0,0,0,0.5);
 }
 
 .lang-btn {
@@ -121,7 +231,7 @@ body {
   font-size: 9px;
   font-weight: 700;
   padding: 4px 8px;
-  border-radius: 12px;
+  border-radius: 14px;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -135,7 +245,7 @@ body {
 
 .lang-btn.active {
   color: #020910;
-  background: var(--gold-gradient);
+  background: linear-gradient(to bottom, #ffe082 0%, #db9500 100%);
   box-shadow: 0 2px 6px rgba(229, 169, 59, 0.4);
 }
 
@@ -145,45 +255,29 @@ body {
   justify-content: center;
 }
 
-.header-bottom-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 6px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding-top: 6px;
-  gap: 12px;
-}
-
-.tagline {
-  font-size: 11px;
-  color: #d0d7de;
-  line-height: 1.4;
-  margin: 0;
-  text-align: left;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
-}
-
+/* Botón de TikTok estilo ficha */
 .social-link-compact {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  border: 1px solid var(--gold-primary);
-  background: radial-gradient(circle, #0e273b 0%, #031320 100%);
-  color: var(--text-gold);
+  border: 3px solid #f2bb00; /* Grosor dorado */
+  background: #111111; /* Negro sólido */
+  color: #ffffff;
   text-decoration: none;
   transition: all var(--transition-speed);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  box-shadow: 
+    0 0 0 2px #012255, 
+    0 3px 8px rgba(0,0,0,0.5);
   flex-shrink: 0;
 }
 
 .social-link-compact:hover {
-  transform: translateY(-1px);
+  transform: scale(1.05);
+  border-color: #ffea70;
   color: #ffffff;
-  border-color: var(--text-gold);
 }
 
 .country-banner {
@@ -313,6 +407,7 @@ body {
   font-weight: 700;
   background: var(--gold-gradient);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.7));
   margin-bottom: 2px;
@@ -341,6 +436,7 @@ body {
   /* Permitir descripcion detallada mas larga sin recortar */
   display: -webkit-box;
   -webkit-line-clamp: 6;
+  line-clamp: 6;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);

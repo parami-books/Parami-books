@@ -141,7 +141,7 @@ function updateLanguageUIAndRender() {
   
   const brandTaglineEl = document.querySelector(".js-brand-tagline");
   if (brandTaglineEl) {
-    brandTaglineEl.textContent = CONFIG.brandTagline[currentLanguage] || CONFIG.brandTagline.es;
+    brandTaglineEl.innerHTML = CONFIG.brandTagline[currentLanguage] || CONFIG.brandTagline.es;
   }
 
   // Configurar enlace de TikTok
