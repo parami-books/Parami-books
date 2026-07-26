@@ -251,8 +251,8 @@ body {
   display: block;
 }
 
-/* Gráfico de Libro 3D Decorativo (No interactivo) */
-.book-graphic-3d {
+/* Gráfico de Pincel 3D Decorativo (No interactivo) */
+.brush-graphic-3d {
   width: 58px;
   height: 58px;
   display: flex;
@@ -263,7 +263,7 @@ body {
   filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
 }
 
-.book-svg-icon {
+.brush-svg-icon {
   width: 100%;
   height: 100%;
   display: block;
@@ -321,7 +321,7 @@ body {
     width: 11px;
     height: 11px;
   }
-  .book-graphic-3d {
+  .brush-graphic-3d {
     width: 44px;
     height: 44px;
   }

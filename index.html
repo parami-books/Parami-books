@@ -106,39 +106,47 @@
           </button>
         </div>
         
-        <!-- Ilustración de Libro 3D Juguete (100% Vectorial, no interactivo) -->
-        <div class="book-graphic-3d" title="Parami Books">
-          <svg class="book-svg-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <!-- Sombra suave debajo del libro -->
-            <ellipse cx="50" cy="82" rx="35" ry="7" fill="rgba(3, 15, 27, 0.35)" />
+        <!-- Ilustración de Pincel 3D Artístico (100% Vectorial, no interactivo) -->
+        <div class="brush-graphic-3d" title="Parami Books">
+          <svg class="brush-svg-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="brushWood" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ffd59a" />
+                <stop offset="50%" stop-color="#d98c3b" />
+                <stop offset="100%" stop-color="#804d1a" />
+              </linearGradient>
+              <linearGradient id="brushMetal" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#f0f0f0" />
+                <stop offset="50%" stop-color="#b5b5b5" />
+                <stop offset="100%" stop-color="#737373" />
+              </linearGradient>
+              <linearGradient id="brushPaint" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#00f2fe" />
+                <stop offset="100%" stop-color="#0072ff" />
+              </linearGradient>
+            </defs>
             
-            <g transform="translate(8, 4) scale(0.84)" stroke="#3b0200" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
-              <!-- Lomo del libro grueso azul -->
-              <path d="M 20 28 L 20 78 C 20 83, 26 85, 30 83 L 30 33 C 26 35, 20 33, 20 28 Z" fill="#1b4294" />
+            <!-- Sombra de pincel en diagonal -->
+            <ellipse cx="45" cy="85" rx="30" ry="6" fill="rgba(3, 15, 27, 0.35)" transform="rotate(-15 45 85)" />
+            
+            <g transform="translate(5, 5) scale(0.9)" stroke="#3b0200" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+              <!-- Mango de madera -->
+              <path d="M 12 88 Q 10 90, 8 86 C 6 82 22 52 42 32 L 52 42 C 32 62, 14 86, 12 88 Z" fill="url(#brushWood)" />
               
-              <!-- Canto de páginas crema con relieve de hojas -->
-              <path d="M 30 83 Q 58 72 86 80 L 86 30 Q 58 22 30 33 Z" fill="#ffebd2" />
-              <path d="M 38 80 L 38 30" stroke="#e0c7a3" stroke-width="1.5" />
-              <path d="M 48 77 L 48 27" stroke="#e0c7a3" stroke-width="1.5" />
-              <path d="M 58 75 L 58 25" stroke="#e0c7a3" stroke-width="1.5" />
-              <path d="M 68 76 L 68 26" stroke="#e0c7a3" stroke-width="1.5" />
-              <path d="M 77 78 L 77 28" stroke="#e0c7a3" stroke-width="1.5" />
+              <!-- Casquillo de metal (virola) -->
+              <path d="M 42 32 L 52 42 Q 55 39, 58 36 L 48 26 Z" fill="url(#brushMetal)" />
+              <line x1="45" y1="29" x2="55" y2="39" stroke="#3b0200" stroke-width="2" />
               
-              <!-- Cinta marcapáginas roja colgando -->
-              <path d="M 56 75 C 57 84, 65 86, 62 92 C 60 95, 55 93, 54 90" fill="none" stroke="#d01a11" stroke-width="4.5" />
+              <!-- Pelos del pincel (marrón oscuro) -->
+              <path d="M 48 26 Q 58 14 74 10 C 68 22, 58 32, 58 36 Z" fill="#4d2200" />
               
-              <!-- Portada del libro inclinada en rojo brillante (3D) -->
-              <!-- Grosor/tapa de cubierta -->
-              <path d="M 28 22 Q 56 12 84 20 L 88 24 Q 60 16, 32 26 Z" fill="#e22b2b" />
-              <!-- Tapa principal -->
-              <path d="M 84 20 Q 56 12, 28 22 L 28 72 Q 56 62, 84 70 Z" fill="#e22b2b" />
-              <path d="M 84 20 L 84 70 L 88 74 L 88 24 Z" fill="#b01a1a" />
+              <!-- Pintura azul brillante en la punta del pincel -->
+              <path d="M 64 18 Q 70 12, 74 10 C 71 16, 68 22, 64 24 Z" fill="url(#brushPaint)" />
               
-              <!-- Detalles de la Portada: Estrella dorada en el centro -->
-              <path d="M 56 36 L 59 43 L 67 43 L 61 48 L 63 56 L 56 51 L 49 56 L 51 48 L 45 43 L 53 43 Z" fill="#ffea3a" stroke="#aa7a00" stroke-width="2" />
-              <!-- Destellos de estrellas y brillo -->
-              <circle cx="72" cy="30" r="2" fill="#ffffff" stroke="none" />
-              <circle cx="40" cy="62" r="2" fill="#ffffff" stroke="none" />
+              <!-- Gotitas de pintura salpicando en el aire -->
+              <circle cx="82" cy="12" r="4.5" fill="#00f2fe" stroke="#3b0200" stroke-width="2.5" />
+              <circle cx="88" cy="24" r="3" fill="#ffe956" stroke="#3b0200" stroke-width="2" />
+              <circle cx="70" cy="5" r="2.5" fill="#fe0979" stroke="#3b0200" stroke-width="2" />
             </g>
           </svg>
         </div>
