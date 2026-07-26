@@ -19,7 +19,7 @@
   <!-- Fuentes Premium de Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Montserrat:wght@300;400;500;600;700&family=Outfit:wght@400;600;800;950&display=swap" rel="stylesheet">
   
   <!-- Estilos base -->
   <link rel="stylesheet" href="style.css">
@@ -42,26 +42,81 @@
   <!-- Contenedor principal de ancho móvil -->
   <div class="container">
     
-    <!-- Encabezado de la página - Exacto al diseño 3D -->
+    <!-- Encabezado de la página - Diseño 3D Vectorial Integrado -->
     <header class="compact-header">
-      <!-- Columna Izquierda: Logo circular Parami -->
+      <!-- Columna Izquierda: Logo circular Parami (100% SVG Vectorial 3D) -->
       <div class="header-left">
         <div class="logo-3d-container">
-          <img class="brand-logo-img" src="logo_parami_v2.png" alt="Parami Books Logo">
+          <svg viewBox="0 0 210 210" class="brand-logo-svg" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="blueGradLogo" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#006cff" />
+                <stop offset="70%" stop-color="#0047c5" />
+                <stop offset="100%" stop-color="#002b80" />
+              </radialGradient>
+              <linearGradient id="goldGradLogo" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ffe67a" />
+                <stop offset="50%" stop-color="#f2bb00" />
+                <stop offset="100%" stop-color="#c68a00" />
+              </linearGradient>
+              <linearGradient id="starGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#fff099" />
+                <stop offset="60%" stop-color="#ffd200" />
+                <stop offset="100%" stop-color="#f29f00" />
+              </linearGradient>
+              <path id="paramiArc" d="M 28 107 A 70 70 0 0 1 172 107" fill="none" />
+              <path id="booksArc" d="M 33 118 A 66 66 0 0 0 167 118" fill="none" />
+            </defs>
+            <!-- Rayos de sol de fondo -->
+            <g stroke="#f2bb00" stroke-width="7" stroke-linecap="round" opacity="0.95">
+              <line x1="105" y1="20" x2="105" y2="4" />
+              <line x1="55" y1="35" x2="43" y2="23" />
+              <line x1="155" y1="35" x2="167" y2="23" />
+              <line x1="25" y1="75" x2="10" y2="69" />
+              <line x1="185" y1="75" x2="200" y2="69" />
+              <line x1="15" y1="130" x2="2" y2="135" />
+              <line x1="195" y1="130" x2="208" y2="135" />
+            </g>
+            <!-- Aros concéntricos -->
+            <circle cx="105" cy="115" r="82" fill="url(#goldGradLogo)" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.3))" />
+            <circle cx="105" cy="115" r="74" fill="#e22b2b" />
+            <circle cx="105" cy="115" r="66" fill="url(#blueGradLogo)" />
+            <!-- Textos arqueados -->
+            <text font-family="'Lilita One', sans-serif" font-size="28" font-weight="900" 
+                  fill="#fbcb00" stroke="#8b0d0d" stroke-width="5" paint-order="stroke fill"
+                  filter="drop-shadow(0 3px 0px #8b0d0d)">
+              <textPath href="#paramiArc" startOffset="50%" text-anchor="middle">PARAMI</textPath>
+            </text>
+            <text font-family="'Lilita One', sans-serif" font-size="22" font-weight="900" 
+                  fill="#ffffff" stroke="#8b0d0d" stroke-width="4.5" paint-order="stroke fill"
+                  filter="drop-shadow(0 3.5px 0px #8b0d0d)">
+              <textPath href="#booksArc" startOffset="50%" text-anchor="middle">BOOKS</textPath>
+            </text>
+            <!-- Libro abierto -->
+            <g transform="translate(73, 142) scale(0.63)" stroke="#0d244c" stroke-width="4" stroke-linejoin="round">
+              <path d="M 50 72 C 62 62 88 60 94 62 L 94 22 C 88 20 62 22 50 32 C 38 22 12 20 6 22 L 6 62 C 12 60 38 62 50 72 Z" fill="#ffffff" />
+              <line x1="50" y1="32" x2="50" y2="72" stroke="#0d244c" />
+            </g>
+            <!-- Estrella superior -->
+            <path d="M 105,14 L 113,29 L 130,30 L 117,40 L 122,56 L 105,47 L 88,56 L 93,40 L 80,30 L 97,29 Z" 
+                  fill="url(#starGrad)" stroke="#9c0d0d" stroke-width="3" stroke-linejoin="round"
+                  filter="drop-shadow(0 3px 3px rgba(0,0,0,0.3))" />
+          </svg>
         </div>
       </div>
       
-      <!-- Columna Central: Título 3D y Burbuja Tagline -->
+      <!-- Columna Central: Título 3D HTML y Burbuja Tagline -->
       <div class="header-center">
-        <div class="title-3d-container">
-          <img class="brand-title-img" src="title_parami_v2.png" alt="PARAMI BOOKS">
-        </div>
+        <h1 class="brand-title-3d">
+          <span class="title-parami">PARAMI</span>
+          <span class="title-books">BOOKS</span>
+        </h1>
         <div class="tagline-bubble">
           <p class="tagline js-brand-tagline">Cargando colección...</p>
         </div>
       </div>
       
-      <!-- Columna Derecha: Selector de Idioma e Icono TikTok -->
+      <!-- Columna Derecha: Selector de Idioma e Icono TikTok (100% Vectorial) -->
       <div class="header-right">
         <div class="lang-selector-container">
           <button class="lang-btn" id="btnLangEs" onclick="changeLanguage('es')">
@@ -74,8 +129,15 @@
           </button>
         </div>
         
-        <a href="#" class="social-link-compact js-tiktok-link" target="_blank" rel="noopener noreferrer" title="TikTok">
-          <img src="tiktok_btn_v2.png" alt="TikTok" class="tiktok-img-3d">
+        <!-- Botón de TikTok (Moneda 3D interactiva en CSS y SVG) -->
+        <a href="#" class="tiktok-coin-3d js-tiktok-link" target="_blank" rel="noopener noreferrer" title="TikTok">
+          <svg class="tiktok-svg-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <g class="tiktok-logo-group">
+              <path d="M58,15 L58,48 C58,58.5 49.5,67 39,67 C28.5,67 20,58.5 20,48 C20,37.5 28.5,29 39,29 C40,29 41,29.1 42,29.3 L42,19.3 C40.8,19.1 39.9,19 39,19 C23,19 10,32 10,48 C10,64 23,77 39,77 C55,77 68,64 68,48 L68,36 C74,40 81.5,42.5 90,42.5 L90,32.5 C80,32.5 71,26 68.5,15 Z" fill="#00f2fe" transform="translate(-2.2, -1.2)" />
+              <path d="M58,15 L58,48 C58,58.5 49.5,67 39,67 C28.5,67 20,58.5 20,48 C20,37.5 28.5,29 39,29 C40,29 41,29.1 42,29.3 L42,19.3 C40.8,19.1 39.9,19 39,19 C23,19 10,32 10,48 C10,64 23,77 39,77 C55,77 68,64 68,48 L68,36 C74,40 81.5,42.5 90,42.5 L90,32.5 C80,32.5 71,26 68.5,15 Z" fill="#fe0979" transform="translate(1.8, 1.2)" />
+              <path d="M58,15 L58,48 C58,58.5 49.5,67 39,67 C28.5,67 20,58.5 20,48 C20,37.5 28.5,29 39,29 C40,29 41,29.1 42,29.3 L42,19.3 C40.8,19.1 39.9,19 39,19 C23,19 10,32 10,48 C10,64 23,77 39,77 C55,77 68,64 68,48 L68,36 C74,40 81.5,42.5 90,42.5 L90,32.5 C80,32.5 71,26 68.5,15 Z" fill="#ffffff" />
+            </g>
+          </svg>
         </a>
       </div>
     </header>
