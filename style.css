@@ -49,26 +49,26 @@ body {
   align-items: center;
 }
 
-/* Cabecera Tipo Banner Juguetón 3D */
+/* Cabecera Tipo Banner Juguetón 3D Principal */
 .compact-header {
   width: 100%;
-  background: #0050b3; /* Azul idéntico a la imagen */
-  border: 4.5px solid #f2bb00; /* Borde gordo dorado */
-  border-radius: 20px;
-  padding: 10px 12px;
-  /* Doble borde simulado con box shadow + sombra exterior gorda */
+  background: #0050cd; /* Azul emblemático de fondo */
+  border: 3.5px solid #f2bb00; /* Borde gordo dorado */
+  border-radius: 24px;
+  padding: 10px 14px;
   box-shadow: 
-    0 0 0 2.5px #012255, 
-    0 6px 16px rgba(0, 0, 0, 0.6);
+    0 0 0 2.5px #021e42, 
+    0 6px 16px rgba(0, 0, 0, 0.4);
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-top: 10px;
-  margin-bottom: 16px;
+  justify-content: space-between;
+  margin-top: 10.5px;
+  margin-bottom: 20px;
   box-sizing: border-box;
+  gap: 12px;
 }
 
-/* Columna Izquierda: Logo circular Parami */
+/* Columna Izquierda: Contenedor del Logo 3D */
 .header-left {
   display: flex;
   align-items: center;
@@ -76,129 +76,121 @@ body {
   flex-shrink: 0;
 }
 
+.logo-3d-container {
+  width: 96px;
+  height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
 .brand-logo-img {
-  width: 78px;
-  height: 78px;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-  filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.4));
+  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.3));
   user-select: none;
 }
 
-/* Columna Central: Título y Tagline */
+/* Columna Central: Título y Burbuja */
 .header-center {
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 6px;
-  min-width: 0; /* Evita desbordes */
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  padding: 0 8px;
 }
 
 /* Título de Marca Caricaturesco 3D */
-.brand-title-mini {
+.title-3d-container {
   display: flex;
-  gap: 5px;
-  margin: 0;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 900;
-  font-size: 21px;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  line-height: 1;
+  align-items: center;
+  justify-content: center;
+  width: 320px;
+  max-width: 95%;
+  height: auto;
+  overflow: hidden;
 }
 
-.brand-title-mini .text-red {
-  color: #e52521; /* Rojo brillante caricatura */
-  -webkit-text-stroke: 1px #000000;
-  text-shadow: 
-    -1px -1px 0 #000,  
-     1px -1px 0 #000,
-    -1px  1px 0 #000,
-     1px  1px 0 #000,
-     0px  3.5px 0px #f5a800, /* Grosor borde dorado 3D */
-     0px  4.5px 6px rgba(0,0,0,0.7);
-}
-
-.brand-title-mini .text-white {
-  color: #ffffff; /* Blanco */
-  -webkit-text-stroke: 1px #000000;
-  text-shadow: 
-    -1px -1px 0 #000,  
-     1px -1px 0 #000,
-    -1px  1px 0 #000,
-     1px  1px 0 #000,
-     0px  3.5px 0px #ffe285,
-     0px  4.5px 6px rgba(0,0,0,0.7);
+.brand-title-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.35));
+  user-select: none;
 }
 
 /* Burbuja de Diálogo Blanca */
 .tagline-bubble {
-  background: #ffffff;
-  border: 2.5px solid #f2bb00;
-  border-radius: 12px;
-  padding: 5px 10px;
+  background: #fdfaf2; /* Crema cálido de fondo */
+  border: 3.5px solid #f2bb00; /* Borde gordo dorado */
+  border-radius: 20px;
+  padding: 8px 18px;
   position: relative;
   box-shadow: 
-    inset 0 1px 2px rgba(0,0,0,0.1),
-    0 3px 6px rgba(0, 0, 0, 0.25);
-  margin-left: 6px; /* Deja espacio para el indicador de cola */
-  width: 96%;
+    inset 0 -2.5px 0 rgba(0,0,0,0.1),
+    0 3px 8px rgba(0, 0, 0, 0.2);
+  margin-left: 10px;
+  width: calc(100% - 15px);
   box-sizing: border-box;
 }
 
-/* Cola de Burbuja de Diálogo que apunta al logo */
+/* Cola de Burbuja de Diálogo apuntando a la izquierda */
 .tagline-bubble::before {
   content: "";
   position: absolute;
-  left: -8px;
+  left: -14px;
   top: 50%;
   transform: translateY(-50%);
   width: 0;
   height: 0;
-  border-top: 5px solid transparent;
-  border-bottom: 5px solid transparent;
-  border-right: 8px solid #f2bb00;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-right: 14px solid #f2bb00;
 }
 
 .tagline-bubble::after {
   content: "";
   position: absolute;
-  left: -5.5px;
+  left: -9px;
   top: 50%;
   transform: translateY(-50%);
   width: 0;
   height: 0;
-  border-top: 4px solid transparent;
-  border-bottom: 4px solid transparent;
-  border-right: 7px solid #ffffff;
+  border-top: 6.5px solid transparent;
+  border-bottom: 6.5px solid transparent;
+  border-right: 11px solid #fdfaf2;
 }
 
 .tagline {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
-  color: #0c2040; /* Azul oscuro legible */
-  line-height: 1.35;
+  color: #0b1f3b; /* Azul marino intenso */
+  line-height: 1.45;
   margin: 0;
-  text-align: left;
+  text-align: center;
   text-shadow: none;
   font-family: 'Montserrat', sans-serif;
 }
 
 /* Resaltado de palabras de colorines de la burbuja */
 .tagline .highlight-red {
-  color: #e52521;
+  color: #d11c18;
 }
 
 .tagline .highlight-blue {
-  color: #0b5da5;
+  color: #0b5fb0;
 }
 
 .tagline .highlight-green {
-  color: #0d8362;
+  color: #0f7a55;
 }
 
 .tagline .highlight-purple {
-  color: #7209b7;
+  color: #6a0cad;
 }
 
 /* Columna Derecha: Selector de Idiomas y TikTok */
@@ -206,47 +198,49 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
   flex-shrink: 0;
 }
 
 /* Selector de Idiomas en cápsula compacta */
 .lang-selector-container {
   display: inline-flex;
-  gap: 4px;
   background: #02204d; /* Azul muy oscuro de fondo */
-  padding: 3px;
-  border-radius: 18px;
-  border: 1.5px solid #2a6fdb;
+  padding: 2.5px;
+  border-radius: 20px;
+  border: 2px solid #2a6fdb;
   box-shadow: 
-    0 0 0 1.5px #01132f,
-    0 2px 5px rgba(0,0,0,0.5);
+    inset 0 2px 4px rgba(0,0,0,0.6),
+    0 2px 4px rgba(0,0,0,0.3);
+  position: relative;
+  height: 34px;
+  width: 130px;
+  box-sizing: border-box;
 }
 
 .lang-btn {
+  flex: 1;
   background: transparent;
   border: none;
-  color: #adbac7;
+  color: #ffffff;
   font-family: 'Montserrat', sans-serif;
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 700;
-  padding: 4px 8px;
-  border-radius: 14px;
   cursor: pointer;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 4px;
-  transition: all var(--transition-speed);
-}
-
-.lang-btn:hover {
-  color: #ffffff;
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 2;
+  border-radius: 18px;
 }
 
 .lang-btn.active {
-  color: #020910;
-  background: linear-gradient(to bottom, #ffe082 0%, #db9500 100%);
-  box-shadow: 0 2px 6px rgba(229, 169, 59, 0.4);
+  color: #021a3a;
+  background: linear-gradient(to bottom, #ffd659 0%, #fab002 50%, #d87d00 100%);
+  border: 1.5px solid #fa3800;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.4);
 }
 
 .lang-flag-circle {
@@ -255,29 +249,95 @@ body {
   justify-content: center;
 }
 
-/* Botón de TikTok estilo ficha */
+.lang-flag-circle svg {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: block;
+}
+
+/* Botón de TikTok 3D */
 .social-link-compact {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 38px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  border: 3px solid #f2bb00; /* Grosor dorado */
-  background: #111111; /* Negro sólido */
-  color: #ffffff;
-  text-decoration: none;
-  transition: all var(--transition-speed);
-  box-shadow: 
-    0 0 0 2px #012255, 
-    0 3px 8px rgba(0,0,0,0.5);
+  border: none;
+  background: transparent;
+  transition: transform 0.2s ease;
   flex-shrink: 0;
 }
 
+.tiktok-img-3d {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.3));
+  user-select: none;
+}
+
 .social-link-compact:hover {
-  transform: scale(1.05);
-  border-color: #ffea70;
-  color: #ffffff;
+  transform: scale(1.08);
+}
+
+/* Adaptación responsiva para móviles */
+@media (max-width: 600px) {
+  .compact-header {
+    padding: 8px 10px;
+    border-width: 2.5px;
+    border-radius: 18px;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .logo-3d-container {
+    width: 62px;
+    height: 62px;
+  }
+  .title-3d-container {
+    width: 190px;
+  }
+  .tagline-bubble {
+    padding: 6px 12px;
+    border-width: 2.5px;
+    border-radius: 14px;
+    margin-left: 8px;
+    width: calc(100% - 10px);
+  }
+  .tagline {
+    font-size: 8.5px;
+    line-height: 1.35;
+  }
+  .tagline-bubble::before {
+    left: -11px;
+    border-top-width: 6px;
+    border-bottom-width: 6px;
+    border-right-width: 11px;
+  }
+  .tagline-bubble::after {
+    left: -7px;
+    border-top-width: 4px;
+    border-bottom-width: 4px;
+    border-right-width: 8px;
+  }
+  .lang-selector-container {
+    width: 100px;
+    height: 28px;
+    border-width: 1.5px;
+  }
+  .lang-btn {
+    font-size: 8.5px;
+    gap: 3px;
+  }
+  .lang-flag-circle svg {
+    width: 11px;
+    height: 11px;
+  }
+  .social-link-compact {
+    width: 36px;
+    height: 36px;
+  }
 }
 
 .country-banner {
