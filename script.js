@@ -20,14 +20,14 @@ const TRANSLATIONS = {
   es: {
     redirecting: "Redirigiendo a",
     buyButton: "VER EN AMAZON",
-    buyButtonCompact: "VER AMZN",
+    buyButtonCompact: "VER AMAZON",
     loading: "Cargando catálogo...",
     copyright: "Todos los derechos reservados."
   },
   en: {
     redirecting: "Redirecting to",
     buyButton: "VIEW ON AMAZON",
-    buyButtonCompact: "BUY AMZN",
+    buyButtonCompact: "BUY AMAZON",
     loading: "Loading catalog...",
     copyright: "All rights reserved."
   }
@@ -219,6 +219,13 @@ function renderCatalog(market) {
 
   // Filtrar libros que admitan el idioma actual (ej. Mandalas en es/en, Smiling Animals solo en en)
   const availableBooks = CONFIG.books.filter(book => book.languages[currentLanguage]);
+
+  // Si solo hay un producto, agregamos la clase catalog-single para renderizarlo más grande
+  if (availableBooks.length === 1) {
+    catalogEl.classList.add("catalog-single");
+  } else {
+    catalogEl.classList.remove("catalog-single");
+  }
 
   availableBooks.forEach(book => {
     const details = book.languages[currentLanguage];

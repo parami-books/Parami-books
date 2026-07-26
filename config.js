@@ -19,15 +19,15 @@ const CONFIG = {
       coverImage: "cover_mandalas.png",
       languages: {
         es: {
-          title: "Mandalas & Flowers",
-          subtitle: "Diseños Fáciles",
-          description: "Patrones florales simétricos en trazos fáciles y muy gruesos.",
+          title: "Mandalas y Flores",
+          subtitle: "Libro para colorear",
+          description: "Relaja tu mente con hermosos patrones simétricos y flores sencillas. Sus trazos limpios y contornos extra gruesos hacen que pintar sea una experiencia relajante y libre de frustraciones, ideal para desconectar al final del día.",
           asin: "B0HBHJNFZM"
         },
         en: {
           title: "Mandalas & Flowers",
-          subtitle: "Bold & Easy",
-          description: "Beautiful floral patterns designed with bold and easy outlines.",
+          subtitle: "Bold & Easy Coloring Book",
+          description: "Unwind with delightful symmetrical designs and uncomplicated florals. Hand-drawn with bold, heavy outlines, this page is perfect for stress relief, practicing mindfulness, and coloring with markers or gel pens.",
           asin: "B0GVB26115"
         }
       }
@@ -38,8 +38,8 @@ const CONFIG = {
       languages: {
         en: {
           title: "Smiling Animals",
-          subtitle: "Bold & Easy",
-          description: "Cute and happy animals ready for colors with thick outlines.",
+          subtitle: "Bold & Easy Coloring Book",
+          description: "Coloring should be fun and easy! Enjoy a lovable collection of happy puppies, cute kittens, and cozy animals. Designed with thick, clean outlines to keep your markers inside the lines and bring pure joy.",
           asin: "B0GVKCPFC6"
         }
       }
