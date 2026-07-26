@@ -251,26 +251,16 @@ body {
   display: block;
 }
 
-/* Insignia de Libro 3D Juguete */
-.book-badge-3d {
+/* Gráfico de Libro 3D Decorativo (No interactivo) */
+.book-graphic-3d {
+  width: 58px;
+  height: 58px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: radial-gradient(circle, #ffa200 0%, #d62d00 100%);
-  border: 3.5px solid #fbcb00;
-  box-shadow: 
-    0px 4px 8px rgba(0, 0, 0, 0.4),
-    inset 0px 1.5px 2px rgba(255, 255, 255, 0.4);
-  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  cursor: pointer;
   flex-shrink: 0;
-}
-
-.book-badge-3d:hover {
-  transform: scale(1.12) rotate(-8deg);
+  margin-left: 2px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
 }
 
 .book-svg-icon {
@@ -331,10 +321,9 @@ body {
     width: 11px;
     height: 11px;
   }
-  .book-badge-3d {
-    width: 36px;
-    height: 36px;
-    border-width: 2.5px;
+  .book-graphic-3d {
+    width: 44px;
+    height: 44px;
   }
 }
 
