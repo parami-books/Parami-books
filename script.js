@@ -2,20 +2,24 @@
 let currentLanguage = "es";
 
 document.addEventListener("DOMContentLoaded", () => {
-  // 1. Detectar el idioma inicial (localStorage o Navegador)
   const savedLang = localStorage.getItem("preferredLanguage");
   if (savedLang === "es" || savedLang === "en") {
     currentLanguage = savedLang;
   } else {
     const browserLang = (navigator.language || navigator.userLanguage || "").toLowerCase();
-    currentLanguage = browserLang.startsWith("es") ? "es" : "en";
+    if (browserLang.startsWith("es")) {
+      currentLanguage = "es";
+    } else if (browserLang.startsWith("en")) {
+      currentLanguage = "en";
+    } else {
+      // Idioma de navegador no reconocido (fr, de, etc.):
+      // respeta el idioma por defecto configurado en config.js
+      currentLanguage = (CONFIG.defaultLanguage === "en") ? "en" : "es";
+    }
   }
-
-  // 2. Aplicar el idioma y configurar la UI
   updateLanguageUIAndRender();
 });
 
-// Mensajes de traducción del portal
 const TRANSLATIONS = {
   es: {
     redirecting: "Redirigiendo a",
@@ -33,7 +37,6 @@ const TRANSLATIONS = {
   }
 };
 
-// Mapeo de tiendas geográficas de Amazon
 const MARKET_INFO = {
   es: { name: "Amazon España", flag: "🇪🇸", domain: "amazon.es" },
   mx: { name: "Amazon México", flag: "🇲🇽", domain: "amazon.com.mx" },
@@ -45,9 +48,6 @@ const MARKET_INFO = {
   it: { name: "Amazon Italia", flag: "🇮🇹", domain: "amazon.it" }
 };
 
-/**
- * Devuelve el diseño circular SVG para la bandera española (ES)
- */
 function getEsFlagSvg() {
   return `
   <svg viewBox="0 0 100 100" class="flag-svg-icon" style="width: 14px; height: 14px; border-radius: 50%; overflow: hidden; display: inline-block; vertical-align: middle; border: 1px solid rgba(255,255,255,0.3);">
@@ -58,13 +58,9 @@ function getEsFlagSvg() {
   `;
 }
 
-/**
- * Devuelve el diseño circular SVG bicultural para en inglés (Mitad USA - Mitad UK)
- */
 function getEnFlagSvg() {
   return `
   <svg viewBox="0 0 100 100" class="flag-svg-icon" style="width: 14px; height: 14px; border-radius: 50%; overflow: hidden; display: inline-block; vertical-align: middle; border: 1px solid rgba(255,255,255,0.3);">
-    <!-- Mitad Izquierda: USA stars & stripes -->
     <g>
       <rect x="0" y="0" width="50" height="100" fill="#FFFFFF" />
       <rect x="0" y="0" width="50" height="7.7" fill="#B22234" />
@@ -82,17 +78,12 @@ function getEnFlagSvg() {
       <circle cx="20" cy="30" r="1.2" fill="#FFFFFF" />
       <circle cx="13" cy="40" r="1.2" fill="#FFFFFF" />
     </g>
-    <!-- Mitad Derecha: UK Union Jack -->
     <g>
       <rect x="50" y="0" width="50" height="100" fill="#00247D" />
-      <!-- Cruz diagonal blanca -->
       <path d="M50,0 L100,100 M100,0 L50,100" stroke="#FFFFFF" stroke-width="8" />
-      <!-- Cruz diagonal roja -->
       <path d="M50,0 L100,100 M100,0 L50,100" stroke="#CF142B" stroke-width="3" />
-      <!-- Cruz recta blanca -->
       <rect x="70" y="0" width="10" height="100" fill="#FFFFFF" />
       <rect x="50" y="45" width="50" height="10" fill="#FFFFFF" />
-      <!-- Cruz recta roja -->
       <rect x="72" y="0" width="6" height="100" fill="#CF142B" />
       <rect x="50" y="47" width="50" height="6" fill="#CF142B" />
     </g>
@@ -100,9 +91,6 @@ function getEnFlagSvg() {
   `;
 }
 
-/**
- * Cambia el idioma actual del portal y actualiza la página completa
- */
 function changeLanguage(lang) {
   if (lang !== "es" && lang !== "en") return;
   currentLanguage = lang;
@@ -110,20 +98,15 @@ function changeLanguage(lang) {
   updateLanguageUIAndRender();
 }
 
-/**
- * Actualiza todos los textos estáticos del portal y vuelve a renderizar las tarjetas de libros
- */
 function updateLanguageUIAndRender() {
-  // Configurar las banderas vectoriales circulares personalizadas
   const flagEsEl = document.getElementById("flagEs");
   const flagEnEl = document.getElementById("flagEn");
   if (flagEsEl) flagEsEl.innerHTML = getEsFlagSvg();
   if (flagEnEl) flagEnEl.innerHTML = getEnFlagSvg();
 
-  // Actualizar clases activas en los botones de selección
   const btnEs = document.getElementById("btnLangEs");
   const btnEn = document.getElementById("btnLangEn");
-  
+
   if (btnEs && btnEn) {
     if (currentLanguage === "es") {
       btnEs.classList.add("active");
@@ -134,17 +117,15 @@ function updateLanguageUIAndRender() {
     }
   }
 
-  // Actualizar Título y Tagline dinámicamente
   document.title = CONFIG.brandName;
   const brandNameEls = document.querySelectorAll(".js-brand-name");
   brandNameEls.forEach(el => el.textContent = CONFIG.brandName);
-  
+
   const brandTaglineEl = document.querySelector(".js-brand-tagline");
   if (brandTaglineEl) {
     brandTaglineEl.innerHTML = CONFIG.brandTagline[currentLanguage] || CONFIG.brandTagline.es;
   }
 
-  // Configurar enlace de TikTok
   const tiktokLinkEl = document.querySelector(".js-tiktok-link");
   if (tiktokLinkEl && CONFIG.socialLinks.tiktok) {
     tiktokLinkEl.href = CONFIG.socialLinks.tiktok;
@@ -152,35 +133,27 @@ function updateLanguageUIAndRender() {
     tiktokLinkEl.style.display = "none";
   }
 
-  // Detección del mercado geográfico del usuario (para saber si enviarle a amazon.es, amazon.com.mx, etc.)
   const userMarket = detectAmazonMarketplace();
-  
-  // Renderizar indicador de país
   renderCountryBanner(userMarket);
-  
-  // Renderizar catálogo filtrado
   renderCatalog(userMarket);
 }
 
-/**
- * Detecta el mercado de Amazon idóneo basándose en el idioma/región del navegador del usuario.
- */
 function detectAmazonMarketplace() {
   const languages = navigator.languages || [navigator.language || ""];
   const langString = languages.join(",").toLowerCase();
 
   if (langString.includes("-mx") || langString.includes("es-mx")) return "mx";
   if (langString.includes("-es") || langString.includes("es-es")) return "es";
-  
+
   if (langString.includes("es")) {
     const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
     if (tz.includes("America/Mexico") || tz.includes("America/Monterrey") || tz.includes("America/Tijuana")) {
       return "mx";
     }
     if (tz.includes("America/")) {
-      return "com"; // Amazon USA para Latinoamérica
+      return "com";
     }
-    return "es"; // Amazon España para Europa
+    return "es";
   }
 
   if (langString.includes("-ca") || langString.includes("ca-")) return "ca";
@@ -192,13 +165,9 @@ function detectAmazonMarketplace() {
   return "com";
 }
 
-/**
- * Muestra visualmente en qué tienda está comprando el cliente
- */
 function renderCountryBanner(market) {
   const bannerEl = document.getElementById("countryBanner");
   if (!bannerEl) return;
-
   const info = MARKET_INFO[market] || MARKET_INFO.com;
   const labelPre = TRANSLATIONS[currentLanguage].redirecting;
   bannerEl.innerHTML = `
@@ -207,21 +176,13 @@ function renderCountryBanner(market) {
   `;
 }
 
-/**
- * Renderiza el listado de libros con el título, descripción y portada correspondiente.
- * FILTRA SOLO los libros que están disponibles en el idioma seleccionado y añade un slider 
- * interactivo de muestras (portada + páginas para colorear internas).
- */
 function renderCatalog(market) {
   const catalogEl = document.getElementById("bookCatalog");
   if (!catalogEl) return;
+  catalogEl.innerHTML = "";
 
-  catalogEl.innerHTML = ""; // Limpiar antes de rellenar
-
-  // Filtrar libros que admitan el idioma actual (ej. Mandalas en es/en, Smiling Animals solo en en)
   const availableBooks = CONFIG.books.filter(book => book.languages[currentLanguage]);
 
-  // Si solo hay un producto, agregamos la clase catalog-single para renderizarlo más grande
   if (availableBooks.length === 1) {
     catalogEl.classList.add("catalog-single");
   } else {
@@ -231,25 +192,20 @@ function renderCatalog(market) {
   availableBooks.forEach(book => {
     const details = book.languages[currentLanguage];
     const asin = details.asin;
-
-    // Enlace dinámico según marketplace de Amazon y ASIN local
     let targetLink = "#";
     if (asin) {
       const info = MARKET_INFO[market] || MARKET_INFO.com;
       targetLink = `https://www.${info.domain}/dp/${asin}`;
     }
 
-    // Inicializar estado del carrusel para el libro
     carouselStates[book.id] = 0;
-
     const prefix = book.id === "mandalas-flowers" ? "mandalas" : "animals";
     const coverUrl = `https://images-na.ssl-images-amazon.com/images/P/${asin}.01.LZZZZZZZ.jpg`;
 
-    // Estructura HTML vertical con carrusel de muestras
     const card = document.createElement("div");
     card.className = `book-card book-card-${book.id}`;
     card.id = `card-${book.id}`;
-    
+
     card.innerHTML = `
       <div class="book-cover-container" id="carousel-${book.id}">
         <div class="carousel-track" style="transform: translateX(0%);">
@@ -266,16 +222,14 @@ function renderCatalog(market) {
             <img class="book-cover-img" src="images/${prefix}_page_3.png" alt="Página para colorear 3">
           </div>
         </div>
-        
-        <!-- Flechas de navegación del carrusel -->
+
         <button class="slider-arrow prev" onclick="moveSlide('${book.id}', -1)" title="Anterior">
           <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
         </button>
         <button class="slider-arrow next" onclick="moveSlide('${book.id}', 1)" title="Siguiente">
           <svg viewBox="0 0 24 24"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>
         </button>
-        
-        <!-- Puntos Indicadores del Carrusel -->
+
         <div class="slider-dots">
           <span class="dot active" onclick="setSlide('${book.id}', 0)"></span>
           <span class="dot" onclick="setSlide('${book.id}', 1)"></span>
@@ -283,21 +237,20 @@ function renderCatalog(market) {
           <span class="dot" onclick="setSlide('${book.id}', 3)"></span>
         </div>
       </div>
-      
+
       <div class="book-details">
         <h2 class="book-title">${details.title}</h2>
         <div class="book-subtitle">${details.subtitle}</div>
         <p class="book-desc">${details.description}</p>
-        
+
         <a href="${targetLink}" target="_blank" rel="noopener noreferrer" class="amazon-btn">
           <svg class="btn-amazon-logo" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M15.9,11.3c0-0.1,0-0.3,0-0.4c0-2.4-1.2-3.8-3.9-3.8c-2.5,0-4,1.4-4,3.4c0,1.9,1.3,2.8,3,2.8c1.3,0,2.3-0.5,2.9-1.2C14,12,14.1,12,14,12.1c-0.2,0.3-0.7,0.9-0.7,0.9c-0.1,0.1-0.2,0.1-0.3,0c-0.4,0.3-1,0.6-1.7,0.6c-1,0-1.8-0.6-1.8-1.8c0-1.4,1.2-1.9,3.1-1.9c0.7,0,1.4,0.1,1.9,0.2C14.7,11.3,14.7,11.3,15.9,11.3z M18.4,18.4c-3.1,2.4-7.9,3.1-11.8,2c-0.4-0.1-0.6,0.3-0.2,0.6c3.4,2.2,9.3,2.2,12.3-0.6C19.1,20.1,18.8,18.1,18.4,18.4z M19.4,20c0.3-0.2,0.3-0.5,0.1-0.7c-0.6-0.7-1.8-2.6-1.8-2.6s-0.1-0.1-0.2,0l-0.3,0.3c-0.1,0.1-0.1,0.2,0,0.3c0,0,1.2,1.8,1.6,2.5C19,20.1,19.2,20.1,19.4,20z"/>
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4H6zm0 2h12l1.5 2H4.5L6 4zM5 8h14v12H5V8zm4 2v2a3 3 0 006 0v-2h-2v2a1 1 0 01-2 0v-2H9z"/>
           </svg>
           <span class="btn-purchase-text">${TRANSLATIONS[currentLanguage].buyButtonCompact}</span>
         </a>
       </div>
     `;
-
     catalogEl.appendChild(card);
   });
 }
@@ -309,7 +262,7 @@ const carouselStates = {};
 
 function moveSlide(bookId, direction) {
   const currentIndex = carouselStates[bookId] || 0;
-  const nextIndex = (currentIndex + direction + 4) % 4; // 4 imágenes en total
+  const nextIndex = (currentIndex + direction + 4) % 4;
   setSlide(bookId, nextIndex);
 }
 
@@ -317,12 +270,12 @@ function setSlide(bookId, index) {
   carouselStates[bookId] = index;
   const container = document.getElementById(`carousel-${bookId}`);
   if (!container) return;
-  
+
   const track = container.querySelector(".carousel-track");
   if (track) {
     track.style.transform = `translateX(-${index * 25}%)`;
   }
-  
+
   const dots = container.querySelectorAll(".slider-dots .dot");
   dots.forEach((dot, idx) => {
     if (idx === index) {
