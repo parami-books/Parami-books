@@ -98,3 +98,50 @@ Este archivo contiene plantillas de mensajes persuasivos en **Español, Inglés 
 > 🔗 https://parami-books.github.io/Parami-books/
 >
 > Votre soutien serait d'une aide précieuse pour notre lancement. Continuez comme ça avec vos superbes vidéos !
+
+---
+
+## 💬 Mensajes Directos para Seguidores / Creadores Cozy (Estilo de vida, Arte)
+
+### ESTRATEGIA 1: Enlace en Biografía (Más Segura para evitar SPAM)
+
+#### 🇪🇸 Versión en Español
+> ¡Hola! Solo quería decirte que me encantan tus dibujos cozy, tienes un estilo precioso ✨.
+> 
+> Estoy creando libros para colorear en Amazon con mi marca, Parami Books (puedes ver lo que hacemos en el enlace de nuestra biografía). Tu trabajo me ha dado muy buenas ideas.
+> 
+> Si alguna vez se te ocurre una temática cozy que te encantaría ver en un libro para colorear, dime. ¡Quizás acabe siendo uno de mis próximos diseños! 
+> 
+> ¡Sigue así con tu arte! 🎨
+
+#### 🇺🇸 Versión en Inglés (English)
+> Hi! I just wanted to say that I absolutely love your cozy drawings—your style is so beautiful! ✨
+> 
+> I'm publishing coloring books on Amazon under my brand, Parami Books (you can check out our work in our bio link). Your work has already inspired me.
+> 
+> If you ever have a cozy theme you’d love to see in a coloring book, let me know! Maybe it could become one of my next releases.
+> 
+> Keep up the amazing work! 🎨
+
+---
+
+### ESTRATEGIA 2: Enlace Directo en el Mensaje (Para Contacto Cercano / Mutuals)
+
+#### 🇪🇸 Versión en Español
+> ¡Hola! Solo quería decirte que me encantan tus dibujos cozy, tienes un estilo precioso ✨.
+> 
+> Estoy creando libros para colorear en Amazon con mi marca, Parami Books. Te dejo nuestra web por si quieres echarle un vistazo a los diseños: https://parami-books.github.io/Parami-books/ (si no te deja hacer clic, también lo tienes directo en nuestro perfil). Tu trabajo me ha dado muy buenas ideas.
+> 
+> Si alguna vez se te ocurre una temática cozy que te encantaría ver en un libro para colorear, dime. ¡Quizás acabe siendo uno de mis próximos diseños! 
+> 
+> ¡Sigue así con tu arte! 🎨
+
+#### 🇺🇸 Versión en Inglés (English)
+> Hi! I just wanted to say that I absolutely love your cozy drawings—your style is so beautiful! ✨
+> 
+> I'm publishing coloring books on Amazon under my brand, Parami Books. Here is our website if you'd like to check out the designs: https://parami-books.github.io/Parami-books/ (if the link isn't clickable, you can find it right in our bio). Your work has already inspired me.
+> 
+> If you ever have a cozy theme you’d love to see in a coloring book, let me know! Maybe it could become one of my next releases.
+> 
+> Keep up the amazing work! 🎨
+
