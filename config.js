@@ -16,6 +16,7 @@ const CONFIG = {
   books: [
     {
       id: "mandalas-flowers",
+      prefix: "mandalas",
       coverImage: "cover_mandalas.png",
       languages: {
         es: {
@@ -34,13 +35,39 @@ const CONFIG = {
     },
     {
       id: "smiling-animals",
+      prefix: "animals",
       coverImage: "cover_smiling_animals.png",
       languages: {
+        es: {
+          title: "Animalitos Adorables",
+          subtitle: "Libro para colorear",
+          description: "¡Colorear debe ser divertido y fácil! Disfruta de una adorable colección de perritos felices, gatitos tiernos y animalitos acogedores. Diseñado con trazos extra gruesos y limpios para mantener tus rotuladores dentro de las líneas.",
+          comingSoon: true
+        },
         en: {
           title: "Smiling Animals",
           subtitle: "Bold & Easy Coloring Book",
           description: "Coloring should be fun and easy! Enjoy a lovable collection of happy puppies, cute kittens, and cozy animals. Designed with thick, clean outlines to keep your markers inside the lines and bring pure joy.",
           asin: "B0GVKCPFC6"
+        }
+      }
+    },
+    {
+      id: "cozy-witch",
+      prefix: "cozy",
+      coverImage: "cozy_cover_es.png",
+      languages: {
+        es: {
+          title: "Magia Cozy",
+          subtitle: "Libro para colorear",
+          description: "Entra en un mundo de magia acogedora, té caliente y tranquilas estancias de brujas. Con trazos limpios, gruesos y fáciles de colorear, ofrece la experiencia perfecta para descansar y desconectar.",
+          comingSoon: true
+        },
+        en: {
+          title: "Cozy Witch",
+          subtitle: "Bold & Easy Coloring Book",
+          description: "Step into a world of cozy magic, warm tea, and peaceful witchy rooms! Featuring bold, easy-to-color lines and charming magical scenes, this book offers a delightful escape into aesthetic spaces.",
+          comingSoon: true
         }
       }
     }

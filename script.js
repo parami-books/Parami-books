@@ -199,12 +199,32 @@ function renderCatalog(market) {
     }
 
     carouselStates[book.id] = 0;
-    const prefix = book.id === "mandalas-flowers" ? "mandalas" : "animals";
-    const coverUrl = `https://images-na.ssl-images-amazon.com/images/P/${asin}.01.LZZZZZZZ.jpg`;
+    const prefix = book.prefix || (book.id === "mandalas-flowers" ? "mandalas" : "animals");
+    
+    let coverUrl = "";
+    if (asin && !details.comingSoon) {
+      coverUrl = `https://images-na.ssl-images-amazon.com/images/P/${asin}.01.LZZZZZZZ.jpg`;
+    } else {
+      coverUrl = `images/${prefix}_cover_${currentLanguage}.png`;
+    }
 
     const card = document.createElement("div");
     card.className = `book-card book-card-${book.id}`;
     card.id = `card-${book.id}`;
+
+    // Si el libro viene pronto, el botón dirá "PRÓXIMAMENTE" o "COMING SOON"
+    const buttonHtml = (details.comingSoon || !asin) ? `
+      <div class="amazon-btn coming-soon-btn" style="background: linear-gradient(135deg, #a1a1aa 0%, #71717a 100%); border: 2px solid #52525b; color: #f4f4f5; cursor: default; opacity: 0.9; box-shadow: inset 0 2px 4px rgba(255,255,255,0.1), 0 4px 6px rgba(0,0,0,0.15); display: flex; justify-content: center; align-items: center; gap: 8px; font-weight: bold; text-decoration: none; padding: 10px 20px; border-radius: 9999px; width: 100%; box-sizing: border-box;">
+        <span>${currentLanguage === 'es' ? 'PRÓXIMAMENTE' : 'COMING SOON'}</span>
+      </div>
+    ` : `
+      <a href="${targetLink}" target="_blank" rel="noopener noreferrer" class="amazon-btn">
+        <svg class="btn-amazon-logo" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4H6zm0 2h12l1.5 2H4.5L6 4zM5 8h14v12H5V8zm4 2v2a3 3 0 006 0v-2h-2v2a1 1 0 01-2 0v-2H9z"/>
+        </svg>
+        <span class="btn-purchase-text">${TRANSLATIONS[currentLanguage].buyButtonCompact}</span>
+      </a>
+    `;
 
     card.innerHTML = `
       <div class="book-cover-container" id="carousel-${book.id}">
@@ -242,13 +262,7 @@ function renderCatalog(market) {
         <h2 class="book-title">${details.title}</h2>
         <div class="book-subtitle">${details.subtitle}</div>
         <p class="book-desc">${details.description}</p>
-
-        <a href="${targetLink}" target="_blank" rel="noopener noreferrer" class="amazon-btn">
-          <svg class="btn-amazon-logo" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4H6zm0 2h12l1.5 2H4.5L6 4zM5 8h14v12H5V8zm4 2v2a3 3 0 006 0v-2h-2v2a1 1 0 01-2 0v-2H9z"/>
-          </svg>
-          <span class="btn-purchase-text">${TRANSLATIONS[currentLanguage].buyButtonCompact}</span>
-        </a>
+        ${buttonHtml}
       </div>
     `;
     catalogEl.appendChild(card);
