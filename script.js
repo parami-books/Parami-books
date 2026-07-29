@@ -226,12 +226,27 @@ function renderCatalog(market) {
       </a>
     `;
 
+    const isAmazonCover = coverUrl.startsWith("https://images-na.ssl-images-amazon.com");
+    let firstSlideHtml = "";
+    if (isAmazonCover) {
+      firstSlideHtml = `
+        <div class="carousel-slide">
+          <img class="book-cover-img" src="${coverUrl}" alt="Portada de ${details.title}" onerror="this.src='images/${prefix}_page_1.png'">
+        </div>
+      `;
+    } else {
+      firstSlideHtml = `
+        <div class="carousel-slide cover-slide-local">
+          <img class="book-cover-bg-blur" src="${coverUrl}" alt="">
+          <img class="book-cover-img-fg" src="${coverUrl}" alt="Portada de ${details.title}" onerror="this.src='images/${prefix}_page_1.png'">
+        </div>
+      `;
+    }
+
     card.innerHTML = `
       <div class="book-cover-container" id="carousel-${book.id}">
         <div class="carousel-track" style="transform: translateX(0%);">
-          <div class="carousel-slide">
-            <img class="book-cover-img" src="${coverUrl}" alt="Portada de ${details.title}" onerror="this.src='images/${prefix}_page_1.png'">
-          </div>
+          ${firstSlideHtml}
           <div class="carousel-slide">
             <img class="book-cover-img" src="images/${prefix}_page_1.png" alt="Página para colorear 1">
           </div>

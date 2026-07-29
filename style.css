@@ -14,7 +14,7 @@
   --text-gold: #ffe082;
   --text-muted: #e2e8f0;
   
-  --max-width: 520px; /* Ancho ajustable */
+  --max-width: 960px; /* Ancho ajustable para grilla de 3 */
   --transition-speed: 0.3s;
 }
 
@@ -352,11 +352,11 @@ body {
   font-size: 12px;
 }
 
-/* Grilla Horizontal de 2 Columnas para mayor vistosidad */
+/* Grilla Horizontal de 3 Columnas por defecto para mayor vistosidad */
 .catalog {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
 }
 
@@ -463,6 +463,42 @@ body {
   justify-content: center;
   user-select: none;
   background: transparent;
+}
+
+/* Slide de portada local con fondo difuminado nítido */
+.carousel-slide.cover-slide-local {
+  position: relative;
+  overflow: hidden;
+  background: #02080d; /* Fondo oscuro de base */
+}
+
+/* Imagen de fondo difuminada */
+.book-cover-bg-blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 108%; /* Un poco más grande para tapar fugas de bordes causados por el filtro de blur */
+  height: 108%;
+  object-fit: cover;
+  filter: blur(14px) brightness(0.45); /* Difuminada y oscurecida para contraste */
+  opacity: 0.85;
+  z-index: 1;
+  pointer-events: none;
+  transform: translate(-4%, -4%);
+}
+
+/* Imagen de portada flotante */
+.book-cover-img-fg {
+  position: relative;
+  z-index: 2;
+  max-width: 86%; /* Margen sutil alrededor */
+  max-height: 86%;
+  object-fit: contain;
+  box-shadow: 
+    0 10px 24px rgba(0, 0, 0, 0.85),
+    0 0 8px rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  display: block;
 }
 
 /* Solo las hojas interiores (dibujos de muestra para colorear) son de fondo blanco */
@@ -661,5 +697,24 @@ footer {
   }
   .amazon-btn {
     font-size: 9.5px;
+  }
+}
+
+/* Responsividad para la grilla de catálogo y el contenedor principal */
+@media (max-width: 768px) {
+  :root {
+    --max-width: 680px; /* Ancho ajustado para pantallas medianas (tablet) */
+  }
+  .catalog {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en tabletas */
+  }
+}
+
+@media (max-width: 500px) {
+  :root {
+    --max-width: 440px; /* Ancho ajustado para móviles */
+  }
+  .catalog {
+    grid-template-columns: 1fr; /* 1 columna en móviles para legibilidad óptima */
   }
 }
