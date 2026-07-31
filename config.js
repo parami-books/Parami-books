@@ -17,7 +17,6 @@ const CONFIG = {
     {
       id: "mandalas-flowers",
       prefix: "mandalas",
-      coverImage: "cover_mandalas.png",
       languages: {
         es: {
           title: "Mandalas y Flores",
@@ -36,12 +35,12 @@ const CONFIG = {
     {
       id: "smiling-animals",
       prefix: "animals",
-      coverImage: "cover_smiling_animals.png",
       languages: {
         es: {
           title: "Animalitos Adorables",
           subtitle: "Libro para colorear",
           description: "¡Colorear debe ser divertido y fácil! Disfruta de una adorable colección de perritos felices, gatitos tiernos y animalitos acogedores. Diseñado con trazos extra gruesos y limpios para mantener tus rotuladores dentro de las líneas.",
+          coverImage: "animals_cover_es.png",
           comingSoon: true
         },
         en: {
@@ -55,18 +54,19 @@ const CONFIG = {
     {
       id: "cozy-witch",
       prefix: "cozy",
-      coverImage: "cozy_cover_es.png",
       languages: {
         es: {
           title: "Magia Cozy",
           subtitle: "Libro para colorear",
           description: "Entra en un mundo de magia acogedora, té caliente y tranquilas estancias de brujas. Con trazos limpios, gruesos y fáciles de colorear, ofrece la experiencia perfecta para descansar y desconectar.",
+          coverImage: "cozy_cover_es.png",
           comingSoon: true
         },
         en: {
           title: "Cozy Witch",
           subtitle: "Bold & Easy Coloring Book",
           description: "Step into a world of cozy magic, warm tea, and peaceful witchy rooms! Featuring bold, easy-to-color lines and charming magical scenes, this book offers a delightful escape into aesthetic spaces.",
+          coverImage: "cozy_cover_en.png",
           comingSoon: true
         }
       }
@@ -74,18 +74,19 @@ const CONFIG = {
     {
       id: "mandalas-3d",
       prefix: "mandalas_3d",
-      coverImage: "mandalas_3d_cover_es.jpg",
       languages: {
         es: {
           title: "Mándalas Geométricos 3D",
           subtitle: "Libro para colorear",
           description: "Descubre una colección de mándalas geométricos en 3D pensados para disfrutar del color y la creatividad. Diseños inspirados en cubos, formas isométricas y composiciones simétricas con líneas claras.",
+          coverImage: "mandalas_3d_cover_es.jpg",
           comingSoon: true
         },
         en: {
           title: "3D Geometric Mandalas",
           subtitle: "Bold & Easy Coloring Book",
           description: "Discover a collection of 3D geometric mandalas designed to unleash your creativity. Featuring designs inspired by cubes, isometric shapes, and bold optical illusions.",
+          coverImage: "mandalas_3d_cover_es.jpg",
           comingSoon: true
         }
       }

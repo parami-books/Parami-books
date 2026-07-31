@@ -204,6 +204,8 @@ function renderCatalog(market) {
     let coverUrl = "";
     if (asin && !details.comingSoon) {
       coverUrl = `https://images-na.ssl-images-amazon.com/images/P/${asin}.01.LZZZZZZZ.jpg`;
+    } else if (details.coverImage) {
+      coverUrl = `images/${details.coverImage}`;
     } else if (book.coverImage) {
       coverUrl = `images/${book.coverImage}`;
     } else {
@@ -233,14 +235,14 @@ function renderCatalog(market) {
     if (isAmazonCover) {
       firstSlideHtml = `
         <div class="carousel-slide">
-          <img class="book-cover-img" src="${coverUrl}" alt="Portada de ${details.title}" onerror="this.src='images/${prefix}_page_1.png'">
+          <img class="book-cover-img" src="${coverUrl}" alt="Portada de ${details.title}">
         </div>
       `;
     } else {
       firstSlideHtml = `
         <div class="carousel-slide cover-slide-local">
           <img class="book-cover-bg-blur" src="${coverUrl}" alt="">
-          <img class="book-cover-img-fg" src="${coverUrl}" alt="Portada de ${details.title}" onerror="this.src='images/${prefix}_page_1.png'">
+          <img class="book-cover-img-fg" src="${coverUrl}" alt="Portada de ${details.title}">
         </div>
       `;
     }
