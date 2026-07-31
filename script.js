@@ -204,6 +204,8 @@ function renderCatalog(market) {
     let coverUrl = "";
     if (asin && !details.comingSoon) {
       coverUrl = `https://images-na.ssl-images-amazon.com/images/P/${asin}.01.LZZZZZZZ.jpg`;
+    } else if (book.coverImage) {
+      coverUrl = `images/${book.coverImage}`;
     } else {
       coverUrl = `images/${prefix}_cover_${currentLanguage}.png`;
     }
