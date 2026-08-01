@@ -252,13 +252,13 @@ function renderCatalog(market) {
         <div class="carousel-track" style="transform: translateX(0%);">
           ${firstSlideHtml}
           <div class="carousel-slide">
-            <img class="book-cover-img" src="images/${prefix}_page_1.png" alt="Página para colorear 1">
+            <img class="book-cover-img" src="images/${prefix}_page_1.png" alt="Página para colorear 1" onerror="this.src='images/mandalas_page_1.png'">
           </div>
           <div class="carousel-slide">
-            <img class="book-cover-img" src="images/${prefix}_page_2.png" alt="Página para colorear 2">
+            <img class="book-cover-img" src="images/${prefix}_page_2.png" alt="Página para colorear 2" onerror="this.src='images/mandalas_page_2.png'">
           </div>
           <div class="carousel-slide">
-            <img class="book-cover-img" src="images/${prefix}_page_3.png" alt="Página para colorear 3">
+            <img class="book-cover-img" src="images/${prefix}_page_3.png" alt="Página para colorear 3" onerror="this.src='images/mandalas_page_3.png'">
           </div>
         </div>
 
