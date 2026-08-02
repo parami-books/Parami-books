@@ -1,0 +1,104 @@
+import os
+import numpy as np
+from PIL import Image, ImageFilter
+
+brain_dir = r"C:\Users\Usuario\.gemini\antigravity\brain\6b6bbc70-28fc-455e-9682-c68a30f5dd7e"
+marketing_dir = r"C:\Users\Usuario\Desktop\ARCHIVO\AMAZON\LIBROS\MANDALAS 3D\vol1\marketing"
+os.makedirs(marketing_dir, exist_ok=True)
+
+# Map files to descriptive roles
+# Frames (576x1024)
+frame_files = {
+    "available": "media__1785545540353.jpg",  # Available on Amazon
+    "peaceful": "media__1785545540513.jpg",   # Your Peaceful Moment
+    "scrolling": "media__1785545540949.jpg",  # Stop Scrolling!
+    "relax": "media__1785545540950.jpg"        # Relax & Create
+}
+
+# Fillings (1024x1024)
+filling_files = {
+    "scrolling": "media__1785545648991.jpg",   # Dark cozy candle (great hook for Stop Scrolling!)
+    "peaceful": "media__1785545649091.jpg",    # White desk with succulents (Relaxing)
+    "relax": "media__1785545649307.jpg",       # Open book vase (Relax & Create)
+    "available": "media__1785545649575.jpg"    # Cover and markers (Buy/Call to Action)
+}
+
+# Bounding boxes detected for the white space inside each frame
+# Format: (x_min, y_min, x_max, y_max)
+bboxes = {
+    "available": (80, 383, 496, 792),
+    "peaceful": (76, 322, 499, 808),
+    "scrolling": (66, 317, 509, 829),
+    "relax": (79, 323, 475, 852)
+}
+
+def composite_slide(frame_name, fill_name, output_path):
+    frame_path = os.path.join(brain_dir, frame_files[frame_name])
+    fill_path = os.path.join(brain_dir, filling_files[fill_name])
+    bbox = bboxes[frame_name]
+    
+    # 1. Load images
+    frame_img = Image.open(frame_path).convert("RGBA")
+    fill_img = Image.open(fill_path).convert("RGBA")
+    
+    # 2. Make the interior of the frame transparent
+    # Convert frame to numpy array
+    frame_arr = np.array(frame_img)
+    x_min, y_min, x_max, y_max = bbox
+    
+    # Analyze color values inside the bbox
+    # If the pixel is very bright/white (R > 160, G > 160, B > 160), set Alpha to 0
+    sub_rect = frame_arr[y_min:y_max, x_min:x_max]
+    # Check brightness of RGB channels
+    r, g, b, a = sub_rect[:, :, 0], sub_rect[:, :, 1], sub_rect[:, :, 2], sub_rect[:, :, 3]
+    white_mask = (r > 160) & (g > 160) & (b > 160)
+    a[white_mask] = 0
+    sub_rect[:, :, 3] = a
+    frame_arr[y_min:y_max, x_min:x_max] = sub_rect
+    
+    frame_transparent = Image.fromarray(frame_arr)
+    
+    # 3. Process the filling image
+    # We want to crop/resize the filling image to fit the bbox exactly
+    box_w = x_max - x_min
+    box_h = y_max - y_min
+    
+    # Crop filling keeping aspect ratio
+    fill_w, fill_h = fill_img.size
+    aspect_fill = fill_w / float(fill_h)
+    aspect_box = box_w / float(box_h)
+    
+    if aspect_fill > aspect_box:
+        # Filling is wider: crop sides
+        new_w = int(fill_h * aspect_box)
+        offset = (fill_w - new_w) // 2
+        fill_cropped = fill_img.crop((offset, 0, offset + new_w, fill_h))
+    else:
+        # Filling is taller: crop top/bottom
+        new_h = int(fill_w / aspect_box)
+        offset = (fill_h - new_h) // 2
+        fill_cropped = fill_img.crop((0, offset, fill_w, offset + new_h))
+        
+    fill_resized = fill_cropped.resize((box_w, box_h), Image.Resampling.LANCZOS)
+    
+    # 4. Composite them together
+    canvas = Image.new("RGBA", (576, 1024), (255, 255, 255, 255))
+    canvas.paste(fill_resized, (x_min, y_min))
+    canvas.paste(frame_transparent, (0, 0), frame_transparent)
+    
+    # Convert final to RGB and save
+    final_rgb = canvas.convert("RGB")
+    final_rgb.save(output_path, quality=95)
+    print(f"Slide saved successfully: {output_path}")
+
+# Generate the 4 slides
+slides = [
+    ("scrolling", "scrolling", "slide_1_hook.jpg"),
+    ("peaceful", "peaceful", "slide_2_concept.jpg"),
+    ("relax", "relax", "slide_3_details.jpg"),
+    ("available", "available", "slide_4_cta.jpg")
+]
+
+for frame_name, fill_name, out_name in slides:
+    dest_path = os.path.join(marketing_dir, out_name)
+    composite_slide(frame_name, fill_name, dest_path)
