@@ -41,7 +41,7 @@ const CONFIG = {
           subtitle: "Libro para colorear",
           description: "¡Colorear debe ser divertido y fácil! Disfruta de una adorable colección de perritos felices, gatitos tiernos y animalitos acogedores. Diseñado con trazos extra gruesos y limpios para mantener tus rotuladores dentro de las líneas.",
           coverImage: "animals_cover_es.png",
-          asin: "B0GVKCPFC6"
+          asin: "B0HCP7343R"
         },
         en: {
           title: "Smiling Animals",
