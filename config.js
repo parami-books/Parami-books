@@ -80,7 +80,7 @@ const CONFIG = {
           subtitle: "Libro para colorear",
           description: "Descubre una colección de mándalas geométricos en 3D pensados para disfrutar del color y la creatividad. Diseños inspirados en cubos, formas isométricas y composiciones simétricas con líneas claras.",
           coverImage: "mandalas_3d_cover_es.jpg",
-          comingSoon: true
+          asin: "B0HDD9TJGN"
         },
         en: {
           title: "3D Geometric Mandalas",
