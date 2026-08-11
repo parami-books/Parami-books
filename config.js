@@ -90,6 +90,26 @@ const CONFIG = {
           comingSoon: true
         }
       }
+    },
+    {
+      id: "cozy-animals",
+      prefix: "cozy_animals",
+      languages: {
+        es: {
+          title: "Animales Cozy Haciendo Cosas",
+          subtitle: "40 escenas divertidas para colorear",
+          description: "Disfruta de una adorable colección de animales en situaciones cotidianas y divertidas: tomando café, leyendo, horneando galletas y viviendo momentos acogedores. Diseñado con trazos extra gruesos y limpios.",
+          coverImage: "cozy_animals_cover_es.png",
+          comingSoon: true
+        },
+        en: {
+          title: "Cozy Animals Doing Things",
+          subtitle: "40 Fun Scenes Coloring Book",
+          description: "Enjoy a lovable collection of cozy animals doing fun everyday things: drinking coffee, reading, baking cookies, and living their best cozy life! Designed with extra thick, clean lines.",
+          coverImage: "cozy_animals_cover_en.png",
+          comingSoon: true
+        }
+      }
     }
   ]
 };
