@@ -87,7 +87,7 @@ const CONFIG = {
           subtitle: "Bold & Easy Coloring Book",
           description: "Discover a collection of 3D geometric mandalas designed to unleash your creativity. Featuring designs inspired by cubes, isometric shapes, and bold optical illusions.",
           coverImage: "mandalas_3d_cover_en.jpg",
-          comingSoon: true
+          asin: "B0HDWYV8WN"
         }
       }
     },
