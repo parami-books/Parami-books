@@ -100,7 +100,7 @@ const CONFIG = {
           subtitle: "40 escenas divertidas para colorear",
           description: "Disfruta de una adorable colección de animales en situaciones cotidianas y divertidas: tomando café, leyendo, horneando galletas y viviendo momentos acogedores. Diseñado con trazos extra gruesos y limpios.",
           coverImage: "cozy_animals_cover_es.png",
-          comingSoon: true
+          asin: "B0HFB5FJ5J"
         },
         en: {
           title: "Cozy Animals Doing Things",
