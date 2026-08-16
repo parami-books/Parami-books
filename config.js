@@ -59,8 +59,8 @@ const CONFIG = {
           title: "Magia Cozy",
           subtitle: "Libro para colorear",
           description: "Entra en un mundo de magia acogedora, té caliente y tranquilas estancias de brujas. Con trazos limpios, gruesos y fáciles de colorear, ofrece la experiencia perfecta para descansar y desconectar.",
-          coverImage: "cozy_cover_es.png",
-          comingSoon: true
+          coverImage: "cozy_witch_cover_es.png",
+          asin: "B0HFGQSCKP"
         },
         en: {
           title: "Cozy Witch",
