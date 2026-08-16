@@ -107,7 +107,7 @@ const CONFIG = {
           subtitle: "40 Fun Scenes Coloring Book",
           description: "Enjoy a lovable collection of cozy animals doing fun everyday things: drinking coffee, reading, baking cookies, and living their best cozy life! Designed with extra thick, clean lines.",
           coverImage: "cozy_animals_cover_en.png",
-          comingSoon: true
+          asin: "B0HFGQSCKP"
         }
       }
     }
