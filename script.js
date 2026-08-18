@@ -203,13 +203,13 @@ function renderCatalog(market) {
     
     let coverUrl = "";
     if (details.coverImage) {
-      coverUrl = `images/${details.coverImage}?v=3.6`;
+      coverUrl = `images/${details.coverImage}?v=4.1`;
     } else if (book.coverImage) {
-      coverUrl = `images/${book.coverImage}?v=3.6`;
+      coverUrl = `images/${book.coverImage}?v=4.1`;
     } else if (asin && !details.comingSoon) {
       coverUrl = `https://images-na.ssl-images-amazon.com/images/P/${asin}.01.LZZZZZZZ.jpg`;
     } else {
-      coverUrl = `images/${prefix}_cover_${currentLanguage}.png?v=3.6`;
+      coverUrl = `images/${prefix}_cover_${currentLanguage}.png?v=4.1`;
     }
 
     const card = document.createElement("div");
@@ -252,15 +252,13 @@ function renderCatalog(market) {
         <div class="carousel-track" style="transform: translateX(0%);">
           ${firstSlideHtml}
           <div class="carousel-slide">
-            <img class="book-cover-img" src="images/${prefix}_page_1.png?v=3.6" alt="Página para colorear 1" onerror="this.src='images/mandalas_page_1.png?v=3.6'">
+            <img class="book-cover-img" src="images/${prefix}_page_1.png?v=4.1" alt="Página para colorear 1" onerror="this.src='images/mandalas_page_1.png?v=4.1'">
           </div>
           <div class="carousel-slide">
-            <img class="book-cover-img" src="images/${prefix}_page_2.png?v=3.6" alt="Página para colorear 2" onerror="this.src='images/mandalas_page_2.png?v=3.6'">
+            <img class="book-cover-img" src="images/${prefix}_page_2.png?v=4.1" alt="Página para colorear 2" onerror="this.src='images/mandalas_page_2.png?v=4.1'">
           </div>
           <div class="carousel-slide">
-            <img class="book-cover-img" src="images/${prefix}_page_3.png?v=3.6" alt="Página para colorear 3" onerror="this.src='images/mandalas_page_3.png?v=3.6'">
-          </div>
-        </div>andalas_page_3.png?v=3.2'">
+            <img class="book-cover-img" src="images/${prefix}_page_3.png?v=4.1" alt="Página para colorear 3" onerror="this.src='images/mandalas_page_3.png?v=4.1'">
           </div>
         </div>
 

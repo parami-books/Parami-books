@@ -60,7 +60,7 @@ const CONFIG = {
           subtitle: "Libro para colorear",
           description: "Entra en un mundo de magia acogedora, té caliente y tranquilas estancias de brujas. Con trazos limpios, gruesos y fáciles de colorear, ofrece la experiencia perfecta para descansar y desconectar.",
           coverImage: "cozy_cover_es.png",
-          comingSoon: true
+          asin: "B0HFK37VT5"
         },
         en: {
           title: "Cozy Witch",
@@ -108,6 +108,26 @@ const CONFIG = {
           description: "Enjoy a lovable collection of cozy animals doing fun everyday things: drinking coffee, reading, baking cookies, and living their best cozy life! Designed with extra thick, clean lines.",
           coverImage: "cozy_animals_cover_en.png",
           asin: "B0HFGQSCKP"
+        }
+      }
+    },
+    {
+      id: "cozy-fairies",
+      prefix: "fairies",
+      languages: {
+        es: {
+          title: "Hadas Cozy",
+          subtitle: "40 escenas mágicas para colorear",
+          description: "Adéntrate en un bosque encantado lleno de pequeñas hadas adorables, casitas de setas, desayunos en el jardín y momentos mágicos. Con trazos limpios y extra gruesos ideales para colorear y desconectar del estrés.",
+          coverImage: "fairies_cover_es.png",
+          asin: "B0HFKK8CMQ"
+        },
+        en: {
+          title: "Cozy Fairies",
+          subtitle: "40 Magical Scenes Coloring Book",
+          description: "Step into an enchanted fairytale forest filled with adorable little fairies, mushroom cottages, garden picnics, and cozy moments! Features bold, clean outlines designed for stress-free coloring with markers.",
+          coverImage: "fairies_cover_en.png",
+          asin: "B0HFKK8CMQ"
         }
       }
     }
