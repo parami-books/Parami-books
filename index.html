@@ -102,6 +102,11 @@
               <!-- Sombras de extrusión 3D -->
               <text x="290" y="65" fill="#3b0200">BOOKS</text>
               <text x="290" y="64" fill="#690300">BOOKS</text>
+              <text x="290" y="63" fill="#8f0500">BOOKS</text>
+              <text x="290" y="62" fill="#b00600">BOOKS</text>
+              <text x="290" y="61" fill="#cc0700">BOOKS</text>
+              <!-- Capa superior con trazo y brillo -->
+              <text x="290" y="60" fill="url(#booksGrad)" stroke="#e22b2b" stroke-width="5" paint-order="stroke fill" filter="drop-shadow(0 3px 2px rgba(0,0,0,0.3))">BOOKS</text>
             </g>
           </svg>
         </div>
@@ -114,6 +119,10 @@
 
       <div class="header-right">
         <div class="lang-selector-container">
+          <button class="lang-btn active" id="btnLangEs" onclick="changeLanguage('es')">
+            <span class="lang-flag-circle" id="flagEs"></span>
+            <span class="lang-text">ES</span>
+          </button>
           <button class="lang-btn" id="btnLangEn" onclick="changeLanguage('en')">
             <span class="lang-flag-circle" id="flagEn"></span>
             <span class="lang-text">EN</span>
@@ -177,7 +186,7 @@
       cargar la página, y script.js lo sustituye por la versión dinámica e
       interactiva (con carrusel y tienda de Amazon correcta) en cuanto arranca.
     -->
-    <main id="bookCatalog" class="catalog">
+    <main id="catalog" class="catalog">
       <div class="book-card book-card-mandalas-flowers">
         <div class="book-cover-container">
           <img class="book-cover-img" src="images/cover_mandalas.png" alt="Portada de Mandalas y Flores">
@@ -216,8 +225,8 @@
       <p>&copy; <span id="year">2026</span> <span class="js-brand-name">Parami Books</span>. Todos los derechos reservados.</p>
     </footer>
   </div>
-  <script src="config.js?v=4.3"></script>
-  <script src="script.js?v=4.3"></script>
+  <script src="config.js?v=4.4"></script>
+  <script src="script.js?v=4.4"></script>
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
