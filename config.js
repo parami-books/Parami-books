@@ -123,11 +123,11 @@ const CONFIG = {
           asin: "B0HFKK8CMQ"
         },
         en: {
-          title: "Cozy Fairies",
-          subtitle: "40 Magical Scenes Coloring Book",
+          title: "Cozy Fairy",
+          subtitle: "Bold & Easy Coloring Book",
           description: "Step into an enchanted fairytale forest filled with adorable little fairies, mushroom cottages, garden picnics, and cozy moments! Features bold, clean outlines designed for stress-free coloring with markers.",
           coverImage: "fairies_cover_en.png",
-          asin: "B0HFKK8CMQ"
+          comingSoon: true
         }
       }
     }
