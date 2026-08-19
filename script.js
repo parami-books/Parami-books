@@ -177,7 +177,7 @@ function renderCountryBanner(market) {
 }
 
 function renderCatalog(market) {
-  const catalogEl = document.getElementById("bookCatalog");
+  const catalogEl = document.getElementById("catalog") || document.getElementById("bookCatalog");
   if (!catalogEl) return;
   catalogEl.innerHTML = "";
 
@@ -203,13 +203,13 @@ function renderCatalog(market) {
     
     let coverUrl = "";
     if (details.coverImage) {
-      coverUrl = `images/${details.coverImage}?v=4.4`;
+      coverUrl = `images/${details.coverImage}?v=5.0`;
     } else if (book.coverImage) {
-      coverUrl = `images/${book.coverImage}?v=4.4`;
+      coverUrl = `images/${book.coverImage}?v=5.0`;
     } else if (asin && !details.comingSoon) {
       coverUrl = `https://images-na.ssl-images-amazon.com/images/P/${asin}.01.LZZZZZZZ.jpg`;
     } else {
-      coverUrl = `images/${prefix}_cover_${currentLanguage}.png?v=4.4`;
+      coverUrl = `images/${prefix}_cover_${currentLanguage}.png?v=5.0`;
     }
 
     const card = document.createElement("div");
@@ -252,13 +252,13 @@ function renderCatalog(market) {
         <div class="carousel-track" style="transform: translateX(0%);">
           ${firstSlideHtml}
           <div class="carousel-slide">
-            <img class="book-cover-img" src="images/${prefix}_page_1.png?v=4.4" alt="Página para colorear 1" onerror="this.src='images/mandalas_page_1.png?v=4.4'">
+            <img class="book-cover-img" src="images/${prefix}_page_1.png?v=5.0" alt="Página para colorear 1" onerror="this.src='images/mandalas_page_1.png?v=5.0'">
           </div>
           <div class="carousel-slide">
-            <img class="book-cover-img" src="images/${prefix}_page_2.png?v=4.4" alt="Página para colorear 2" onerror="this.src='images/mandalas_page_2.png?v=4.4'">
+            <img class="book-cover-img" src="images/${prefix}_page_2.png?v=5.0" alt="Página para colorear 2" onerror="this.src='images/mandalas_page_2.png?v=5.0'">
           </div>
           <div class="carousel-slide">
-            <img class="book-cover-img" src="images/${prefix}_page_3.png?v=4.4" alt="Página para colorear 3" onerror="this.src='images/mandalas_page_3.png?v=4.4'">
+            <img class="book-cover-img" src="images/${prefix}_page_3.png?v=5.0" alt="Página para colorear 3" onerror="this.src='images/mandalas_page_3.png?v=5.0'">
           </div>
         </div>
 
