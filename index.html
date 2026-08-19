@@ -42,7 +42,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Montserrat:wght@300;400;500;600;700&family=Outfit:wght@400;600;800;950&display=swap" rel="stylesheet">
 
   <!-- Estilos base -->
-  <link rel="stylesheet" href="style.css?v=3.2">
+  <link rel="stylesheet" href="style.css?v=4.3">
 </head>
 <body>
   <!-- Definición del degradado de oro usado por los elementos y SVGs de la web -->
@@ -102,26 +102,18 @@
               <!-- Sombras de extrusión 3D -->
               <text x="290" y="65" fill="#3b0200">BOOKS</text>
               <text x="290" y="64" fill="#690300">BOOKS</text>
-              <text x="290" y="63" fill="#8f0500">BOOKS</text>
-              <text x="290" y="62" fill="#b00600">BOOKS</text>
-              <text x="290" y="61" fill="#cc0700">BOOKS</text>
-              <!-- Capa superior con trazo y brillo (amarillo/rojo invertido) -->
-              <text x="290" y="60" fill="url(#booksGrad)" stroke="#e22b2b" stroke-width="5" paint-order="stroke fill" filter="drop-shadow(0 3px 2px rgba(0,0,0,0.3))">BOOKS</text>
             </g>
           </svg>
         </div>
         <div class="tagline-bubble">
-          <p class="tagline js-brand-tagline">Libros para colorear <strong class="highlight-red">bonitos</strong> y <strong class="highlight-blue">sencillos</strong>, para regalarte <strong class="highlight-green">calma</strong> y <strong class="highlight-purple">desconexión</strong>.</p>
+          <p class="tagline js-brand-tagline">
+            Libros para colorear <strong class="highlight-red">bonitos</strong> y <strong class="highlight-blue">sencillos</strong>, para regalarte <strong class="highlight-green">calma</strong> y <strong class="highlight-purple">desconexión</strong>.
+          </p>
         </div>
       </div>
 
-      <!-- Columna Derecha: Selector de Idioma e Icono TikTok (100% Vectorial) -->
       <div class="header-right">
         <div class="lang-selector-container">
-          <button class="lang-btn" id="btnLangEs" onclick="changeLanguage('es')">
-            <span class="lang-flag-circle" id="flagEs"></span>
-            <span class="lang-text">ES</span>
-          </button>
           <button class="lang-btn" id="btnLangEn" onclick="changeLanguage('en')">
             <span class="lang-flag-circle" id="flagEn"></span>
             <span class="lang-text">EN</span>
@@ -224,8 +216,8 @@
       <p>&copy; <span id="year">2026</span> <span class="js-brand-name">Parami Books</span>. Todos los derechos reservados.</p>
     </footer>
   </div>
-  <script src="config.js?v=4.2"></script>
-  <script src="script.js?v=4.2"></script>
+  <script src="config.js?v=4.3"></script>
+  <script src="script.js?v=4.3"></script>
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
