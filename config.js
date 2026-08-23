@@ -130,6 +130,26 @@ const CONFIG = {
           comingSoon: true
         }
       }
+    },
+    {
+      id: "alma-salvaje",
+      prefix: "alma_salvaje",
+      languages: {
+        es: {
+          title: "Alma Salvaje",
+          subtitle: "40 Mandalas de Animales para Colorear",
+          description: "Explora la fuerza y belleza del reino animal a través de 40 mándalas detallados de leones, tortugas, iguanas y criaturas salvajes. Diseñados con trazos limpios para regalarte calma, concentración y desconexión.",
+          coverImage: "alma_salvaje_cover_es.png",
+          comingSoon: true
+        },
+        en: {
+          title: "Wild Soul",
+          subtitle: "40 Animal Mandalas Coloring Book",
+          description: "Discover the majesty and beauty of the animal kingdom with 40 detailed animal mandalas featuring lions, sea turtles, geckos, and wild creatures. Bold, clean outlines perfect for stress relief and relaxation.",
+          coverImage: "alma_salvaje_cover_en.png",
+          comingSoon: true
+        }
+      }
     }
   ]
 };
