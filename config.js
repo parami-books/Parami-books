@@ -136,8 +136,8 @@ const CONFIG = {
       prefix: "alma_salvaje",
       languages: {
         es: {
-          title: "Alma Salvaje",
-          subtitle: "40 Mandalas de Animales para Colorear",
+          title: "Alma Salvaje: 40 Mandalas de Animales",
+          subtitle: "Libro para colorear",
           description: "Explora la fuerza y belleza del reino animal a través de 40 mándalas detallados de leones, tortugas, iguanas y criaturas salvajes. Diseñados con trazos limpios para regalarte calma, concentración y desconexión.",
           coverImage: "alma_salvaje_cover_es.png",
           comingSoon: true

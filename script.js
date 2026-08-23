@@ -228,9 +228,10 @@ function renderCatalog(market) {
       </a>
     `;
 
+    const amazonFallback = asin ? `https://images-na.ssl-images-amazon.com/images/P/${asin}.01.LZZZZZZZ.jpg` : `images/${prefix}_cover_${currentLanguage}.png`;
     const firstSlideHtml = `
       <div class="carousel-slide">
-        <img class="book-cover-img" src="${coverUrl}" alt="Portada de ${details.title}" onerror="this.src='https://images-na.ssl-images-amazon.com/images/P/${asin}.01.LZZZZZZZ.jpg'">
+        <img class="book-cover-img" src="${coverUrl}" alt="Portada de ${details.title}" onerror="this.onerror=null; this.src='${amazonFallback}'">
       </div>
     `;
 
