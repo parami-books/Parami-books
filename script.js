@@ -203,11 +203,11 @@ function renderCatalog(market) {
     
     let coverUrl = "";
     if (details.coverImage) {
-      coverUrl = `images/${details.coverImage}?v=5.2`;
+      coverUrl = `images/${details.coverImage}?v=5.5`;
     } else if (book.coverImage) {
-      coverUrl = `images/${book.coverImage}?v=5.2`;
+      coverUrl = `images/${book.coverImage}?v=5.5`;
     } else {
-      coverUrl = `images/${prefix}_cover_${currentLanguage}.png?v=5.2`;
+      coverUrl = `images/${prefix}_cover_${currentLanguage}.png?v=5.5`;
     }
 
     const card = document.createElement("div");
@@ -240,13 +240,13 @@ function renderCatalog(market) {
         <div class="carousel-track" style="transform: translateX(0%);">
           ${firstSlideHtml}
           <div class="carousel-slide">
-            <img class="book-cover-img" src="images/${prefix}_page_1.png?v=5.2" alt="Página para colorear 1" onerror="this.src='images/mandalas_page_1.png?v=5.2'">
+            <img class="book-cover-img" src="images/${prefix}_page_1.png?v=5.5" alt="Página para colorear 1" onerror="this.src='images/mandalas_page_1.png?v=5.5'">
           </div>
           <div class="carousel-slide">
-            <img class="book-cover-img" src="images/${prefix}_page_2.png?v=5.2" alt="Página para colorear 2" onerror="this.src='images/mandalas_page_2.png?v=5.2'">
+            <img class="book-cover-img" src="images/${prefix}_page_2.png?v=5.5" alt="Página para colorear 2" onerror="this.src='images/mandalas_page_2.png?v=5.5'">
           </div>
           <div class="carousel-slide">
-            <img class="book-cover-img" src="images/${prefix}_page_3.png?v=5.2" alt="Página para colorear 3" onerror="this.src='images/mandalas_page_3.png?v=5.2'">
+            <img class="book-cover-img" src="images/${prefix}_page_3.png?v=5.5" alt="Página para colorear 3" onerror="this.src='images/mandalas_page_3.png?v=5.5'">
           </div>
         </div>
 

@@ -33,26 +33,6 @@ const CONFIG = {
       }
     },
     {
-      id: "alma-salvaje",
-      prefix: "alma_salvaje",
-      languages: {
-        es: {
-          title: "Alma Salvaje: 40 Mandalas de Animales",
-          subtitle: "Libro para colorear",
-          description: "Explora la fuerza y belleza del reino animal a través de 40 mándalas detallados de leones, tortugas, iguanas y criaturas salvajes. Diseñados con trazos limpios para regalarte calma, concentración y desconexión.",
-          coverImage: "alma_salvaje_cover_es.png",
-          comingSoon: true
-        },
-        en: {
-          title: "Wild Soul: 40 Animal Mandalas",
-          subtitle: "Coloring Book",
-          description: "Discover the majesty and beauty of the animal kingdom with 40 detailed animal mandalas featuring lions, sea turtles, geckos, and wild creatures. Bold, clean outlines perfect for stress relief and relaxation.",
-          coverImage: "alma_salvaje_cover_en.png",
-          comingSoon: true
-        }
-      }
-    },
-    {
       id: "smiling-animals",
       prefix: "animals",
       languages: {
@@ -147,6 +127,19 @@ const CONFIG = {
           subtitle: "Bold & Easy Coloring Book",
           description: "Step into an enchanted fairytale forest filled with adorable little fairies, mushroom cottages, garden picnics, and cozy moments! Features bold, clean outlines designed for stress-free coloring with markers.",
           coverImage: "fairies_cover_en.png",
+          comingSoon: true
+        }
+      }
+    },
+    {
+      id: "alma-salvaje",
+      prefix: "alma_salvaje",
+      languages: {
+        es: {
+          title: "Alma Salvaje: 40 Mandalas de Animales",
+          subtitle: "Libro para colorear",
+          description: "Explora la fuerza y belleza del reino animal a través de 40 mándalas detallados de leones, tortugas, iguanas y criaturas salvajes. Diseñados con trazos limpios para regalarte calma, concentración y desconexión.",
+          coverImage: "alma_salvaje_cover_es.png",
           comingSoon: true
         }
       }
