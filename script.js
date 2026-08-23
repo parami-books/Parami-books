@@ -203,13 +203,11 @@ function renderCatalog(market) {
     
     let coverUrl = "";
     if (details.coverImage) {
-      coverUrl = `images/${details.coverImage}?v=5.1`;
+      coverUrl = `images/${details.coverImage}?v=5.2`;
     } else if (book.coverImage) {
-      coverUrl = `images/${book.coverImage}?v=5.1`;
-    } else if (asin && !details.comingSoon) {
-      coverUrl = `https://images-na.ssl-images-amazon.com/images/P/${asin}.01.LZZZZZZZ.jpg`;
+      coverUrl = `images/${book.coverImage}?v=5.2`;
     } else {
-      coverUrl = `images/${prefix}_cover_${currentLanguage}.png?v=5.1`;
+      coverUrl = `images/${prefix}_cover_${currentLanguage}.png?v=5.2`;
     }
 
     const card = document.createElement("div");
@@ -230,35 +228,24 @@ function renderCatalog(market) {
       </a>
     `;
 
-    const isAmazonCover = coverUrl.startsWith("https://images-na.ssl-images-amazon.com");
-    let firstSlideHtml = "";
-    if (isAmazonCover) {
-      firstSlideHtml = `
-        <div class="carousel-slide">
-          <img class="book-cover-img" src="${coverUrl}" alt="Portada de ${details.title}">
-        </div>
-      `;
-    } else {
-      firstSlideHtml = `
-        <div class="carousel-slide cover-slide-local">
-          <img class="book-cover-bg-blur" src="${coverUrl}" alt="">
-          <img class="book-cover-img-fg" src="${coverUrl}" alt="Portada de ${details.title}">
-        </div>
-      `;
-    }
+    const firstSlideHtml = `
+      <div class="carousel-slide">
+        <img class="book-cover-img" src="${coverUrl}" alt="Portada de ${details.title}" onerror="this.src='https://images-na.ssl-images-amazon.com/images/P/${asin}.01.LZZZZZZZ.jpg'">
+      </div>
+    `;
 
     card.innerHTML = `
       <div class="book-cover-container" id="carousel-${book.id}">
         <div class="carousel-track" style="transform: translateX(0%);">
           ${firstSlideHtml}
           <div class="carousel-slide">
-            <img class="book-cover-img" src="images/${prefix}_page_1.png?v=5.1" alt="Página para colorear 1" onerror="this.src='images/mandalas_page_1.png?v=5.1'">
+            <img class="book-cover-img" src="images/${prefix}_page_1.png?v=5.2" alt="Página para colorear 1" onerror="this.src='images/mandalas_page_1.png?v=5.2'">
           </div>
           <div class="carousel-slide">
-            <img class="book-cover-img" src="images/${prefix}_page_2.png?v=5.1" alt="Página para colorear 2" onerror="this.src='images/mandalas_page_2.png?v=5.1'">
+            <img class="book-cover-img" src="images/${prefix}_page_2.png?v=5.2" alt="Página para colorear 2" onerror="this.src='images/mandalas_page_2.png?v=5.2'">
           </div>
           <div class="carousel-slide">
-            <img class="book-cover-img" src="images/${prefix}_page_3.png?v=5.1" alt="Página para colorear 3" onerror="this.src='images/mandalas_page_3.png?v=5.1'">
+            <img class="book-cover-img" src="images/${prefix}_page_3.png?v=5.2" alt="Página para colorear 3" onerror="this.src='images/mandalas_page_3.png?v=5.2'">
           </div>
         </div>
 
