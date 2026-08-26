@@ -127,7 +127,7 @@ const CONFIG = {
           subtitle: "Bold & Easy Coloring Book",
           description: "Step into an enchanted fairytale forest filled with adorable little fairies, mushroom cottages, garden picnics, and cozy moments! Features bold, clean outlines designed for stress-free coloring with markers.",
           coverImage: "fairies_cover_en.png",
-          comingSoon: true
+          asin: "B0HGC8PX3K"
         }
       }
     },
