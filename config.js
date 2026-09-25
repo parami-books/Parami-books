@@ -140,14 +140,14 @@ const CONFIG = {
           subtitle: "Libro para colorear",
           description: "Explora la fuerza y belleza del reino animal a través de 40 mándalas detallados de leones, tortugas, iguanas y criaturas salvajes. Diseñados con trazos limpios para regalarte calma, concentración y desconexión.",
           coverImage: "alma_salvaje_cover_es.jpg",
-          comingSoon: true
+          asin: "B0HKVCNJ3Z"
         },
         en: {
           title: "Wild Soul: 40 Animal Mandalas",
           subtitle: "Coloring Book",
           description: "Explore the power and beauty of the animal kingdom with 40 detailed mandalas featuring lions, turtles, iguanas, and wild creatures. Designed with clean lines for relaxation and stress relief.",
           coverImage: "alma_salvaje_cover_en.jpg",
-          comingSoon: true
+          asin: "B0HKY9PSLN"
         }
       }
     }
