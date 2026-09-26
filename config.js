@@ -252,6 +252,26 @@ const CONFIG = {
           comingSoon: true
         }
       }
+    },
+    {
+      id: "muscle-cars",
+      prefix: "muscle_cars",
+      languages: {
+        es: {
+          title: "American Muscle Cars",
+          subtitle: "Libro para colorear",
+          description: "Siente la potencia y la adrenalina de los legendarios deportivos clásicos americanos: Mustangs GT500, Camaros SS, Chevelles y bólidos de aceleración en la Ruta 66 y Hollywood. Con ilustraciones dinámicas y detalladas listas para cobrar vida con tus colores.",
+          coverImage: "muscle_cars_cover_es.jpg",
+          comingSoon: true
+        },
+        en: {
+          title: "American Muscle Cars",
+          subtitle: "Coloring Book",
+          description: "Feel the raw power and timeless attitude of iconic American muscle cars: Shelby GT500 Mustangs, Camaro SS, Chevelles, and drag strip legends roaring down Route 66 and Hollywood Blvd! Featuring bold, high-octane illustrations ready to color.",
+          coverImage: "muscle_cars_cover_en.jpg",
+          comingSoon: true
+        }
+      }
     }
   ]
 };
