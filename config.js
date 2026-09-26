@@ -211,6 +211,26 @@ const CONFIG = {
           comingSoon: true
         }
       }
+    },
+    {
+      id: "cozy-animals-work",
+      prefix: "cozy_work",
+      languages: {
+        es: {
+          title: "Animales Cozy con Oficios",
+          subtitle: "Libro para colorear",
+          description: "Descubre una entrañable aldea donde adorables animalitos disfrutan de sus divertidos oficios: zorritos panaderos, osos carpinteros, nutrias floristas y artesanos. Diseñado con trazos limpios y definidos para pintar sin estrés y despertar tu creatividad.",
+          coverImage: "cozy_work_cover_es.jpg",
+          comingSoon: true
+        },
+        en: {
+          title: "Cozy Animals at Work",
+          subtitle: "A Coloring Book",
+          description: "Step into a bustling storybook town full of adorable animals working cheerful jobs: baker foxes, carpenter bears, florist otters, and master builders! Featuring bold, clean outlines designed for relaxing, stress-free coloring.",
+          coverImage: "cozy_work_cover_en.jpg",
+          comingSoon: true
+        }
+      }
     }
   ]
 };

@@ -547,6 +547,23 @@ body {
     0 0 26px rgba(56, 189, 248, 0.65);
 }
 
+/* 11. Animales Cozy con Oficios / Cozy Animals at Work: Melocotón Dorado / Panadería Cálida y Verde Artesano */
+.book-card-cozy-animals-work {
+  background: linear-gradient(135deg, #fb923c 0%, #d97706 50%, #0d9488 100%);
+  border: 2px solid #fde047;
+  box-shadow: 
+    0 10px 24px rgba(251, 146, 60, 0.5), 
+    inset 0 0 15px rgba(255, 255, 255, 0.25),
+    0 0 20px rgba(217, 119, 6, 0.45);
+}
+.book-card-cozy-animals-work:hover {
+  box-shadow: 
+    0 14px 28px rgba(251, 146, 60, 0.65), 
+    inset 0 0 18px rgba(255, 255, 255, 0.35),
+    0 0 26px rgba(217, 119, 6, 0.65);
+}
+
+
 /* Contenedor de Portadas con Relación de Aspecto Vertical y Carrusel */
 .book-cover-container {
   width: 100%;
