@@ -74,6 +74,7 @@ const CONFIG = {
     {
       id: "mandalas-3d",
       prefix: "mandalas_3d",
+      samplePages: 4,
       languages: {
         es: {
           title: "Mándalas Geométricos 3D",
