@@ -171,7 +171,28 @@ const CONFIG = {
           comingSoon: true
         }
       }
+    },
+    {
+      id: "cozy-gnomes",
+      prefix: "gnomes",
+      languages: {
+        es: {
+          title: "Duendes y Gnomos Cozy en Otoño",
+          subtitle: "Libro para colorear",
+          description: "Adéntrate en una aldea mágica de otoño llena de gnomos simpáticos, duendecillos, calabazas y momentos acogedores. Con trazos limpios y gruesos pensados para relajarte y disfrutar coloreando.",
+          coverImage: "gnomes_cover_es.jpg",
+          comingSoon: true
+        },
+        en: {
+          title: "Gnomes & Elves: Cozy Autumn",
+          subtitle: "Bold & Easy Coloring Book",
+          description: "Step into a magical autumn village full of cute gnomes, playful elves, pumpkins, and cozy fall adventures! Designed with bold, clean outlines perfect for stress-free coloring with markers.",
+          coverImage: "gnomes_cover_en.jpg",
+          comingSoon: true
+        }
+      }
     }
   ]
 };
+
 
