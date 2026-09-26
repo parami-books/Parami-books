@@ -191,8 +191,29 @@ const CONFIG = {
           comingSoon: true
         }
       }
+    },
+    {
+      id: "mandala-dragons",
+      prefix: "dragons",
+      languages: {
+        es: {
+          title: "Dragones Mandala",
+          subtitle: "Libro para colorear",
+          description: "Descubre el poder y la belleza de 40 majestuosos dragones mandala: dragones de cristal, criaturas celestiales, dragones de bosque y orientales. Diseñados con trazos limpios para regalarte calma, creatividad y desconexión.",
+          coverImage: "dragons_cover_es.jpg",
+          comingSoon: true
+        },
+        en: {
+          title: "Mandala Dragons",
+          subtitle: "Coloring Book",
+          description: "Explore the power and beauty of 40 magnificent mandala dragons: ice dragons, crystal beasts, celestial wyrms, and legendary guardians. Featuring clean outlines designed for deep focus and stress relief.",
+          coverImage: "dragons_cover_en.jpg",
+          comingSoon: true
+        }
+      }
     }
   ]
 };
+
 
 
