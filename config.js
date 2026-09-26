@@ -232,6 +232,26 @@ const CONFIG = {
           comingSoon: true
         }
       }
+    },
+    {
+      id: "cozy-dragons",
+      prefix: "cozy_dragons",
+      languages: {
+        es: {
+          title: "Dragones Cozy",
+          subtitle: "Libro para colorear",
+          description: "Adéntrate en un reino mágico y acogedor habitado por 40 adorables dragoncitos en escenas de fantasía: jugando entre setas gigantes, explorando puentes de madera con tortugas y volando bajo la luz de las estrellas. Diseñado con trazos limpios para regalarte calma y diversión.",
+          coverImage: "cozy_dragons_cover_es.jpg",
+          comingSoon: true
+        },
+        en: {
+          title: "Cozy Dragons",
+          subtitle: "Coloring Book",
+          description: "Step into an enchanting fairytale realm filled with 40 adorable baby dragons in cozy magical scenes: playing among giant mushrooms, making friends with woodland turtles, and soaring across starry skies! Features clean, bold outlines perfect for relaxing coloring.",
+          coverImage: "cozy_dragons_cover_en.jpg",
+          comingSoon: true
+        }
+      }
     }
   ]
 };
