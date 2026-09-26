@@ -150,6 +150,28 @@ const CONFIG = {
           asin: "B0HKY9PSLN"
         }
       }
+    },
+    {
+      id: "baby-animals",
+      prefix: "baby_animals",
+      samplePages: 4,
+      languages: {
+        es: {
+          title: "Animales Bebés",
+          subtitle: "Smiling Animals · Vol. 3",
+          description: "¡Pequeños animales, grandes aventuras! Conoce a 40 adorables crías en escenas divertidas para colorear e imaginar: pangolines, ornitorrincos, quokkas y ajolotes. Diseñado con trazos limpios y simpáticos.",
+          coverImage: "baby_animals_cover_es.jpg",
+          comingSoon: true
+        },
+        en: {
+          title: "Baby Animals",
+          subtitle: "Smiling Animals · Vol. 3",
+          description: "Big smiles, little adventures! Meet 40 adorable baby animals in playful scenes made for coloring and imagination: baby pangolins, platypuses, quokkas, and axolotls. Designed with clean lines for fun, stress-free coloring.",
+          coverImage: "baby_animals_cover_en.jpg",
+          comingSoon: true
+        }
+      }
     }
   ]
 };
+

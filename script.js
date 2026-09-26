@@ -203,13 +203,13 @@ function renderCatalog(market) {
     
     let coverUrl = "";
     if (details.coverImage) {
-      coverUrl = `images/${details.coverImage}?v=17.0`;
+      coverUrl = `images/${details.coverImage}?v=18.0`;
     } else if (book.coverImage) {
-      coverUrl = `images/${book.coverImage}?v=17.0`;
+      coverUrl = `images/${book.coverImage}?v=18.0`;
     } else if (asin && !details.comingSoon) {
       coverUrl = `https://images-na.ssl-images-amazon.com/images/P/${asin}.01.LZZZZZZZ.jpg`;
     } else {
-      coverUrl = `images/${prefix}_cover_${currentLanguage}.png?v=17.0`;
+      coverUrl = `images/${prefix}_cover_${currentLanguage}.png?v=18.0`;
     }
 
     const card = document.createElement("div");
@@ -230,36 +230,46 @@ function renderCatalog(market) {
       </a>
     `;
 
+    const samplePageCount = book.samplePages || 3;
+    const totalSlides = samplePageCount + 1;
+    const slideWidthPercent = 100 / totalSlides;
+
     const isAmazonCover = coverUrl.startsWith("https://images-na.ssl-images-amazon.com");
     let firstSlideHtml = "";
     if (isAmazonCover) {
       firstSlideHtml = `
-        <div class="carousel-slide">
-          <img class="book-cover-img" src="${coverUrl}" alt="Portada de ${details.title}" onerror="this.onerror=null; this.src='images/${prefix}_cover_${currentLanguage}.png?v=17.0'">
+        <div class="carousel-slide" style="width: ${slideWidthPercent}%;">
+          <img class="book-cover-img" src="${coverUrl}" alt="Portada de ${details.title}" onerror="this.onerror=null; this.src='images/${prefix}_cover_${currentLanguage}.png?v=18.0'">
         </div>
       `;
     } else {
       firstSlideHtml = `
-        <div class="carousel-slide cover-slide-local">
+        <div class="carousel-slide cover-slide-local" style="width: ${slideWidthPercent}%;">
           <img class="book-cover-bg-blur" src="${coverUrl}" alt="" onerror="this.style.display='none'">
           <img class="book-cover-img-fg" src="${coverUrl}" alt="Portada de ${details.title}">
         </div>
       `;
     }
 
+    let sampleSlidesHtml = "";
+    let dotsHtml = `<span class="dot active" onclick="setSlide('${book.id}', 0)"></span>`;
+
+    for (let i = 1; i <= samplePageCount; i++) {
+      sampleSlidesHtml += `
+        <div class="carousel-slide" style="width: ${slideWidthPercent}%;">
+          <img class="book-cover-img" src="images/${prefix}_page_${i}.png?v=18.0" alt="Página para colorear ${i}" onerror="this.onerror=null; this.style.display='none'">
+        </div>
+      `;
+      dotsHtml += `
+        <span class="dot" onclick="setSlide('${book.id}', ${i})"></span>
+      `;
+    }
+
     card.innerHTML = `
       <div class="book-cover-container" id="carousel-${book.id}">
-        <div class="carousel-track" style="transform: translateX(0%);">
+        <div class="carousel-track" style="width: ${totalSlides * 100}%; transform: translateX(0%);">
           ${firstSlideHtml}
-          <div class="carousel-slide">
-            <img class="book-cover-img" src="images/${prefix}_page_1.png?v=17.0" alt="Página para colorear 1" onerror="this.onerror=null; this.style.display='none'">
-          </div>
-          <div class="carousel-slide">
-            <img class="book-cover-img" src="images/${prefix}_page_2.png?v=17.0" alt="Página para colorear 2" onerror="this.onerror=null; this.style.display='none'">
-          </div>
-          <div class="carousel-slide">
-            <img class="book-cover-img" src="images/${prefix}_page_3.png?v=17.0" alt="Página para colorear 3" onerror="this.onerror=null; this.style.display='none'">
-          </div>
+          ${sampleSlidesHtml}
         </div>
 
         <button class="slider-arrow prev" onclick="moveSlide('${book.id}', -1)" title="Anterior">
@@ -270,10 +280,7 @@ function renderCatalog(market) {
         </button>
 
         <div class="slider-dots">
-          <span class="dot active" onclick="setSlide('${book.id}', 0)"></span>
-          <span class="dot" onclick="setSlide('${book.id}', 1)"></span>
-          <span class="dot" onclick="setSlide('${book.id}', 2)"></span>
-          <span class="dot" onclick="setSlide('${book.id}', 3)"></span>
+          ${dotsHtml}
         </div>
       </div>
 
@@ -294,8 +301,12 @@ function renderCatalog(market) {
 const carouselStates = {};
 
 function moveSlide(bookId, direction) {
+  const container = document.getElementById(`carousel-${bookId}`);
+  if (!container) return;
+  const track = container.querySelector(".carousel-track");
+  const totalSlides = track ? track.children.length : 4;
   const currentIndex = carouselStates[bookId] || 0;
-  const nextIndex = (currentIndex + direction + 4) % 4;
+  const nextIndex = (currentIndex + direction + totalSlides) % totalSlides;
   setSlide(bookId, nextIndex);
 }
 
@@ -306,7 +317,8 @@ function setSlide(bookId, index) {
 
   const track = container.querySelector(".carousel-track");
   if (track) {
-    track.style.transform = `translateX(-${index * 25}%)`;
+    const totalSlides = track.children.length || 4;
+    track.style.transform = `translateX(-${index * (100 / totalSlides)}%)`;
   }
 
   const dots = container.querySelectorAll(".slider-dots .dot");
