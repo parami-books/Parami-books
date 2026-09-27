@@ -292,6 +292,27 @@ const CONFIG = {
           comingSoon: true
         }
       }
+    },
+    {
+      id: "formula-1",
+      prefix: "formula1",
+      samplePages: 4,
+      languages: {
+        es: {
+          title: "Fórmula 1: Coches y Circuitos Históricos",
+          subtitle: "Libro para colorear",
+          description: "Revive la época dorada del automovilismo con las mayores leyendas de la F1 y sus monoplazas míticos: el Renault R25 de Fernando Alonso en Imola, el Ferrari F2004 de Schumacher en Monza, el McLaren MP4/4 de Ayrton Senna en Suzuka y el Ferrari 312T de Niki Lauda en Mónaco. Ilustraciones detalladas con trazados de circuitos y firmas de pilotos para colorear pura velocidad.",
+          coverImage: "formula1_cover_es.jpg",
+          comingSoon: true
+        },
+        en: {
+          title: "Formula 1: Historic Cars and Circuits",
+          subtitle: "Coloring Book",
+          description: "Relive the golden eras of motorsport with legendary F1 icons and their championship machines: Fernando Alonso's Renault R25 at Imola, Michael Schumacher's Ferrari F2004 at Monza, Ayrton Senna's McLaren MP4/4 at Suzuka, and Niki Lauda's Ferrari 312T at Monaco. Featuring authentic circuit layouts and driver signatures ready to color.",
+          coverImage: "formula1_cover_en.jpg",
+          comingSoon: true
+        }
+      }
     }
   ]
 };

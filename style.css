@@ -611,6 +611,22 @@ body {
     0 0 26px rgba(244, 114, 182, 0.7);
 }
 
+/* 15. Fórmula 1: Rojo Rosso Corsa / Asfalto Fibra de Carbono y Oro Campeón */
+.book-card-formula-1 {
+  background: linear-gradient(135deg, #09090b 0%, #b91c1c 50%, #dc2626 100%);
+  border: 2px solid #ef4444;
+  box-shadow: 
+    0 10px 24px rgba(220, 38, 38, 0.5), 
+    inset 0 0 15px rgba(255, 255, 255, 0.2),
+    0 0 20px rgba(239, 68, 68, 0.45);
+}
+.book-card-formula-1:hover {
+  box-shadow: 
+    0 14px 28px rgba(220, 38, 38, 0.7), 
+    inset 0 0 18px rgba(255, 255, 255, 0.3),
+    0 0 26px rgba(239, 68, 68, 0.7);
+}
+
 
 /* Contenedor de Portadas con Relación de Aspecto Vertical y Carrusel */
 .book-cover-container {
