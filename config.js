@@ -272,6 +272,26 @@ const CONFIG = {
           comingSoon: true
         }
       }
+    },
+    {
+      id: "jdm-nights",
+      prefix: "jdm_nights",
+      languages: {
+        es: {
+          title: "JDM Nights",
+          subtitle: "Libro para colorear · Coches, cultura y estilo de vida",
+          description: "Adéntrate en la fascinante cultura automovilística japonesa bajo las luces de neón de Tokio: Skylines GT-R R34, Lancers Evolution IX, Nissans 350Z derrapando en puertos de montaña y Celicas de rally. Con ilustraciones hiperdetalladas que capturan la esencia del tuning, las autopistas Shuto y el espíritu JDM.",
+          coverImage: "jdm_nights_cover_es.jpg",
+          comingSoon: true
+        },
+        en: {
+          title: "JDM Nights",
+          subtitle: "Coloring Book · Cars, Culture & Lifestyle",
+          description: "Immerse yourself in legendary Japanese car culture under Tokyo's neon glow: Skyline GT-R R34, Lancer Evolution IX, Nissan 350Z touge drifters, and Celica rally machines! Packed with high-octane, intricately detailed illustrations capturing the heart of JDM tuning and midnight highway runs.",
+          coverImage: "jdm_nights_cover_en.jpg",
+          comingSoon: true
+        }
+      }
     }
   ]
 };
