@@ -387,6 +387,22 @@ body {
 
 /* Fondos Coloridos e Intensos de los Libros */
 
+/* Cozy Halloween: Naranja Calabaza / Ámbar Otoñal y Violeta Hechizo */
+.book-card-cozy-halloween {
+  background: linear-gradient(135deg, #c2410c 0%, #ea580c 45%, #6b21a8 100%);
+  border: 2px solid #fde047;
+  box-shadow: 
+    0 10px 24px rgba(234, 88, 12, 0.5), 
+    inset 0 0 15px rgba(255, 255, 255, 0.25),
+    0 0 20px rgba(107, 33, 168, 0.45);
+}
+.book-card-cozy-halloween:hover {
+  box-shadow: 
+    0 14px 28px rgba(234, 88, 12, 0.65), 
+    inset 0 0 18px rgba(255, 255, 255, 0.35),
+    0 0 26px rgba(107, 33, 168, 0.65);
+}
+
 /* 1. Mandalas & Flowers: Orquidea / Rosa vivo florido */
 .book-card-mandalas-flowers {
   background: linear-gradient(135deg, #be185d 0%, #e11d48 50%, #9d174d 100%);
