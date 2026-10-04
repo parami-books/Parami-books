@@ -15,6 +15,27 @@ const CONFIG = {
 
   books: [
     {
+      id: "cozy-halloween",
+      prefix: "cozy_halloween",
+      samplePages: 5,
+      languages: {
+        es: {
+          title: "Cozy Halloween",
+          subtitle: "Libro para colorear",
+          description: "¡Celebra el otoño y Halloween con un toque tierno y acogedor! Descubre divertidas escenas de monstruos clásicos en versión chibi: el vampirito, la momia, brujitas, hombres lobo, fantasmas y simpáticos iconos del terror compartiendo calabazas, dulces y bebidas calientes. Ilustraciones con trazos limpios pensadas para relajarse y disfrutar coloreando.",
+          coverImage: "cozy_halloween_cover_es.jpg",
+          asin: "B0HLX7LH8V"
+        },
+        en: {
+          title: "Cozy Halloween",
+          subtitle: "Bold & Easy Coloring Book",
+          description: "Celebrate the cozy magic of spooky season! Step into a whimsical autumn world filled with adorable chibi monsters, friendly ghosts, little vampires, mummies, and sweet witches enjoying pumpkin treats and warm drinks. Features bold, clean outlines designed for relaxing, stress-free coloring.",
+          coverImage: "cozy_halloween_cover_en.jpg",
+          asin: "B0HLX7LH8V"
+        }
+      }
+    },
+    {
       id: "mandalas-flowers",
       prefix: "mandalas",
       languages: {
@@ -189,27 +210,6 @@ const CONFIG = {
           subtitle: "Bold & Easy Coloring Book",
           description: "Step into a magical autumn village full of cute gnomes, playful elves, pumpkins, and cozy fall adventures! Designed with bold, clean outlines perfect for stress-free coloring with markers.",
           coverImage: "gnomes_cover_en.jpg",
-          comingSoon: true
-        }
-      }
-    },
-    {
-      id: "cozy-halloween",
-      prefix: "cozy_halloween",
-      samplePages: 5,
-      languages: {
-        es: {
-          title: "Cozy Halloween",
-          subtitle: "Libro para colorear",
-          description: "¡Celebra el otoño y Halloween con un toque tierno y acogedor! Descubre divertidas escenas de monstruos clásicos en versión chibi: el vampirito, la momia, brujitas, hombres lobo, fantasmas y simpáticos iconos del terror compartiendo calabazas, dulces y bebidas calientes. Ilustraciones con trazos limpios pensadas para relajarse y disfrutar coloreando.",
-          coverImage: "cozy_halloween_cover_es.jpg",
-          comingSoon: true
-        },
-        en: {
-          title: "Cozy Halloween",
-          subtitle: "Bold & Easy Coloring Book",
-          description: "Celebrate the cozy magic of spooky season! Step into a whimsical autumn world filled with adorable chibi monsters, friendly ghosts, little vampires, mummies, and sweet witches enjoying pumpkin treats and warm drinks. Features bold, clean outlines designed for relaxing, stress-free coloring.",
-          coverImage: "cozy_halloween_cover_en.jpg",
           comingSoon: true
         }
       }
