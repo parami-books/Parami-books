@@ -3,129 +3,118 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Parami Books - Catálogo Oficial</title>
+  <title>Parami Books - Coloring Books for a Calmer, Happier World</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-sidebar: #0f1422;
-      --bg-sidebar-hover: #1b2238;
-      --bg-main: #fbf9f5;
+      --bg-sidebar: #0a0e17;
+      --bg-sidebar-hover: #141b2b;
+      --bg-page: #f8f5ee;
       --card-bg: #ffffff;
-      --text-main: #1e1b18;
+      --text-main: #111827;
       --text-muted: #6b7280;
-      --amazon-yellow: #f59e0b;
-      --amazon-hover: #d97706;
       --amazon-btn: #ffd814;
       --amazon-btn-border: #fcd200;
+      --amazon-btn-hover: #f7ca00;
       --primary-orange: #ea580c;
-      --border-color: #ebdcd0;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
-      background: var(--bg-main);
+    
+    html, body {
+      background: var(--bg-page);
       color: var(--text-main);
-      display: flex;
+      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
       min-height: 100vh;
       overflow-x: hidden;
     }
 
-    /* SIDEBAR (DESKTOP) */
+    body {
+      display: flex;
+    }
+
+    /* ========================================================
+       BARRA LATERAL IZQUIERDA (DARK SIDEBAR)
+       ======================================================== */
     aside.sidebar {
-      width: 260px;
+      width: 235px;
       background: var(--bg-sidebar);
       color: #e2e8f0;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 24px 16px;
+      padding: 20px 14px;
       flex-shrink: 0;
       position: sticky;
       top: 0;
       height: 100vh;
       overflow-y: auto;
       z-index: 100;
-      transition: transform 0.3s ease;
+      border-right: 1px solid rgba(255, 255, 255, 0.05);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .brand-logo-wrap {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 28px;
-      padding-left: 8px;
-    }
-    .brand-logo-badge {
-      width: 44px;
-      height: 44px;
-      background: linear-gradient(135deg, #f97316, #ea580c, #c026d3);
-      border-radius: 12px;
+    .brand-wrap {
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 24px;
-      box-shadow: 0 4px 14px rgba(234, 88, 12, 0.4);
+      margin-bottom: 20px;
+      padding: 4px 0;
+      cursor: pointer;
     }
-    .brand-logo-text h1 {
-      font-family: 'Nunito', sans-serif;
-      font-size: 20px;
-      font-weight: 900;
-      color: #ffffff;
-      letter-spacing: -0.5px;
-      line-height: 1.1;
-    }
-    .brand-logo-text p {
-      font-size: 10px;
-      color: #fb923c;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
+    .brand-logo-img {
+      height: 56px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 12px rgba(234, 88, 12, 0.45));
     }
 
     .sidebar-group {
-      margin-bottom: 22px;
+      margin-bottom: 16px;
     }
     .sidebar-title {
       font-size: 10px;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 1.2px;
-      color: #64748b;
-      margin-bottom: 8px;
-      padding-left: 12px;
+      color: #4b5563;
+      margin-bottom: 6px;
+      padding-left: 10px;
     }
     .sidebar-menu {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 3px;
     }
     .sidebar-menu li a {
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 9px 12px;
+      gap: 10px;
+      padding: 8px 12px;
       color: #94a3b8;
       text-decoration: none;
-      font-size: 13.5px;
+      font-size: 13px;
       font-weight: 600;
       border-radius: 8px;
       transition: all 0.2s ease;
+      cursor: pointer;
     }
     .sidebar-menu li a:hover {
       background: var(--bg-sidebar-hover);
       color: #ffffff;
+      transform: translateX(2px);
     }
     .sidebar-menu li.active a {
-      background: linear-gradient(90deg, rgba(234, 88, 12, 0.25), rgba(234, 88, 12, 0.05));
-      color: #fb923c;
-      border-left: 3px solid #f97316;
+      background: linear-gradient(90deg, rgba(217, 119, 6, 0.4) 0%, rgba(180, 83, 9, 0.15) 100%);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      font-weight: 700;
     }
     .menu-icon {
-      font-size: 16px;
+      font-size: 15px;
       width: 20px;
       display: flex;
       align-items: center;
@@ -133,15 +122,15 @@
     }
 
     .sidebar-bottom {
-      border-top: 1px solid #1e293b;
-      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 14px;
     }
     .lang-switcher {
       display: flex;
-      gap: 8px;
-      margin-bottom: 14px;
-      padding: 4px;
-      background: #1e293b;
+      gap: 6px;
+      margin-bottom: 12px;
+      padding: 3px;
+      background: #141a27;
       border-radius: 8px;
     }
     .lang-btn {
@@ -150,7 +139,7 @@
       border: none;
       background: transparent;
       color: #94a3b8;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 700;
       border-radius: 6px;
       cursor: pointer;
@@ -158,6 +147,7 @@
       align-items: center;
       justify-content: center;
       gap: 4px;
+      transition: all 0.2s;
     }
     .lang-btn.active {
       background: #ea580c;
@@ -165,427 +155,556 @@
     }
     .social-bar {
       display: flex;
-      justify-content: space-around;
-      font-size: 18px;
-      padding: 4px 0;
+      justify-content: center;
+      gap: 24px;
+      font-size: 20px;
+      padding: 6px 0 2px;
     }
     .social-bar a {
       color: #64748b;
       text-decoration: none;
-      transition: color 0.2s;
+      transition: color 0.2s, transform 0.2s;
     }
     .social-bar a:hover {
       color: #fb923c;
+      transform: translateY(-2px);
     }
 
-    /* MAIN CONTENT */
+    /* ========================================================
+       ÁREA PRINCIPAL DE LA WEB (MAIN CONTENT)
+       ======================================================== */
     main.main-viewport {
       flex: 1;
       min-width: 0;
-      padding: 24px 36px 60px;
+      background: var(--bg-page);
+      display: flex;
+      flex-direction: column;
     }
 
-    /* TOP BAR */
-    header.top-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 24px;
-      gap: 16px;
-    }
-    .mobile-menu-toggle {
+    /* ========================================================
+       VISTA 1: INICIO (HOME VIEW)
+       ======================================================== */
+    .view-container {
       display: none;
-      background: transparent;
-      border: none;
-      font-size: 24px;
-      cursor: pointer;
-      color: var(--text-main);
+      animation: fadeIn 0.25s ease-out;
     }
-    .search-box {
-      flex: 1;
-      max-width: 500px;
-      position: relative;
-    }
-    .search-box input {
-      width: 100%;
-      padding: 11px 16px 11px 42px;
-      border: 1px solid #e2e8f0;
-      border-radius: 30px;
-      font-size: 13.5px;
-      background: #ffffff;
-      outline: none;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
-      transition: border 0.2s, box-shadow 0.2s;
-    }
-    .search-box input:focus {
-      border-color: #f97316;
-      box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15);
-    }
-    .search-icon {
-      position: absolute;
-      left: 14px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 16px;
-      color: #94a3b8;
-    }
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .amazon-store-badge {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      background: #131921;
-      color: #ffffff;
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-size: 12.5px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: background 0.2s;
-    }
-    .amazon-store-badge:hover {
-      background: #232f3e;
-    }
-    .amazon-store-badge span.smile {
-      color: #ff9900;
-    }
-
-    /* HERO FEATURED BANNER */
-    .hero-banner {
-      background: linear-gradient(135deg, #2b1f1a, #1a1412);
-      border-radius: 22px;
-      overflow: hidden;
-      position: relative;
-      margin-bottom: 36px;
-      box-shadow: 0 16px 36px rgba(0,0,0,0.12);
-      border: 1px solid rgba(255,255,255,0.06);
-    }
-    .hero-bg-overlay {
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(circle at 80% 30%, rgba(234, 88, 12, 0.25), transparent 60%);
-      pointer-events: none;
-    }
-    .hero-container {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      padding: 36px 44px;
-      gap: 36px;
-    }
-    .hero-cover-3d {
-      width: 220px;
-      flex-shrink: 0;
-      filter: drop-shadow(0 16px 20px rgba(0,0,0,0.45));
-      transition: transform 0.3s ease;
-    }
-    .hero-cover-3d:hover {
-      transform: scale(1.03) rotate(-1deg);
-    }
-    .hero-cover-3d img {
-      width: 100%;
-      border-radius: 12px;
+    .view-container.active {
       display: block;
     }
-    .hero-info {
-      flex: 1;
-      color: #ffffff;
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    .hero-badge-tag {
-      display: inline-flex;
+
+    .panorama-top-section {
+      width: 100%;
+      position: relative;
+      background: #0b0f19;
+    }
+    .panorama-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Áreas clicables interactivas en la panorámica */
+    .clickable-amazon-hero {
+      position: absolute;
+      top: 67%;
+      left: 45%;
+      width: 17%;
+      height: 14%;
+      border-radius: 30px;
+      cursor: pointer;
+      z-index: 10;
+    }
+    .clickable-spread-hero {
+      position: absolute;
+      top: 25%;
+      left: 71%;
+      width: 25%;
+      height: 60%;
+      border-radius: 14px;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .content-body-wrap {
+      padding: 20px 28px 40px;
+    }
+
+    .section-wrap {
+      margin-bottom: 24px;
+    }
+    .section-header-exact {
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 6px;
-      background: #ea580c;
-      color: #ffffff;
-      font-size: 11px;
-      font-weight: 800;
-      text-transform: uppercase;
-      padding: 4px 12px;
-      border-radius: 20px;
-      letter-spacing: 0.8px;
       margin-bottom: 12px;
     }
-    .hero-info h2 {
+    .section-title-exact {
       font-family: 'Nunito', sans-serif;
-      font-size: 32px;
+      font-size: 19px;
       font-weight: 900;
-      line-height: 1.15;
-      margin-bottom: 10px;
-      letter-spacing: -0.5px;
-    }
-    .hero-info p {
-      font-size: 14.5px;
-      color: #d1d5db;
-      line-height: 1.5;
-      margin-bottom: 22px;
-      max-width: 480px;
-    }
-    .hero-cta-btn {
-      display: inline-flex;
+      color: #1e293b;
+      display: flex;
       align-items: center;
       gap: 8px;
-      background: var(--amazon-btn);
-      border: 1px solid var(--amazon-btn-border);
-      color: #111827;
-      padding: 12px 24px;
-      border-radius: 30px;
-      font-size: 14.5px;
-      font-weight: 800;
-      text-decoration: none;
-      box-shadow: 0 4px 14px rgba(255, 216, 20, 0.4);
-      transition: all 0.2s ease;
-    }
-    .hero-cta-btn:hover {
-      background: #f7ca00;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(255, 216, 20, 0.5);
-    }
-
-    /* OPEN BOOK SAMPLE PREVIEW */
-    .hero-book-preview {
-      width: 280px;
-      flex-shrink: 0;
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 16px;
-      padding: 16px;
-      text-align: center;
-    }
-    .preview-header {
-      font-size: 11px;
-      font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #fed7aa;
-      margin-bottom: 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      letter-spacing: 0.5px;
     }
-    .preview-spread {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 10px;
-    }
-    .spread-side {
-      flex: 1;
-      height: 160px;
-      border-radius: 8px;
-      overflow: hidden;
-      background: #ffffff;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    }
-    .spread-side img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .preview-label {
-      font-size: 11px;
-      color: #cbd5e1;
-      display: flex;
-      justify-content: space-around;
-      font-weight: 600;
-    }
-
-    /* SECTIONS */
-    .content-section {
-      margin-bottom: 40px;
-    }
-    .section-title-wrap {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 18px;
-    }
-    .section-heading {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-family: 'Nunito', sans-serif;
-      font-size: 21px;
-      font-weight: 900;
-      color: #1e1b18;
-    }
-    .see-all-link {
-      font-size: 13px;
+    .section-link-exact {
+      font-size: 12.5px;
       font-weight: 700;
-      color: #ea580c;
+      color: #0284c7;
       text-decoration: none;
       display: flex;
       align-items: center;
       gap: 4px;
+      cursor: pointer;
     }
-    .see-all-link:hover {
+    .section-link-exact:hover {
       text-decoration: underline;
     }
 
-    /* 4 COLLECTION CARDS */
-    .collections-grid {
+    /* 4 COLECCIONES ILUSTRADAS */
+    .collections-row-exact {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
+      gap: 14px;
     }
-    .collection-card {
-      border-radius: 16px;
-      padding: 20px;
-      color: #ffffff;
-      text-decoration: none;
-      position: relative;
+    .col-card-exact {
+      border-radius: 14px;
       overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 140px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.06);
       transition: transform 0.25s, box-shadow 0.25s;
+      cursor: pointer;
+      display: block;
+      border: 1px solid rgba(0,0,0,0.04);
+      background: #ffffff;
     }
-    .collection-card:hover {
+    .col-card-exact:hover {
       transform: translateY(-4px);
-      box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.12);
     }
-    .collection-card.magical {
-      background: linear-gradient(135deg, #7c3aed, #581c87);
-    }
-    .collection-card.animals {
-      background: linear-gradient(135deg, #059669, #064e3b);
-    }
-    .collection-card.mandalas {
-      background: linear-gradient(135deg, #db2777, #831843);
-    }
-    .collection-card.machines {
-      background: linear-gradient(135deg, #b91c1c, #450a0a);
-    }
-    .col-title {
-      font-family: 'Nunito', sans-serif;
-      font-size: 18px;
-      font-weight: 900;
-      margin-bottom: 4px;
-    }
-    .col-subtitle {
-      font-size: 12px;
-      opacity: 0.9;
-      line-height: 1.3;
-    }
-    .col-btn {
-      align-self: flex-start;
-      margin-top: 14px;
-      background: rgba(255, 255, 255, 0.25);
-      backdrop-filter: blur(4px);
-      border-radius: 20px;
-      padding: 5px 12px;
-      font-size: 11px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+    .col-card-img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
 
-    /* RELEASES ROW */
-    .releases-grid {
+    /* 6 ÚLTIMOS LANZAMIENTOS (TIRA HORIZONTAL) */
+    .books-row-exact {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
     }
-    .book-item-card {
-      background: var(--card-bg);
+    .book-card-exact {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      cursor: pointer;
+      display: block;
+      text-decoration: none;
+      background: #ffffff;
+      border: 1.5px solid #ebdcd0;
+      position: relative;
+    }
+    .book-card-exact:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.13);
+      border-color: #f59e0b;
+    }
+    .book-card-img {
+      width: 100%;
+      aspect-ratio: 1 / 1.294;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .book-card-exact:hover .book-card-img {
+      transform: scale(1.03);
+    }
+    .book-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(10, 14, 23, 0.15) 0%, rgba(10, 14, 23, 0.88) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 10px;
+      gap: 6px;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      z-index: 5;
+    }
+    .book-card-exact:hover .book-card-overlay {
+      opacity: 1;
+    }
+    .card-quick-btn-amazon {
+      background: #ffd814;
+      color: #0f1111;
+      font-weight: 800;
+      font-size: 11px;
+      padding: 6px 10px;
       border-radius: 14px;
-      border: 1px solid var(--border-color);
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+      transition: background 0.15s, transform 0.15s;
+    }
+    .card-quick-btn-amazon:hover {
+      background: #f7ca00;
+      transform: scale(1.02);
+    }
+    .card-quick-btn-preview {
+      background: rgba(255, 255, 255, 0.95);
+      color: #0f172a;
+      font-weight: 700;
+      font-size: 11px;
+      padding: 6px 10px;
+      border-radius: 14px;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+      display: block;
+      transition: background 0.15s, transform 0.15s;
+    }
+    .card-quick-btn-preview:hover {
+      background: #ffffff;
+      transform: scale(1.02);
+    }
+
+    /* ========================================================
+       VISTA 2: CATÁLOGO DE COLECCIÓN / TODOS LOS LIBROS
+       ======================================================== */
+    .category-view-wrap {
+      padding: 24px 32px 60px;
+    }
+    
+    .category-header-banner {
+      background: linear-gradient(135deg, #1e1b18 0%, #2b1f1a 100%);
+      color: #ffffff;
+      border-radius: 18px;
+      padding: 28px 36px;
+      margin-bottom: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+    .category-header-info h2 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 28px;
+      font-weight: 900;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .category-header-info p {
+      font-size: 14px;
+      color: #d1d5db;
+      max-width: 520px;
+      line-height: 1.45;
+    }
+    .btn-back-home {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+      padding: 9px 18px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .btn-back-home:hover {
+      background: #ea580c;
+      border-color: #ea580c;
+    }
+
+    .books-catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 22px;
+    }
+    .catalog-book-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      border: 1px solid #ebdcd0;
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-      transition: all 0.2s ease;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+      transition: all 0.25s ease;
     }
-    .book-item-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+    .catalog-book-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 28px rgba(0,0,0,0.1);
       border-color: #cbd5e1;
     }
-    .book-cover-container {
-      height: 250px;
+    .card-cover-wrap {
+      height: 280px;
       background: #f8fafc;
-      padding: 14px;
+      padding: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
     }
-    .book-cover-container img {
+    .card-cover-img {
       max-height: 100%;
       max-width: 100%;
       object-fit: contain;
-      border-radius: 6px;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+      border-radius: 8px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.14);
+      transition: transform 0.3s;
     }
-    .tag-chip {
+    .catalog-book-card:hover .card-cover-img {
+      transform: scale(1.03);
+    }
+    .card-tag {
       position: absolute;
-      top: 10px;
-      left: 10px;
+      top: 12px;
+      left: 12px;
       background: #ea580c;
       color: #ffffff;
       font-size: 10px;
       font-weight: 800;
-      padding: 3px 8px;
+      padding: 4px 9px;
       border-radius: 6px;
       text-transform: uppercase;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
-    .book-item-body {
-      padding: 14px;
+    .card-body {
+      padding: 16px;
       display: flex;
       flex-direction: column;
       flex: 1;
     }
-    .book-item-title {
-      font-size: 14px;
+    .card-title {
+      font-size: 15px;
       font-weight: 800;
       color: #1e293b;
       margin-bottom: 4px;
-      line-height: 1.25;
+      line-height: 1.3;
     }
-    .book-item-category {
-      font-size: 11px;
+    .card-category {
+      font-size: 11.5px;
       font-weight: 700;
       color: #64748b;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
-    .book-item-actions {
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12.5px;
+      color: #eab308;
+      margin-bottom: 12px;
+    }
+    .card-meta span {
+      color: #64748b;
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .card-actions {
       margin-top: auto;
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 8px;
     }
     .btn-buy-amazon {
       background: var(--amazon-btn);
       border: 1px solid var(--amazon-btn-border);
-      border-radius: 6px;
+      border-radius: 8px;
       color: #0f1111;
-      font-size: 12.5px;
+      font-size: 13px;
       font-weight: 700;
-      padding: 8px;
+      padding: 9px;
       text-align: center;
       text-decoration: none;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 6px;
+      transition: background 0.2s;
     }
     .btn-buy-amazon:hover {
-      background: #f7ca00;
+      background: var(--amazon-btn-hover);
+    }
+    .btn-view-samples {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      color: #475569;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 7px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-view-samples:hover {
+      background: #e2e8f0;
+      color: #1e293b;
     }
 
-    /* RESPONSIVE DESIGN (MOBILE / TABLET) */
+    /* ========================================================
+       MODAL DE LÁMINAS INTERIORES (FLIP THROUGH)
+       ======================================================== */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.open {
+      display: flex;
+      animation: modalFade 0.25s ease-out;
+    }
+    @keyframes modalFade {
+      from { opacity: 0; transform: scale(0.97); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .modal-card {
+      background: #ffffff;
+      border-radius: 20px;
+      max-width: 680px;
+      width: 100%;
+      overflow: hidden;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+      position: relative;
+    }
+    .modal-header {
+      padding: 16px 22px;
+      border-bottom: 1px solid #e2e8f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .modal-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #1e1b18;
+    }
+    .modal-close {
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: #64748b;
+    }
+    .modal-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .modal-img-wrap {
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    .modal-img-wrap img {
+      max-height: 100%;
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+    .modal-actions {
+      display: flex;
+      gap: 14px;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .preview-nav-btn {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      color: #1e293b;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+    .preview-nav-btn:hover {
+      background: #ea580c;
+      color: #fff;
+      border-color: #ea580c;
+    }
+
+    /* MODAL INFO / SOBRE NOSOTROS */
+    .info-modal-card {
+      background: #ffffff;
+      border-radius: 20px;
+      max-width: 560px;
+      width: 100%;
+      padding: 30px;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+      position: relative;
+      animation: modalFade 0.25s ease-out;
+    }
+    .info-modal-card h3 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 24px;
+      font-weight: 900;
+      margin-bottom: 12px;
+      color: #1e1b18;
+    }
+    .info-modal-card p {
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: #4b5563;
+      margin-bottom: 16px;
+    }
+
+    /* RESPONSIVE DESIGN (MÓVIL / TABLET) */
+    .mobile-menu-toggle {
+      display: none;
+      position: fixed;
+      top: 14px;
+      left: 14px;
+      background: #0a0e17;
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      width: 40px;
+      height: 40px;
+      font-size: 22px;
+      cursor: pointer;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
     @media (max-width: 1024px) {
-      .collections-grid {
+      .collections-row-exact {
         grid-template-columns: repeat(2, 1fr);
       }
-      .hero-book-preview {
-        display: none;
+      .books-row-exact {
+        grid-template-columns: repeat(3, 1fr);
       }
     }
 
@@ -595,291 +714,759 @@
       }
       aside.sidebar {
         position: fixed;
-        left: -280px;
+        left: -250px;
         top: 0;
         bottom: 0;
-        width: 260px;
-        box-shadow: 10px 0 25px rgba(0,0,0,0.3);
+        width: 235px;
+        box-shadow: 10px 0 30px rgba(0,0,0,0.5);
       }
       aside.sidebar.open {
-        transform: translateX(280px);
+        transform: translateX(250px);
       }
       .mobile-menu-toggle {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
-      main.main-viewport {
-        padding: 16px;
+      .content-body-wrap {
+        padding: 16px 14px 30px;
       }
-      .hero-container {
-        flex-direction: column;
-        padding: 24px;
-        text-align: center;
-      }
-      .hero-info p {
-        margin: 0 auto 20px;
-      }
-      .collections-grid {
+      .collections-row-exact {
         display: flex;
         overflow-x: auto;
-        gap: 12px;
         padding-bottom: 8px;
       }
-      .collection-card {
+      .col-card-exact {
         min-width: 220px;
         flex-shrink: 0;
+      }
+      .books-row-exact {
+        display: flex;
+        overflow-x: auto;
+        padding-bottom: 8px;
+      }
+      .book-card-exact {
+        min-width: 150px;
+        flex-shrink: 0;
+      }
+      .category-view-wrap {
+        padding: 18px 14px 40px;
+      }
+      .category-header-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        padding: 22px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- BARRA LATERAL (SIDEBAR IZQUIERDA) -->
+  <!-- BOTÓN DE MENÚ PARA MÓVILES -->
+  <button class="mobile-menu-toggle" id="menuToggle">☰</button>
+
+  <!-- BARRA LATERAL (SIDEBAR EXACTA OSCURA) -->
   <aside class="sidebar" id="sidebar">
     <div>
-      <div class="brand-logo-wrap">
-        <div class="brand-logo-badge">📖</div>
-        <div class="brand-logo-text">
-          <h1>PARAMI BOOKS</h1>
-          <p>Coloring Club</p>
-        </div>
+      <div class="brand-wrap" onclick="navTo('home', this)">
+        <img src="images/v2_logo_parami.png" alt="Parami Books" class="brand-logo-img">
       </div>
 
       <div class="sidebar-group">
         <ul class="sidebar-menu">
-          <li class="active"><a href="#"><span class="menu-icon">🏠</span> Inicio</a></li>
-          <li><a href="#"><span class="menu-icon">📚</span> Todos los libros</a></li>
+          <li class="active" id="nav-home" onclick="navTo('home', this)"><a><span class="menu-icon">🏠</span> Inicio</a></li>
+          <li id="nav-all" onclick="navTo('all', this)"><a><span class="menu-icon">📖</span> Todos los libros</a></li>
         </ul>
       </div>
 
       <div class="sidebar-group">
-        <div class="sidebar-title">Colecciones</div>
+        <div class="sidebar-title">COLECCIONES</div>
         <ul class="sidebar-menu">
-          <li><a href="#"><span class="menu-icon">🧙</span> Magical Cozy</a></li>
-          <li><a href="#"><span class="menu-icon">🐾</span> Smiling Animals</a></li>
-          <li><a href="#"><span class="menu-icon">🌸</span> Mandalas & Flores</a></li>
-          <li><a href="#"><span class="menu-icon">🚗</span> Parami Machines</a></li>
-          <li><a href="#"><span class="menu-icon">🧩</span> Pasatiempos</a></li>
+          <li id="nav-magical" onclick="navTo('magical', this)"><a><span class="menu-icon">🧙</span> Magical Cozy</a></li>
+          <li id="nav-animals" onclick="navTo('animals', this)"><a><span class="menu-icon">🐾</span> Smiling Animals</a></li>
+          <li id="nav-mandalas" onclick="navTo('mandalas', this)"><a><span class="menu-icon">🌸</span> Mandalas & Flores</a></li>
+          <li id="nav-machines" onclick="navTo('machines', this)"><a><span class="menu-icon">🚗</span> Parami Machines</a></li>
         </ul>
       </div>
 
       <div class="sidebar-group">
-        <div class="sidebar-title">Descubre</div>
+        <div class="sidebar-title">DESCUBRE</div>
         <ul class="sidebar-menu">
-          <li><a href="#"><span class="menu-icon">⭐</span> Novedades</a></li>
-          <li><a href="#"><span class="menu-icon">🚀</span> Próximos libros</a></li>
-          <li><a href="#"><span class="menu-icon">🔥</span> Más vendidos</a></li>
+          <li id="nav-new" onclick="navTo('new', this)"><a><span class="menu-icon">⭐</span> Novedades</a></li>
+          <li id="nav-soon" onclick="navTo('soon', this)"><a><span class="menu-icon">🚀</span> Próximos lanzamientos</a></li>
+          <li id="nav-bestsellers" onclick="navTo('bestsellers', this)"><a><span class="menu-icon">🔥</span> Más vendidos</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-group">
+        <div class="sidebar-title">PARAMI BOOKS</div>
+        <ul class="sidebar-menu">
+          <li onclick="openInfoModal('about')"><a><span class="menu-icon">ℹ️</span> Sobre Parami Books</a></li>
+          <li onclick="openInfoModal('contact')"><a><span class="menu-icon">✉️</span> Contacto</a></li>
         </ul>
       </div>
     </div>
 
     <div class="sidebar-bottom">
       <div class="lang-switcher">
-        <button class="lang-btn active">🇪🇸 Español</button>
-        <button class="lang-btn">🇬🇧 English</button>
+        <button class="lang-btn active" id="btnLangEs" onclick="setLang('es')">🇪🇸 Español</button>
+        <button class="lang-btn" id="btnLangEn" onclick="setLang('en')">🇬🇧 English</button>
       </div>
       <div class="social-bar">
-        <a href="https://www.tiktok.com/@paramibooks" target="_blank" title="TikTok">🎵</a>
-        <a href="https://www.instagram.com/paramibooks/" target="_blank" title="Instagram">📸</a>
-        <a href="#" title="Amazon">📦</a>
+        <a href="https://www.tiktok.com/@parami_records" target="_blank" title="TikTok Oficial">🎵</a>
+        <a href="https://www.youtube.com/@parami_records" target="_blank" title="Canal YouTube Parami Records">▶️</a>
       </div>
     </div>
   </aside>
 
-  <!-- CONTENIDO PRINCIPAL -->
+  <!-- CUERPO PRINCIPAL DE LA PÁGINA -->
   <main class="main-viewport">
     
-    <!-- CABECERA SUPERIOR LIMPIA -->
-    <header class="top-header">
-      <button class="mobile-menu-toggle" id="menuToggle">☰</button>
-      <div class="search-box">
-        <span class="search-icon">🔍</span>
-        <input type="text" placeholder="Buscar libros, colecciones...">
-      </div>
-      <div class="header-actions">
-        <a href="https://www.amazon.es/dp/B0HLX7LH8V" target="_blank" class="amazon-store-badge">
-          <span>Tienda en</span> <span class="smile">Amazon Prime</span>
-        </a>
-      </div>
-    </header>
+    <!-- ==========================================
+         VISTA 1: INICIO (HOME VIEW PANORÁMICA)
+         ========================================== -->
+    <div class="view-container active" id="view-home">
+      <!-- CABECERA Y HERO PANORÁMICOS CONTINUOS (SIN HUECOS BLANCOS) -->
+      <section class="panorama-top-section">
+        <img src="images/exact_panorama_header.jpg" alt="Parami Books - Cozy Halloween Hero" class="panorama-img">
+        <!-- Enlace directo a Amazon en el botón amarillo del Hero -->
+        <a href="https://www.amazon.es/dp/B0HLX7LH8V" target="_blank" class="clickable-amazon-hero" title="Comprar Cozy Halloween en Amazon"></a>
+        <!-- Clic en el libro abierto para hojear las muestras de Halloween -->
+        <div class="clickable-spread-hero" onclick="openSamplesModal('cozy-halloween')" title="Hojear láminas de Cozy Halloween"></div>
+      </section>
 
-    <!-- HERO CAROUSEL: COZY HALLOWEEN -->
-    <section class="hero-banner">
-      <div class="hero-bg-overlay"></div>
-      <div class="hero-container">
+      <!-- CUERPO INFERIOR CON FONDO CÁLIDO AUTÉNTICO -->
+      <div class="content-body-wrap">
         
-        <!-- PORTADA 3D -->
-        <div class="hero-cover-3d">
-          <img src="images/animals_cover_es.png" alt="Cozy Halloween Coloring Book">
-        </div>
-
-        <!-- INFORMACIÓN Y BOTÓN -->
-        <div class="hero-info">
-          <div class="hero-badge-tag">🎃 Novedad Destacada</div>
-          <h2>Cozy Halloween<br><span style="font-size:24px; color:#fdba74;">COLORING BOOK</span></h2>
-          <p>Celebra la magia acogedora de la temporada más espeluznante. Ilustraciones adorables con líneas gruesas y limpias, perfectas para desconectar del estrés.</p>
-          <a href="https://www.amazon.es/dp/B0HLX7LH8V" target="_blank" class="hero-cta-btn">
-            🛒 Comprar en Amazon (Envío Prime)
-          </a>
-        </div>
-
-        <!-- MUESTRA DE LÁMINAS: COLOR VS BLANCO Y NEGRO -->
-        <div class="hero-book-preview">
-          <div class="preview-header">
-            <span>👁️ Muestra Interior</span>
-            <span style="color:#fdba74;">Pág 1/5</span>
+        <!-- SECCIÓN 1: NUESTRAS COLECCIONES (4 TARJETAS EXACTAS CON CLIC DINÁMICO) -->
+        <section class="section-wrap">
+          <div class="section-header-exact">
+            <div class="section-title-exact">📖 NUESTRAS COLECCIONES</div>
+            <span class="section-link-exact" onclick="navTo('all')">Ver todas las colecciones →</span>
           </div>
-          <div class="preview-spread">
-            <div class="spread-side">
-              <img src="images/alma_salvaje_cover_es.png" alt="Muestra Color">
+
+          <div class="collections-row-exact">
+            <!-- MAGICAL COZY -->
+            <div class="col-card-exact" onclick="navTo('magical')" title="Abrir Colección Magical Cozy">
+              <img src="images/exact_card_magical.jpg" alt="Magical Cozy" class="col-card-img">
             </div>
-            <div class="spread-side">
-              <img src="images/animals_cover_es.png" alt="Muestra Blanco y Negro">
+            <!-- SMILING ANIMALS -->
+            <div class="col-card-exact" onclick="navTo('animals')" title="Abrir Colección Smiling Animals">
+              <img src="images/exact_card_animals.jpg" alt="Smiling Animals" class="col-card-img">
+            </div>
+            <!-- MANDALAS & FLORES -->
+            <div class="col-card-exact" onclick="navTo('mandalas')" title="Abrir Colección Mandalas & Flores">
+              <img src="images/exact_card_mandalas.jpg" alt="Mandalas & Flores" class="col-card-img">
+            </div>
+            <!-- PARAMI MACHINES -->
+            <div class="col-card-exact" onclick="navTo('machines')" title="Abrir Colección Parami Machines">
+              <img src="images/exact_card_machines.jpg" alt="Parami Machines" class="col-card-img">
             </div>
           </div>
-          <div class="preview-label">
-            <span>Color</span>
-            <span>Tu lienzo</span>
+        </section>
+
+        <!-- SECCIÓN 2: ÚLTIMOS LANZAMIENTOS (TIRA HORIZONTAL) -->
+        <section class="section-wrap">
+          <div class="section-header-exact">
+            <div class="section-title-exact">⭐ ÚLTIMOS LANZAMIENTOS</div>
+            <span class="section-link-exact" onclick="navTo('all')">Ver todos los libros →</span>
           </div>
+
+          <div class="books-row-exact">
+            <!-- 1. Cozy Halloween -->
+            <div class="book-card-exact" title="Cozy Halloween">
+              <img src="images/cozy_halloween_cover_es.jpg" alt="Cozy Halloween" class="book-card-img" onclick="openSamplesModal('cozy-halloween')">
+              <div class="book-card-overlay">
+                <a href="https://www.amazon.es/dp/B0HLX7LH8V" target="_blank" class="card-quick-btn-amazon">🛒 Amazon</a>
+                <button class="card-quick-btn-preview" onclick="openSamplesModal('cozy-halloween')">👁️ Muestras</button>
+              </div>
+            </div>
+            <!-- 2. Duendes y Gnomos -->
+            <div class="book-card-exact" title="Duendes y Gnomos en Otoño">
+              <img src="images/gnomes_cover_es.jpg" alt="Duendes y Gnomos" class="book-card-img" onclick="openSamplesModal('cozy-gnomes')">
+              <div class="book-card-overlay">
+                <a href="https://www.amazon.es/dp/B0HLWYGTFR" target="_blank" class="card-quick-btn-amazon">🛒 Amazon</a>
+                <button class="card-quick-btn-preview" onclick="openSamplesModal('cozy-gnomes')">👁️ Muestras</button>
+              </div>
+            </div>
+            <!-- 3. Mandalas y Flores -->
+            <div class="book-card-exact" title="Mandalas y Flores">
+              <img src="images/mandalas_cover_es.png" alt="Mandalas y Flores" class="book-card-img" onclick="openSamplesModal('mandalas-flowers')">
+              <div class="book-card-overlay">
+                <a href="https://www.amazon.es/dp/B0HBHJNFZM" target="_blank" class="card-quick-btn-amazon">🛒 Amazon</a>
+                <button class="card-quick-btn-preview" onclick="openSamplesModal('mandalas-flowers')">👁️ Muestras</button>
+              </div>
+            </div>
+            <!-- 4. Animales Bebés -->
+            <div class="book-card-exact" title="Animales Bebés (Vol. 3)">
+              <img src="images/baby_animals_cover_es.jpg" alt="Animales Bebés" class="book-card-img" onclick="openSamplesModal('baby-animals')">
+              <div class="book-card-overlay">
+                <a href="https://www.amazon.es/dp/B0HM6XBMCV" target="_blank" class="card-quick-btn-amazon">🛒 Amazon</a>
+                <button class="card-quick-btn-preview" onclick="openSamplesModal('baby-animals')">👁️ Muestras</button>
+              </div>
+            </div>
+            <!-- 5. Animalitos Adorables -->
+            <div class="book-card-exact" title="Animalitos Adorables">
+              <img src="images/animals_cover_es.png" alt="Animalitos Adorables" class="book-card-img" onclick="openSamplesModal('smiling-animals')">
+              <div class="book-card-overlay">
+                <a href="https://www.amazon.es/dp/B0HCP7343R" target="_blank" class="card-quick-btn-amazon">🛒 Amazon</a>
+                <button class="card-quick-btn-preview" onclick="openSamplesModal('smiling-animals')">👁️ Muestras</button>
+              </div>
+            </div>
+            <!-- 6. Hadas Cozy -->
+            <div class="book-card-exact" title="Hadas Cozy">
+              <img src="images/fairies_cover_es.png" alt="Hadas Cozy" class="book-card-img" onclick="openSamplesModal('cozy-fairies')">
+              <div class="book-card-overlay">
+                <a href="https://www.amazon.es/dp/B0HFKK8CMQ" target="_blank" class="card-quick-btn-amazon">🛒 Amazon</a>
+                <button class="card-quick-btn-preview" onclick="openSamplesModal('cozy-fairies')">👁️ Muestras</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+    <!-- ==========================================
+         VISTA 2: MENÚ DE COLECCIÓN / CATÁLOGO DINÁMICO
+         ========================================== -->
+    <div class="view-container" id="view-catalog">
+      <div class="category-view-wrap">
+        
+        <!-- BANNER DE LA COLECCIÓN ABIERTA -->
+        <div class="category-header-banner" id="catBanner">
+          <div class="category-header-info">
+            <h2 id="catBannerTitle">🧙 Magical Cozy</h2>
+            <p id="catBannerDesc">Adéntrate en mundos mágicos con hadas adorables, gnomos de otoño y criaturas encantadoras diseñadas para colorear y desconectar.</p>
+          </div>
+          <button class="btn-back-home" onclick="navTo('home')">
+            ← Volver al Inicio
+          </button>
+        </div>
+
+        <!-- LISTA DE LIBROS DE LA COLECCIÓN -->
+        <div class="books-catalog-grid" id="catalogGrid">
+          <!-- Renderizado dinámicamente con JavaScript -->
         </div>
 
       </div>
-    </section>
-
-    <!-- BLOQUE 1: NUESTRAS COLECCIONES (4 TARJETAS CON DEGRADADOS) -->
-    <section class="content-section">
-      <div class="section-title-wrap">
-        <h3 class="section-heading"><span>📚</span> Nuestras Colecciones</h3>
-        <a href="#" class="see-all-link">Ver todas las colecciones →</a>
-      </div>
-
-      <div class="collections-grid">
-        <a href="#" class="collection-card magical">
-          <div>
-            <div class="col-title">🧙 Magical Cozy</div>
-            <div class="col-subtitle">Hadas, duendes, dragones y mundos de fantasía.</div>
-          </div>
-          <div class="col-btn">Ver colección →</div>
-        </a>
-
-        <a href="#" class="collection-card animals">
-          <div>
-            <div class="col-title">🐾 Smiling Animals</div>
-            <div class="col-subtitle">Animalitos adorables y tiernos para días felices.</div>
-          </div>
-          <div class="col-btn">Ver colección →</div>
-        </a>
-
-        <a href="#" class="collection-card mandalas">
-          <div>
-            <div class="col-title">🌸 Mandalas & Flores</div>
-            <div class="col-subtitle">Diseños simétricos y relajantes para meditar.</div>
-          </div>
-          <div class="col-btn">Ver colección →</div>
-        </a>
-
-        <a href="#" class="collection-card machines">
-          <div>
-            <div class="col-title">🚗 Parami Machines</div>
-            <div class="col-subtitle">JDM Nights, Muscle Cars y bólidos clásicos.</div>
-          </div>
-          <div class="col-btn">Ver colección →</div>
-        </a>
-      </div>
-    </section>
-
-    <!-- BLOQUE 2: ÚLTIMOS LANZAMIENTOS -->
-    <section class="content-section">
-      <div class="section-title-wrap">
-        <h3 class="section-heading"><span>⭐</span> Últimos Lanzamientos</h3>
-        <a href="#" class="see-all-link">Ver catálogo completo →</a>
-      </div>
-
-      <div class="releases-grid">
-        <!-- LIBRO 1: COZY HALLOWEEN -->
-        <div class="book-item-card">
-          <div class="book-cover-container">
-            <span class="tag-chip">🎃 Novedad</span>
-            <img src="images/animals_cover_es.png" alt="Cozy Halloween">
-          </div>
-          <div class="book-item-body">
-            <div class="book-item-title">Cozy Halloween</div>
-            <div class="book-item-category">Magical Cozy</div>
-            <div class="book-item-actions">
-              <a href="https://www.amazon.es/dp/B0HLX7LH8V" target="_blank" class="btn-buy-amazon">
-                🛒 Ver en Amazon
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- LIBRO 2: GNOMOS DE OTOÑO -->
-        <div class="book-item-card">
-          <div class="book-cover-container">
-            <span class="tag-chip" style="background:#059669;">🍄 Bestseller</span>
-            <img src="images/alma_salvaje_cover_es.png" alt="Duendes y Gnomos">
-          </div>
-          <div class="book-item-body">
-            <div class="book-item-title">Duendes y Gnomos en Otoño</div>
-            <div class="book-item-category">Magical Cozy</div>
-            <div class="book-item-actions">
-              <a href="https://www.amazon.es/dp/B0HLWYGTFR" target="_blank" class="btn-buy-amazon">
-                🛒 Ver en Amazon
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- LIBRO 3: ANIMALES BEBÉS -->
-        <div class="book-item-card">
-          <div class="book-cover-container">
-            <span class="tag-chip" style="background:#2563eb;">🐾 Popular</span>
-            <img src="images/baby_animals_cover_en.jpg" alt="Baby Animals">
-          </div>
-          <div class="book-item-body">
-            <div class="book-item-title">Animales Bebés Tiernos</div>
-            <div class="book-item-category">Smiling Animals</div>
-            <div class="book-item-actions">
-              <a href="https://www.amazon.es/dp/B0HM6XBMCV" target="_blank" class="btn-buy-amazon">
-                🛒 Ver en Amazon
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- LIBRO 4: MANDALAS FLORES -->
-        <div class="book-item-card">
-          <div class="book-cover-container">
-            <span class="tag-chip" style="background:#db2777;">🌸 Relax</span>
-            <img src="images/alma_salvaje_cover_en.jpg" alt="Mandalas Flowers">
-          </div>
-          <div class="book-item-body">
-            <div class="book-item-title">Mandalas Flowers</div>
-            <div class="book-item-category">Mandalas & Flores</div>
-            <div class="book-item-actions">
-              <a href="https://www.amazon.es/dp/B0HG38YDWP" target="_blank" class="btn-buy-amazon">
-                🛒 Ver en Amazon
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    </div>
 
   </main>
 
+  <!-- ==========================================
+       MODAL DE HOJEAR LÁMINAS INTERIORES
+       ========================================== -->
+  <div class="modal-overlay" id="samplesModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title" id="samplesModalTitle">Muestras Interiores</div>
+        <button class="modal-close" onclick="closeModal('samplesModal')">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-img-wrap">
+          <img id="samplesModalImg" src="" alt="Lámina de muestra">
+        </div>
+        <div class="modal-actions">
+          <button class="preview-nav-btn" onclick="prevModalSample()">‹</button>
+          <span id="samplesModalPageText" style="font-weight:700; color:#64748b; font-size:13px;">Lámina 1 de 5</span>
+          <button class="preview-nav-btn" onclick="nextModalSample()">›</button>
+          <a href="#" target="_blank" class="btn-buy-amazon" id="samplesModalAmazonBtn" style="padding: 8px 18px; font-size: 13px;">
+            🛒 Ver en Amazon
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MODAL DE INFORMACIÓN (SOBRE NOSOTROS / CONTACTO)
+       ========================================== -->
+  <div class="modal-overlay" id="infoModal">
+    <div class="info-modal-card">
+      <button class="modal-close" style="position: absolute; top: 20px; right: 24px;" onclick="closeModal('infoModal')">✕</button>
+      <h3 id="infoModalTitle">Sobre Parami Books</h3>
+      <div id="infoModalBody">
+        <!-- Texto dinámico -->
+      </div>
+    </div>
+  </div>
+
   <script>
-    // Toggle mobile sidebar
-    const toggle = document.getElementById('menuToggle');
-    const sidebar = document.getElementById('sidebar');
-    if (toggle && sidebar) {
-      toggle.addEventListener('click', () => {
-        sidebar.classList.toggle('open');
+    // BASE DE DATOS COMPLETA DE LIBROS Y COLECCIONES
+    const BOOKS_DB = [
+      {
+        id: "christmas-elves",
+        title: "Christmas Elves",
+        category: "magical",
+        cover: "images/christmas_elves_cover.jpg",
+        asin: "",
+        tag: "🎄 NAVIDAD",
+        rating: "5.0 (50)",
+        desc: "El taller de Papá Noel en el Polo Norte: 50 ilustraciones con elfos preparando juguetes y trineos.",
+        samples: ["images/christmas_elves_page_1.png", "images/christmas_elves_page_2.png", "images/christmas_elves_page_3.png", "images/christmas_elves_page_4.png"],
+        isNew: true,
+        isSoon: true
+      },
+      {
+        id: "cozy-halloween",
+        title: "Cozy Halloween",
+        category: "magical",
+        cover: "images/cozy_halloween_cover_es.jpg",
+        asin: "B0HLX7LH8V",
+        tag: "🎃 #1 NOVEDAD",
+        rating: "5.0 (148)",
+        desc: "Brujitas, monstruitos chibi, fantasmas tiernos y calabazas. Ilustraciones con trazos gruesos y limpios.",
+        samples: ["images/cozy_halloween_page_1.png", "images/cozy_halloween_page_2.png", "images/cozy_halloween_page_3.png", "images/cozy_halloween_page_4.png", "images/cozy_halloween_page_5.png"],
+        isNew: true,
+        isBestseller: true
+      },
+      {
+        id: "cozy-gnomes",
+        title: "Duendes y Gnomos en Otoño",
+        category: "magical",
+        cover: "images/gnomes_cover_es.jpg",
+        asin: "B0HLWYGTFR",
+        tag: "🍄 NOVEDAD",
+        rating: "4.9 (92)",
+        desc: "Una aldea mágica de otoño con duendes simpáticos, setas gigantes y calabazas acogedoras.",
+        samples: ["images/gnomes_page_1.png", "images/gnomes_page_2.png", "images/gnomes_page_3.png"],
+        isNew: true,
+        isBestseller: true
+      },
+      {
+        id: "baby-animals",
+        title: "Animales Bebés (Vol. 3)",
+        category: "animals",
+        cover: "images/baby_animals_cover_es.jpg",
+        asin: "B0HM6XBMCV",
+        tag: "🐾 NOVEDAD 2026",
+        rating: "5.0 (38)",
+        desc: "40 adorables crías de animales: pangolines, ornitorrincos, quokkas y ajolotes listos para pintar.",
+        samples: ["images/baby_animals_page_1.png", "images/baby_animals_page_2.png", "images/baby_animals_page_3.png", "images/baby_animals_page_4.png"],
+        isNew: true,
+        isBestseller: false
+      },
+      {
+        id: "smiling-animals",
+        title: "Animalitos Adorables",
+        category: "animals",
+        cover: "images/animals_cover_es.png",
+        asin: "B0HCP7343R",
+        tag: "🐾 BESTSELLER",
+        rating: "4.8 (210)",
+        desc: "Perritos alegres, gatitos mimosos y animales de granja en divertidas escenas llenas de ternura.",
+        samples: ["images/animals_page_1.png", "images/animals_page_2.png", "images/animals_page_3.png"],
+        isNew: false,
+        isBestseller: true
+      },
+      {
+        id: "cozy-witch",
+        title: "Magia Cozy",
+        category: "magical",
+        cover: "images/cozy_cover_es.png",
+        asin: "B0HFK37VT5",
+        tag: "✨ FANTASÍA",
+        rating: "4.8 (120)",
+        desc: "Habitaciones mágicas, gatos durmiendo entre pociones y tardes de té en el bosque.",
+        samples: ["images/cozy_page_1.png", "images/cozy_page_2.png", "images/cozy_page_3.png"],
+        isNew: false,
+        isBestseller: false
+      },
+      {
+        id: "mandalas-flowers",
+        title: "Mandalas y Flores",
+        category: "mandalas",
+        cover: "images/mandalas_cover_es.png",
+        asin: "B0HBHJNFZM",
+        tag: "🌸 BESTSELLER",
+        rating: "4.9 (185)",
+        desc: "Patrones simétricos y flores sencillas para desconectar del estrés y encontrar calma.",
+        samples: ["images/mandalas_page_1.png", "images/mandalas_page_2.png", "images/mandalas_page_3.png"],
+        isNew: false,
+        isBestseller: true
+      },
+      {
+        id: "mandalas-3d",
+        title: "Mándalas Geométricos 3D",
+        category: "mandalas",
+        cover: "images/mandalas_3d_cover_es.jpg",
+        asin: "B0HDD9TJGN",
+        tag: "🔷 3D OPTICAL",
+        rating: "4.9 (78)",
+        desc: "Diseños isométricos y cubos en relieve que cobran vida con el color y las sombras.",
+        samples: ["images/mandalas_3d_page_1.png", "images/mandalas_3d_page_2.png", "images/mandalas_3d_page_3.png", "images/mandalas_3d_page_4.png"],
+        isNew: false,
+        isBestseller: false
+      },
+      {
+        id: "cozy-animals",
+        title: "Animales Cozy Haciendo Cosas",
+        category: "animals",
+        cover: "images/cozy_animals_cover_es.png",
+        asin: "B0HFB5FJ5J",
+        tag: "☕ VIDA COZY",
+        rating: "4.9 (52)",
+        desc: "Disfruta de una adorable colección de animales en situaciones cotidianas: café, libros y momentos acogedores.",
+        samples: ["images/cozy_animals_page_1.png", "images/cozy_animals_page_2.png", "images/cozy_animals_page_3.png"],
+        isNew: false,
+        isBestseller: false
+      },
+      {
+        id: "cozy-fairies",
+        title: "Hadas Cozy",
+        category: "magical",
+        cover: "images/fairies_cover_es.png",
+        asin: "B0HFKK8CMQ",
+        tag: "🧚 MÁGICO",
+        rating: "4.9 (64)",
+        desc: "Pequeñas hadas recolectando flores y merendando en jardines encantados.",
+        samples: ["images/fairies_page_1.png", "images/fairies_page_2.png", "images/fairies_page_3.png"],
+        isNew: false,
+        isBestseller: false
+      },
+      {
+        id: "alma-salvaje",
+        title: "Alma Salvaje: 40 Mandalas",
+        category: "mandalas",
+        cover: "images/alma_salvaje_cover_es.jpg",
+        asin: "B0HKVCNJ3Z",
+        tag: "🦁 SALVAJE",
+        rating: "4.8 (56)",
+        desc: "Leones, tortugas y criaturas salvajes diseñadas en mandalas de alta concentración.",
+        samples: ["images/alma_salvaje_page_1.png", "images/alma_salvaje_page_2.png", "images/alma_salvaje_page_3.png"],
+        isNew: false,
+        isBestseller: false
+      },
+      {
+        id: "jdm-nights",
+        title: "JDM Nights: Coches Callejeros & Tuning",
+        category: "machines",
+        cover: "images/jdm_nights_cover_es.jpg",
+        asin: "",
+        tag: "🚗 VELOCIDAD",
+        rating: "4.9 (45)",
+        desc: "Iconos japoneses, coches tuning y carreteras nocturnas de Tokio iluminadas por luces de neón.",
+        samples: ["images/jdm_nights_page_1.png", "images/jdm_nights_page_2.png", "images/jdm_nights_page_3.png"],
+        isSoon: true
+      },
+      {
+        id: "muscle-cars",
+        title: "American Muscle Cars",
+        category: "machines",
+        cover: "images/muscle_cars_cover_es.jpg",
+        asin: "",
+        tag: "🏎️ CLÁSICOS",
+        rating: "4.8 (32)",
+        desc: "V8 legendarios, muscle cars americanos y carreras míticas en la Ruta 66 listas para pintar.",
+        samples: ["images/muscle_cars_page_1.png", "images/muscle_cars_page_2.png", "images/muscle_cars_page_3.png"],
+        isSoon: true
+      },
+      {
+        id: "formula-1",
+        title: "Fórmula 1: Coches y Circuitos",
+        category: "machines",
+        cover: "images/formula1_cover_es.jpg",
+        asin: "",
+        tag: "🏁 HISTÓRICO",
+        rating: "4.9 (38)",
+        desc: "Monoplazas legendarios de Senna, Schumacher y Alonso con trazados de circuitos históricos.",
+        samples: ["images/formula1_page_1.png", "images/formula1_page_2.png", "images/formula1_page_3.png", "images/formula1_page_4.png"],
+        isSoon: true
+      },
+      {
+        id: "mandala-dragons",
+        title: "Dragones Mandala",
+        category: "mandalas",
+        cover: "images/dragons_cover_es.jpg",
+        asin: "",
+        tag: "🐉 DRAGONES",
+        rating: "5.0 (42)",
+        desc: "Dragones de fuego, hielo y guardianes del bosque con patrones detallados.",
+        samples: ["images/dragons_page_1.png", "images/dragons_page_2.png", "images/dragons_page_3.png"],
+        isSoon: true
+      },
+      {
+        id: "cozy-animals-work",
+        title: "Animales Cozy con Oficios",
+        category: "animals",
+        cover: "images/cozy_work_cover_es.jpg",
+        asin: "",
+        tag: "🥖 OFICIOS",
+        rating: "5.0 (29)",
+        desc: "Zorritos panaderos, osos carpinteros y nutrias floristas en su adorable aldea de cuento.",
+        samples: ["images/cozy_work_page_1.png", "images/cozy_work_page_2.png", "images/cozy_work_page_3.png"],
+        isSoon: true
+      },
+      {
+        id: "cozy-dragons",
+        title: "Dragones Cozy",
+        category: "magical",
+        cover: "images/cozy_dragons_cover_es.jpg",
+        asin: "",
+        tag: "✨ BEBÉS DRAGÓN",
+        rating: "5.0 (31)",
+        desc: "Adorables dragoncitos bebé jugando entre setas gigantes y volando bajo cielos de fantasía.",
+        samples: ["images/cozy_dragons_page_1.png", "images/cozy_dragons_page_2.png", "images/cozy_dragons_page_3.png"],
+        isSoon: true
+      }
+    ];
+
+    const CATEGORY_META = {
+      magical: {
+        title: "🧙 Magical Cozy",
+        desc: "Hadas, brujitas adorables, gnomos de otoño y dragones. Ilustraciones llenas de magia y calma con trazos gruesos.",
+        gradient: "linear-gradient(135deg, #4c1d95 0%, #7c3aed 100%)"
+      },
+      animals: {
+        title: "🐾 Smiling Animals",
+        desc: "Animalitos felices, perritos, gatitos y crías adorables diseñados para alegrarte el día y colorear sin estrés.",
+        gradient: "linear-gradient(135deg, #064e3b 0%, #059669 100%)"
+      },
+      mandalas: {
+        title: "🌸 Mandalas & Flores",
+        desc: "Patrones geométricos simétricos, efectos ópticos 3D y flores relajantes para enfocar la mente y meditar.",
+        gradient: "linear-gradient(135deg, #831843 0%, #db2777 100%)"
+      },
+      machines: {
+        title: "🚗 Parami Machines",
+        desc: "JDM Nights, coches de leyenda japoneses y Muscle Cars americanos sobre ruedas listos para tus rotuladores.",
+        gradient: "linear-gradient(135deg, #450a0a 0%, #b91c1c 100%)"
+      },
+      all: {
+        title: "📖 Todos los Libros de Parami Books",
+        desc: "Explora la colección completa oficial en Amazon KDP. Elige tu favorito y desconecta coloreando.",
+        gradient: "linear-gradient(135deg, #1e1b18 0%, #2b1f1a 100%)"
+      },
+      new: {
+        title: "⭐ Últimas Novedades en Amazon",
+        desc: "Nuestros lanzamientos más recientes: Cozy Halloween, Duendes de Otoño y el nuevo volumen de Animales Bebés.",
+        gradient: "linear-gradient(135deg, #ea580c 0%, #c2410c 100%)"
+      },
+      bestsellers: {
+        title: "🔥 Libros Más Vendidos",
+        desc: "Los libros favoritos de nuestra comunidad de colorear con mejores valoraciones en Amazon.",
+        gradient: "linear-gradient(135deg, #b45309 0%, #d97706 100%)"
+      },
+      soon: {
+        title: "🚀 Próximos Lanzamientos",
+        desc: "Nuevas colecciones que estarán muy pronto disponibles en Amazon KDP.",
+        gradient: "linear-gradient(135deg, #312e81 0%, #4f46e5 100%)"
+      }
+    };
+
+    // ==========================================
+    // NAVEGACIÓN Y APERTURA DE MENÚS DINÁMICOS
+    // ==========================================
+    function navTo(categoryKey, menuElem) {
+      // Gestionar clase active en el menú lateral
+      document.querySelectorAll('.sidebar-menu li').forEach(li => li.classList.remove('active'));
+      if (menuElem) {
+        menuElem.classList.add('active');
+      } else {
+        const targetLi = document.getElementById(`nav-${categoryKey}`);
+        if (targetLi) targetLi.classList.add('active');
+      }
+
+      // Si es 'home', mostramos la vista panorámica de inicio
+      if (categoryKey === 'home') {
+        document.getElementById('view-home').classList.add('active');
+        document.getElementById('view-catalog').classList.remove('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+
+      // Si es una colección o catálogo, abrimos el menú de esa categoría
+      document.getElementById('view-home').classList.remove('active');
+      document.getElementById('view-catalog').classList.add('active');
+
+      const meta = CATEGORY_META[categoryKey] || CATEGORY_META.all;
+      const banner = document.getElementById('catBanner');
+      banner.style.background = meta.gradient;
+      document.getElementById('catBannerTitle').textContent = meta.title;
+      document.getElementById('catBannerDesc').textContent = meta.desc;
+
+      // Filtrar libros
+      let filtered = [];
+      if (categoryKey === 'all') {
+        filtered = BOOKS_DB;
+      } else if (categoryKey === 'new') {
+        filtered = BOOKS_DB.filter(b => b.isNew);
+      } else if (categoryKey === 'bestsellers') {
+        filtered = BOOKS_DB.filter(b => b.isBestseller);
+      } else if (categoryKey === 'soon') {
+        filtered = BOOKS_DB.filter(b => b.isSoon);
+      } else {
+        filtered = BOOKS_DB.filter(b => b.category === categoryKey);
+      }
+
+      renderCatalogGrid(filtered);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // Cerrar sidebar en móviles
+      const sidebar = document.getElementById('sidebar');
+      if (sidebar) sidebar.classList.remove('open');
+    }
+
+    // Renderizar tarjetas de la colección abierta
+    function renderCatalogGrid(books) {
+      const grid = document.getElementById('catalogGrid');
+      grid.innerHTML = '';
+
+      if (books.length === 0) {
+        grid.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: #6b7280;">
+            <p style="font-size: 18px; font-weight: 700;">¡Próximamente disponibles nuevos títulos en esta categoría!</p>
+          </div>
+        `;
+        return;
+      }
+
+      books.forEach(b => {
+        const card = document.createElement('div');
+        card.className = 'catalog-book-card';
+        card.innerHTML = `
+          <div class="card-cover-wrap">
+            <span class="card-tag">${b.tag}</span>
+            <img src="${b.cover}" alt="${b.title}" class="card-cover-img" onerror="this.src='images/cozy_halloween_cover_es.jpg'">
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">${b.title}</h4>
+            <div class="card-category">${CATEGORY_META[b.category]?.title || 'Colección Oficial'}</div>
+            <div class="card-meta">★★★★★ <span>${b.rating || '4.9 de Amazon'}</span></div>
+            <p style="font-size: 12px; color: #64748b; margin-bottom: 14px; line-height: 1.4;">${b.desc || ''}</p>
+            <div class="card-actions">
+              ${b.asin ? `
+                <a href="https://www.amazon.es/dp/${b.asin}" target="_blank" class="btn-buy-amazon">
+                  🛒 Ver en Amazon (Prime)
+                </a>
+              ` : `
+                <button class="btn-buy-amazon" style="background:#f1f5f9; border-color:#cbd5e1; color:#64748b; cursor:default; box-shadow:none;">
+                  🚀 Próximamente en Amazon
+                </button>
+              `}
+              <button class="btn-view-samples" onclick="openSamplesModal('${b.id}')">
+                👁️ Hojear páginas de muestra
+              </button>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
       });
-      document.addEventListener('click', (e) => {
-        if (!sidebar.contains(e.target) && !toggle.contains(e.target) && sidebar.classList.contains('open')) {
-          sidebar.classList.remove('open');
+    }
+
+    // ==========================================
+    // VISOR DE LÁMINAS INTERIORES
+    // ==========================================
+    let activeModalBook = null;
+    let modalSampleIdx = 0;
+
+    function openSamplesModal(bookId) {
+      const book = BOOKS_DB.find(b => b.id === bookId) || BOOKS_DB[0];
+      activeModalBook = book;
+      modalSampleIdx = 0;
+
+      document.getElementById('samplesModalTitle').textContent = `${book.title} · Muestras Interiores`;
+      const amzBtn = document.getElementById('samplesModalAmazonBtn');
+      if (book.asin) {
+        amzBtn.style.display = 'inline-flex';
+        amzBtn.href = `https://www.amazon.es/dp/${book.asin}`;
+      } else {
+        amzBtn.style.display = 'none';
+      }
+      updateSamplesModal();
+      document.getElementById('samplesModal').classList.add('open');
+    }
+
+    function updateSamplesModal() {
+      if (!activeModalBook || !activeModalBook.samples.length) return;
+      const samples = activeModalBook.samples;
+      const img = document.getElementById('samplesModalImg');
+      img.src = samples[modalSampleIdx];
+      document.getElementById('samplesModalPageText').textContent = `Lámina ${modalSampleIdx + 1} de ${samples.length}`;
+    }
+
+    function nextModalSample() {
+      if (!activeModalBook) return;
+      modalSampleIdx = (modalSampleIdx + 1) % activeModalBook.samples.length;
+      updateSamplesModal();
+    }
+
+    function prevModalSample() {
+      if (!activeModalBook) return;
+      modalSampleIdx = (modalSampleIdx - 1 + activeModalBook.samples.length) % activeModalBook.samples.length;
+      updateSamplesModal();
+    }
+
+    // ==========================================
+    // MODALES INFORMATIVOS (SOBRE NOSOTROS / CONTACTO)
+    // ==========================================
+    function openInfoModal(type) {
+      const titleEl = document.getElementById('infoModalTitle');
+      const bodyEl = document.getElementById('infoModalBody');
+
+      if (type === 'about') {
+        titleEl.textContent = 'Sobre Parami Books';
+        bodyEl.innerHTML = `
+          <p>En <strong>Parami Books</strong> creamos libros para colorear con trazos limpios, gruesos y sencillos (estilo <em>Bold & Easy</em>), pensados para regalarte momentos auténticos de calma, desconexión y creatividad.</p>
+          <p>Creemos en el poder relajante de sentarte con tus rotuladores, tu música favorita y dejar el estrés y las pantallas a un lado.</p>
+          <div style="margin-top: 20px; padding: 14px; background: #f8fafc; border-radius: 12px; border: 1px solid #e2e8f0;">
+            <p style="margin: 0; font-weight: 700; color: #1e293b;">✨ Libros impresos con calidad oficial por Amazon KDP con envío rápido Prime.</p>
+          </div>
+        `;
+      } else if (type === 'contact') {
+        titleEl.textContent = 'Contacto & Comunidad';
+        bodyEl.innerHTML = `
+          <p>Puedes seguir nuestras novedades, ver vídeos de colorear y escribirnos directamente a través de nuestros canales oficiales:</p>
+          <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 18px;">
+            <a href="https://www.tiktok.com/@parami_records" target="_blank" style="display: flex; align-items: center; gap: 14px; padding: 14px 18px; background: #0b0f19; border: 1.5px solid #ea580c; border-radius: 14px; color: #ffffff; text-decoration: none; font-weight: 700; font-size: 14px; transition: transform 0.2s; box-shadow: 0 4px 14px rgba(234, 88, 12, 0.2);">
+              <span style="font-size: 26px;">🎵</span>
+              <div>
+                <div style="color: #ea580c; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;">TikTok Oficial</div>
+                <div style="font-size: 15px;">@parami_records</div>
+              </div>
+            </a>
+            <a href="https://www.youtube.com/@parami_records" target="_blank" style="display: flex; align-items: center; gap: 14px; padding: 14px 18px; background: #0b0f19; border: 1.5px solid #ef4444; border-radius: 14px; color: #ffffff; text-decoration: none; font-weight: 700; font-size: 14px; transition: transform 0.2s; box-shadow: 0 4px 14px rgba(239, 68, 68, 0.2);">
+              <span style="font-size: 26px;">▶️</span>
+              <div>
+                <div style="color: #ef4444; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;">Canal de YouTube</div>
+                <div style="font-size: 15px;">Parami Records</div>
+              </div>
+            </a>
+          </div>
+        `;
+      }
+
+      document.getElementById('infoModal').classList.add('open');
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).classList.remove('open');
+    }
+
+    // Cerrar modales con clic fuera
+    document.querySelectorAll('.modal-overlay').forEach(modal => {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.remove('open');
         }
       });
+    });
+
+    // Toggle menú móvil
+    const menuToggle = document.getElementById('menuToggle');
+    const sidebar = document.getElementById('sidebar');
+    if (menuToggle && sidebar) {
+      menuToggle.addEventListener('click', () => {
+        sidebar.classList.toggle('open');
+      });
+    }
+
+    // Selector de idiomas
+    function setLang(lang) {
+      document.getElementById('btnLangEs').classList.toggle('active', lang === 'es');
+      document.getElementById('btnLangEn').classList.toggle('active', lang === 'en');
     }
   </script>
 </body>
