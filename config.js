@@ -15,27 +15,6 @@ const CONFIG = {
 
   books: [
     {
-      id: "christmas-elves",
-      prefix: "christmas_elves",
-      samplePages: 4,
-      languages: {
-        es: {
-          title: "Christmas Elves",
-          subtitle: "Santa's Elf Workshop · Libro para colorear",
-          description: "¡Descubre la magia del taller de Papá Noel en el Polo Norte! 50 encantadoras ilustraciones con simpáticos elfos fabricando juguetes, preparando el trineo, cuidando a los renos y viviendo aventuras en la nieve. Ilustraciones con trazos limpios pensadas para relajarse y celebrar la Navidad.",
-          coverImage: "christmas_elves_cover.jpg",
-          comingSoon: true
-        },
-        en: {
-          title: "Christmas Elves",
-          subtitle: "Santa's Elf Workshop · Coloring Book",
-          description: "Step into the magical world of Santa's North Pole workshop! Featuring 50 delightful illustrations of cheerful elves crafting toys, caring for reindeer, sledding in the snow, and celebrating Christmas. Bold, clean outlines designed for joyful, stress-free coloring.",
-          coverImage: "christmas_elves_cover.jpg",
-          comingSoon: true
-        }
-      }
-    },
-    {
       id: "cozy-halloween",
       prefix: "cozy_halloween",
       samplePages: 5,
@@ -94,6 +73,27 @@ const CONFIG = {
           description: "Big smiles, little adventures! Meet 40 adorable baby animals in playful scenes made for coloring and imagination: baby pangolins, platypuses, quokkas, and axolotls. Designed with clean lines for fun, stress-free coloring.",
           coverImage: "baby_animals_cover_en.jpg",
           asin: "B0HM6XBMCV"
+        }
+      }
+    },
+    {
+      id: "christmas-elves",
+      prefix: "christmas_elves",
+      samplePages: 4,
+      languages: {
+        es: {
+          title: "Christmas Elves",
+          subtitle: "Santa's Elf Workshop · Libro para colorear",
+          description: "¡Descubre la magia del taller de Papá Noel en el Polo Norte! 50 encantadoras ilustraciones con simpáticos elfos fabricando juguetes, preparando el trineo, cuidando a los renos y viviendo aventuras en la nieve. Ilustraciones con trazos limpios pensadas para relajarse y celebrar la Navidad.",
+          coverImage: "christmas_elves_cover.jpg",
+          comingSoon: true
+        },
+        en: {
+          title: "Christmas Elves",
+          subtitle: "Santa's Elf Workshop · Coloring Book",
+          description: "Step into the magical world of Santa's North Pole workshop! Featuring 50 delightful illustrations of cheerful elves crafting toys, caring for reindeer, sledding in the snow, and celebrating Christmas. Bold, clean outlines designed for joyful, stress-free coloring.",
+          coverImage: "christmas_elves_cover.jpg",
+          comingSoon: true
         }
       }
     },
