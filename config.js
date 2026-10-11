@@ -86,14 +86,35 @@ const CONFIG = {
           subtitle: "Santa's Elf Workshop · Libro para colorear",
           description: "¡Descubre la magia del taller de Papá Noel en el Polo Norte! 50 encantadoras ilustraciones con simpáticos elfos fabricando juguetes, preparando el trineo, cuidando a los renos y viviendo aventuras en la nieve. Ilustraciones con trazos limpios pensadas para relajarse y celebrar la Navidad.",
           coverImage: "christmas_elves_cover.jpg",
-          comingSoon: true
+          asin: "B0HMP2M3WH"
         },
         en: {
           title: "Christmas Elves",
           subtitle: "Santa's Elf Workshop · Coloring Book",
           description: "Step into the magical world of Santa's North Pole workshop! Featuring 50 delightful illustrations of cheerful elves crafting toys, caring for reindeer, sledding in the snow, and celebrating Christmas. Bold, clean outlines designed for joyful, stress-free coloring.",
           coverImage: "christmas_elves_cover.jpg",
-          comingSoon: true
+          asin: "B0HMP2M3WH"
+        }
+      }
+    },
+    {
+      id: "cozy-animals-work",
+      prefix: "cozy_work",
+      samplePages: 3,
+      languages: {
+        es: {
+          title: "Animales Cozy con Oficios",
+          subtitle: "Libro para colorear",
+          description: "Descubre una entrañable aldea donde adorables animalitos disfrutan de sus divertidos oficios: zorritos panaderos, osos carpinteros, nutrias floristas y artesanos. Diseñado con trazos limpios y definidos para pintar sin estrés y despertar tu creatividad.",
+          coverImage: "cozy_work_cover_es.jpg",
+          asin: "B0HMMMD3ST"
+        },
+        en: {
+          title: "Cozy Animals at Work",
+          subtitle: "A Coloring Book",
+          description: "Step into a bustling storybook town full of adorable animals working cheerful jobs: baker foxes, carpenter bears, florist otters, and master builders! Featuring bold, clean outlines designed for relaxing, stress-free coloring.",
+          coverImage: "cozy_work_cover_en.jpg",
+          asin: "B0HMMMD3ST"
         }
       }
     },
@@ -251,26 +272,6 @@ const CONFIG = {
           subtitle: "Coloring Book",
           description: "Explore the power and beauty of 40 magnificent mandala dragons: ice dragons, crystal beasts, celestial wyrms, and legendary guardians. Featuring clean outlines designed for deep focus and stress relief.",
           coverImage: "dragons_cover_en.jpg",
-          comingSoon: true
-        }
-      }
-    },
-    {
-      id: "cozy-animals-work",
-      prefix: "cozy_work",
-      languages: {
-        es: {
-          title: "Animales Cozy con Oficios",
-          subtitle: "Libro para colorear",
-          description: "Descubre una entrañable aldea donde adorables animalitos disfrutan de sus divertidos oficios: zorritos panaderos, osos carpinteros, nutrias floristas y artesanos. Diseñado con trazos limpios y definidos para pintar sin estrés y despertar tu creatividad.",
-          coverImage: "cozy_work_cover_es.jpg",
-          comingSoon: true
-        },
-        en: {
-          title: "Cozy Animals at Work",
-          subtitle: "A Coloring Book",
-          description: "Step into a bustling storybook town full of adorable animals working cheerful jobs: baker foxes, carpenter bears, florist otters, and master builders! Featuring bold, clean outlines designed for relaxing, stress-free coloring.",
-          coverImage: "cozy_work_cover_en.jpg",
           comingSoon: true
         }
       }
