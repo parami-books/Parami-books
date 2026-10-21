@@ -6,19 +6,52 @@
   <title>Parami Books - Coloring Books for a Calmer, Happier World</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-sidebar: #0a0e17;
-      --bg-sidebar-hover: #141b2b;
-      --bg-page: #f8f5ee;
+      /* MODO CÁLIDO COZY (ACOGEDOR, FONDO MIEL / VAINILLA) */
+      --bg-sidebar: #05152a;
+      --bg-sidebar-hover: #0c2342;
+      --bg-page: #fbf5ea;
+      --bg-page-gradient: radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.16) 0%, rgba(251, 146, 60, 0.06) 35%, transparent 75%), linear-gradient(180deg, #fdf8ef 0%, #f7ede0 45%, #f4e6d4 100%);
       --card-bg: #ffffff;
-      --text-main: #111827;
-      --text-muted: #6b7280;
+      --card-border: #eddcd0;
+      --card-shadow: 0 10px 25px rgba(180, 83, 9, 0.08), 0 2px 6px rgba(0,0,0,0.03);
+      --card-hover-shadow: 0 18px 36px rgba(217, 119, 6, 0.18), 0 4px 10px rgba(0,0,0,0.06);
+      --card-hover-border: #f59e0b;
+      --text-main: #1e293b;
+      --text-title: #0f172a;
+      --text-muted: #64748b;
       --amazon-btn: #ffd814;
       --amazon-btn-border: #fcd200;
       --amazon-btn-hover: #f7ca00;
       --primary-orange: #ea580c;
+      --subnav-border: #e6dacd;
+      --chip-bg: #ffffff;
+      --chip-border: #dfd4c7;
+      --chip-text: #475569;
+      --modal-bg: #ffffff;
+    }
+
+    /* MODO NOCHE MÁGICA (COZY NIGHTS - CONTINUACIÓN DE LA CABECERA NOCTURNA) */
+    body.dark-mode {
+      --bg-sidebar: #030d1c;
+      --bg-sidebar-hover: #081a33;
+      --bg-page: #061325;
+      --bg-page-gradient: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.15) 0%, rgba(139, 92, 246, 0.08) 50%, transparent 80%), linear-gradient(180deg, #07152b 0%, #051020 100%);
+      --card-bg: #0c203b;
+      --card-border: #1a355d;
+      --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      --card-hover-shadow: 0 18px 36px rgba(56, 189, 248, 0.25);
+      --card-hover-border: #38bdf8;
+      --text-main: #e2e8f0;
+      --text-title: #f8fafc;
+      --text-muted: #94a3b8;
+      --subnav-border: #193154;
+      --chip-bg: #0d223f;
+      --chip-border: #1e3a63;
+      --chip-text: #cbd5e1;
+      --modal-bg: #0d203b;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -29,6 +62,7 @@
       font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
       min-height: 100vh;
       overflow-x: hidden;
+      transition: background 0.3s ease, color 0.3s ease;
     }
 
     body {
@@ -36,23 +70,23 @@
     }
 
     /* ========================================================
-       BARRA LATERAL IZQUIERDA (DARK SIDEBAR)
+       BARRA LATERAL IZQUIERDA (SIDEBAR IDÉNTICA AL DISEÑO)
        ======================================================== */
     aside.sidebar {
-      width: 235px;
-      background: var(--bg-sidebar);
+      width: 240px;
+      background: linear-gradient(180deg, #051428 0%, #030d1c 100%);
       color: #e2e8f0;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 20px 14px;
+      padding: 16px 14px 20px;
       flex-shrink: 0;
       position: sticky;
       top: 0;
       height: 100vh;
       overflow-y: auto;
       z-index: 100;
-      border-right: 1px solid rgba(255, 255, 255, 0.05);
+      border-right: 1px solid rgba(255, 255, 255, 0.06);
       transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
@@ -60,26 +94,31 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 20px;
-      padding: 4px 0;
+      margin-bottom: 18px;
+      padding: 6px 0;
       cursor: pointer;
     }
     .brand-logo-img {
-      height: 56px;
+      height: 64px;
       width: auto;
       object-fit: contain;
-      filter: drop-shadow(0 4px 12px rgba(234, 88, 12, 0.45));
+      filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+      transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .brand-logo-img:hover {
+      transform: scale(1.05) rotate(-1deg);
     }
 
     .sidebar-group {
       margin-bottom: 16px;
     }
     .sidebar-title {
-      font-size: 10px;
-      font-weight: 800;
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-size: 11px;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1.2px;
-      color: #4b5563;
+      color: #557196;
       margin-bottom: 6px;
       padding-left: 10px;
     }
@@ -96,29 +135,56 @@
       padding: 8px 12px;
       color: #94a3b8;
       text-decoration: none;
-      font-size: 13px;
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-size: 14px;
       font-weight: 600;
-      border-radius: 8px;
+      border-radius: 9px;
       transition: all 0.2s ease;
       cursor: pointer;
     }
     .sidebar-menu li a:hover {
       background: var(--bg-sidebar-hover);
       color: #ffffff;
-      transform: translateX(2px);
+      transform: translateX(3px);
     }
     .sidebar-menu li.active a {
-      background: linear-gradient(90deg, rgba(217, 119, 6, 0.4) 0%, rgba(180, 83, 9, 0.15) 100%);
-      color: #fbbf24;
-      border: 1px solid rgba(245, 158, 11, 0.4);
+      background: linear-gradient(90deg, #d97706 0%, #f59e0b 100%);
+      color: #ffffff;
       font-weight: 700;
+      box-shadow: 0 4px 14px rgba(217, 119, 6, 0.4);
     }
     .menu-icon {
-      font-size: 15px;
-      width: 20px;
+      font-size: 16px;
+      width: 22px;
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+
+    /* SELECTOR DE MODO NOCHE / CÁLIDO */
+    .theme-toggle-wrap {
+      margin-bottom: 12px;
+    }
+    .theme-toggle-btn {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #fbbf24;
+      padding: 8px 12px;
+      border-radius: 9px;
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+    .theme-toggle-btn:hover {
+      background: rgba(255, 255, 255, 0.14);
+      transform: translateY(-1px);
     }
 
     .sidebar-bottom {
@@ -130,8 +196,9 @@
       gap: 6px;
       margin-bottom: 12px;
       padding: 3px;
-      background: #141a27;
+      background: #091a31;
       border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
     }
     .lang-btn {
       flex: 1;
@@ -139,8 +206,9 @@
       border: none;
       background: transparent;
       color: #94a3b8;
-      font-size: 11px;
-      font-weight: 700;
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-size: 12px;
+      font-weight: 600;
       border-radius: 6px;
       cursor: pointer;
       display: flex;
@@ -152,12 +220,13 @@
     .lang-btn.active {
       background: #ea580c;
       color: #ffffff;
+      box-shadow: 0 2px 8px rgba(234, 88, 12, 0.3);
     }
     .social-bar {
       display: flex;
       justify-content: center;
-      gap: 24px;
-      font-size: 20px;
+      gap: 16px;
+      font-size: 18px;
       padding: 6px 0 2px;
     }
     .social-bar a {
@@ -171,18 +240,103 @@
     }
 
     /* ========================================================
-       ÁREA PRINCIPAL DE LA WEB (MAIN CONTENT)
+       ÁREA PRINCIPAL DE LA WEB (MAIN VIEWPORT)
        ======================================================== */
     main.main-viewport {
       flex: 1;
       min-width: 0;
       background: var(--bg-page);
+      background-image: var(--bg-page-gradient);
       display: flex;
       flex-direction: column;
+      position: relative;
+    }
+
+    /* CABECERA PANORÁMICA PERMANENTE */
+    .panorama-top-section {
+      width: 100%;
+      position: relative;
+      background: #051428;
+      user-select: none;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+    .panorama-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Áreas clicables interactivas en la panorámica */
+    .clickable-amazon-hero {
+      position: absolute;
+      left: 39.2%;
+      top: 82.5%;
+      width: 19.8%;
+      height: 9.2%;
+      border-radius: 24px;
+      cursor: pointer;
+      z-index: 10;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .clickable-amazon-hero:hover {
+      box-shadow: 0 0 18px rgba(255, 216, 20, 0.7);
+      transform: scale(1.02);
+    }
+
+    .clickable-spread-hero {
+      position: absolute;
+      left: 69%;
+      top: 32%;
+      width: 27%;
+      height: 64%;
+      border-radius: 12px;
+      cursor: pointer;
+      z-index: 10;
+      transition: transform 0.15s;
+    }
+    .clickable-spread-hero:hover {
+      transform: scale(1.015);
+    }
+
+    .clickable-search-box {
+      position: absolute;
+      left: 60.5%;
+      top: 3.3%;
+      width: 21.5%;
+      height: 9.8%;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+    }
+    .clickable-search-box input {
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      padding-left: 34px;
+      padding-right: 32px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #1e293b;
+      font-family: inherit;
+    }
+    .clickable-search-box input::placeholder {
+      color: transparent;
+    }
+
+    .clickable-flags-hero {
+      position: absolute;
+      left: 92%;
+      top: 3.3%;
+      width: 7%;
+      height: 9.8%;
+      z-index: 10;
+      cursor: pointer;
     }
 
     /* ========================================================
-       VISTA 1: INICIO (HOME VIEW)
+       VISTAS DE CONTENIDO (HOME Y CATÁLOGO)
        ======================================================== */
     .view-container {
       display: none;
@@ -197,96 +351,82 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    .panorama-top-section {
-      width: 100%;
-      position: relative;
-      background: #0b0f19;
-    }
-    .panorama-img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    /* Áreas clicables interactivas en la panorámica */
-    .clickable-amazon-hero {
-      position: absolute;
-      top: 67%;
-      left: 45%;
-      width: 17%;
-      height: 14%;
-      border-radius: 30px;
-      cursor: pointer;
-      z-index: 10;
-    }
-    .clickable-spread-hero {
-      position: absolute;
-      top: 25%;
-      left: 71%;
-      width: 25%;
-      height: 60%;
-      border-radius: 14px;
-      cursor: pointer;
-      z-index: 10;
-    }
-
     .content-body-wrap {
-      padding: 20px 28px 40px;
+      padding: 26px 32px 52px;
     }
 
     .section-wrap {
-      margin-bottom: 24px;
+      margin-bottom: 32px;
     }
     .section-header-exact {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 12px;
+      margin-bottom: 16px;
     }
+    
+    /* TÍTULOS DE SECCIÓN: TIPOGRAFÍA FREDOKA */
     .section-title-exact {
-      font-family: 'Nunito', sans-serif;
-      font-size: 19px;
-      font-weight: 900;
-      color: #1e293b;
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--text-title);
       display: flex;
       align-items: center;
-      gap: 8px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+      gap: 12px;
+      letter-spacing: 0.3px;
+    }
+    .section-title-exact::after {
+      content: "";
+      display: block;
+      width: 50px;
+      height: 4px;
+      background: linear-gradient(90deg, #38bdf8 0%, #818cf8 100%);
+      border-radius: 4px;
     }
     .section-link-exact {
-      font-size: 12.5px;
-      font-weight: 700;
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-size: 13.5px;
+      font-weight: 600;
       color: #0284c7;
+      background: rgba(2, 132, 199, 0.08);
+      border: 1px solid rgba(2, 132, 199, 0.22);
+      padding: 6px 14px;
+      border-radius: 20px;
       text-decoration: none;
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 4px;
+      gap: 6px;
       cursor: pointer;
+      transition: all 0.2s ease;
     }
     .section-link-exact:hover {
-      text-decoration: underline;
+      background: #0284c7;
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
     }
 
     /* 4 COLECCIONES ILUSTRADAS */
     .collections-row-exact {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
+      gap: 18px;
     }
     .col-card-exact {
-      border-radius: 14px;
+      border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.06);
-      transition: transform 0.25s, box-shadow 0.25s;
+      box-shadow: var(--card-shadow);
+      border: 1.5px solid var(--card-border);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s, border-color 0.25s;
       cursor: pointer;
       display: block;
-      border: 1px solid rgba(0,0,0,0.04);
-      background: #ffffff;
+      background: var(--card-bg);
     }
     .col-card-exact:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+      transform: translateY(-5px);
+      box-shadow: var(--card-hover-shadow);
+      border-color: var(--card-hover-border);
     }
     .col-card-img {
       width: 100%;
@@ -294,196 +434,286 @@
       display: block;
     }
 
-    /* 6 ÚLTIMOS LANZAMIENTOS (TIRA HORIZONTAL) */
+    /* 6 ÚLTIMOS LANZAMIENTOS (PORTADAS ORIGINALES EN ALTA RESOLUCIÓN) */
     .books-row-exact {
       display: grid;
       grid-template-columns: repeat(6, 1fr);
-      gap: 14px;
+      gap: 16px;
     }
-    .book-card-exact {
-      border-radius: 12px;
+    .home-book-card {
+      background: var(--card-bg);
+      border: 1.5px solid var(--card-border);
+      border-radius: 18px;
       overflow: hidden;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
-      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      box-shadow: var(--card-shadow);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s, border-color 0.25s;
       cursor: pointer;
-      display: block;
-      text-decoration: none;
-      background: #ffffff;
-      border: 1.5px solid #ebdcd0;
+      display: flex;
+      flex-direction: column;
+    }
+    .home-book-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--card-hover-shadow);
+      border-color: var(--card-hover-border);
+    }
+    .home-book-strip {
+      height: 5px;
+      width: 100%;
+    }
+    .strip-magical { background: linear-gradient(90deg, #8b5cf6, #c084fc); }
+    .strip-animals { background: linear-gradient(90deg, #10b981, #34d399); }
+    .strip-mandalas { background: linear-gradient(90deg, #ec4899, #f472b6); }
+    .strip-machines { background: linear-gradient(90deg, #ef4444, #f87171); }
+
+    .home-book-cover-wrap {
+      padding: 12px 12px 6px;
       position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.02);
     }
-    .book-card-exact:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.13);
-      border-color: #f59e0b;
-    }
-    .book-card-img {
+    .home-book-img {
       width: 100%;
       aspect-ratio: 1 / 1.294;
       object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.18);
       display: block;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s;
     }
-    .book-card-exact:hover .book-card-img {
+    .home-book-card:hover .home-book-img {
       transform: scale(1.03);
     }
-    .book-card-overlay {
+    .home-book-tag {
       position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(10, 14, 23, 0.15) 0%, rgba(10, 14, 23, 0.88) 100%);
+      top: 18px;
+      left: 18px;
+      background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+      color: #ffffff;
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      box-shadow: 0 2px 6px rgba(234, 88, 12, 0.35);
+      z-index: 2;
+    }
+    .home-book-hover-actions {
+      position: absolute;
+      inset: 12px;
+      border-radius: 10px;
+      background: linear-gradient(180deg, rgba(10, 14, 23, 0.1) 0%, rgba(5, 20, 42, 0.92) 100%);
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      padding: 10px;
+      padding: 12px;
       gap: 6px;
       opacity: 0;
       transition: opacity 0.2s ease;
       z-index: 5;
     }
-    .book-card-exact:hover .book-card-overlay {
+    .home-book-card:hover .home-book-hover-actions {
       opacity: 1;
     }
-    .card-quick-btn-amazon {
+    .quick-btn-amz {
       background: #ffd814;
       color: #0f1111;
-      font-weight: 800;
-      font-size: 11px;
-      padding: 6px 10px;
-      border-radius: 14px;
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      padding: 7px 10px;
+      border-radius: 12px;
       text-align: center;
       text-decoration: none;
       display: block;
       box-shadow: 0 2px 6px rgba(0,0,0,0.25);
       transition: background 0.15s, transform 0.15s;
     }
-    .card-quick-btn-amazon:hover {
+    .quick-btn-amz:hover {
       background: #f7ca00;
       transform: scale(1.02);
     }
-    .card-quick-btn-preview {
+    .quick-btn-prev {
       background: rgba(255, 255, 255, 0.95);
       color: #0f172a;
-      font-weight: 700;
-      font-size: 11px;
-      padding: 6px 10px;
-      border-radius: 14px;
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-weight: 600;
+      font-size: 11.5px;
+      padding: 7px 10px;
+      border-radius: 12px;
       text-align: center;
       border: none;
       cursor: pointer;
       display: block;
       transition: background 0.15s, transform 0.15s;
     }
-    .card-quick-btn-preview:hover {
+    .quick-btn-prev:hover {
       background: #ffffff;
       transform: scale(1.02);
     }
+    .home-book-info {
+      padding: 10px 14px 14px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .home-book-title {
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-title);
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+    .home-book-rating {
+      font-size: 12px;
+      color: #f59e0b;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .home-book-rating span {
+      color: var(--text-muted);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+    }
 
     /* ========================================================
-       VISTA 2: CATÁLOGO DE COLECCIÓN / TODOS LOS LIBROS
+       VISTA 2: CATÁLOGO DINÁMICO ELEGANTE Y CÁLIDO
        ======================================================== */
     .category-view-wrap {
-      padding: 24px 32px 60px;
+      padding: 26px 32px 60px;
     }
     
-    .category-header-banner {
-      background: linear-gradient(135deg, #1e1b18 0%, #2b1f1a 100%);
-      color: #ffffff;
-      border-radius: 18px;
-      padding: 28px 36px;
-      margin-bottom: 28px;
+    .catalog-subnav-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-      position: relative;
-      overflow: hidden;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--subnav-border);
     }
-    .category-header-info h2 {
-      font-family: 'Nunito', sans-serif;
-      font-size: 28px;
-      font-weight: 900;
-      margin-bottom: 6px;
+    .catalog-title-group {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+    .catalog-section-title {
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--text-title);
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
     }
-    .category-header-info p {
-      font-size: 14px;
-      color: #d1d5db;
-      max-width: 520px;
-      line-height: 1.45;
+    .catalog-book-count {
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-muted);
     }
-    .btn-back-home {
-      background: rgba(255, 255, 255, 0.15);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      color: #ffffff;
-      padding: 9px 18px;
+
+    .category-filter-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .chip-btn {
+      background: var(--chip-bg);
+      border: 1.5px solid var(--chip-border);
+      color: var(--chip-text);
+      padding: 7px 16px;
       border-radius: 20px;
-      font-size: 13px;
-      font-weight: 700;
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-size: 13.5px;
+      font-weight: 600;
       cursor: pointer;
+      transition: all 0.2s ease;
       display: flex;
       align-items: center;
       gap: 6px;
-      transition: all 0.2s;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
     }
-    .btn-back-home:hover {
-      background: #ea580c;
-      border-color: #ea580c;
+    .chip-btn:hover {
+      border-color: #f59e0b;
+      color: var(--text-title);
+      transform: translateY(-2px);
+    }
+    .chip-btn.active {
+      background: linear-gradient(90deg, #d97706 0%, #f59e0b 100%);
+      color: #ffffff;
+      border-color: #d97706;
+      box-shadow: 0 4px 12px rgba(217, 119, 6, 0.35);
     }
 
     .books-catalog-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
       gap: 22px;
     }
     .catalog-book-card {
       background: var(--card-bg);
-      border-radius: 16px;
-      border: 1px solid #ebdcd0;
+      border-radius: 18px;
+      border: 1.5px solid var(--card-border);
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.03);
-      transition: all 0.25s ease;
+      box-shadow: var(--card-shadow);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s, border-color 0.25s;
     }
     .catalog-book-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 14px 28px rgba(0,0,0,0.1);
-      border-color: #cbd5e1;
+      transform: translateY(-6px);
+      box-shadow: var(--card-hover-shadow);
+      border-color: var(--card-hover-border);
     }
+    
+    .card-top-strip {
+      height: 6px;
+      width: 100%;
+    }
+
     .card-cover-wrap {
-      height: 280px;
-      background: #f8fafc;
+      height: 250px;
+      background: rgba(0,0,0,0.02);
       padding: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
+      cursor: pointer;
     }
     .card-cover-img {
       max-height: 100%;
       max-width: 100%;
       object-fit: contain;
-      border-radius: 8px;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.14);
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.18);
       transition: transform 0.3s;
     }
     .catalog-book-card:hover .card-cover-img {
-      transform: scale(1.03);
+      transform: scale(1.04);
     }
     .card-tag {
       position: absolute;
-      top: 12px;
-      left: 12px;
-      background: #ea580c;
+      top: 10px;
+      left: 10px;
+      background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
       color: #ffffff;
-      font-size: 10px;
-      font-weight: 800;
-      padding: 4px 9px;
-      border-radius: 6px;
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 12px;
       text-transform: uppercase;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      box-shadow: 0 3px 8px rgba(234, 88, 12, 0.35);
+      z-index: 2;
     }
     .card-body {
       padding: 16px;
@@ -491,30 +721,45 @@
       flex-direction: column;
       flex: 1;
     }
-    .card-title {
-      font-size: 15px;
-      font-weight: 800;
-      color: #1e293b;
-      margin-bottom: 4px;
-      line-height: 1.3;
-    }
-    .card-category {
-      font-size: 11.5px;
+    .card-pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      align-self: flex-start;
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-size: 11px;
       font-weight: 700;
-      color: #64748b;
+      padding: 4px 12px;
+      border-radius: 14px;
       margin-bottom: 8px;
+      color: #ffffff;
+    }
+    .badge-magical { background: linear-gradient(135deg, #7c3aed 0%, #9333ea 100%); }
+    .badge-animals { background: linear-gradient(135deg, #059669 0%, #10b981 100%); }
+    .badge-mandalas { background: linear-gradient(135deg, #db2777 0%, #ec4899 100%); }
+    .badge-machines { background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%); }
+
+    .card-title {
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-title);
+      margin-bottom: 6px;
+      line-height: 1.35;
     }
     .card-meta {
       display: flex;
       align-items: center;
       gap: 6px;
-      font-size: 12.5px;
-      color: #eab308;
-      margin-bottom: 12px;
+      font-size: 13px;
+      color: #f59e0b;
+      margin-bottom: 14px;
+      font-weight: bold;
     }
     .card-meta span {
-      color: #64748b;
-      font-size: 11px;
+      color: var(--text-muted);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 11.5px;
       font-weight: 600;
     }
     .card-actions {
@@ -526,9 +771,10 @@
     .btn-buy-amazon {
       background: var(--amazon-btn);
       border: 1px solid var(--amazon-btn-border);
-      border-radius: 8px;
+      border-radius: 12px;
       color: #0f1111;
-      font-size: 13px;
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-size: 13.5px;
       font-weight: 700;
       padding: 9px;
       text-align: center;
@@ -537,26 +783,42 @@
       align-items: center;
       justify-content: center;
       gap: 6px;
-      transition: background 0.2s;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: background 0.2s, transform 0.15s;
     }
     .btn-buy-amazon:hover {
       background: var(--amazon-btn-hover);
+      transform: scale(1.02);
+    }
+    .btn-soon {
+      background: rgba(0,0,0,0.05);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      color: var(--text-muted);
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 9px;
+      text-align: center;
+      display: block;
     }
     .btn-view-samples {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      color: #475569;
-      font-size: 12px;
+      background: transparent;
+      border: 1.5px solid var(--card-border);
+      border-radius: 12px;
+      color: var(--text-main);
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-size: 12.5px;
       font-weight: 600;
-      padding: 7px;
+      padding: 8px;
       text-align: center;
       cursor: pointer;
       transition: all 0.2s;
     }
     .btn-view-samples:hover {
-      background: #e2e8f0;
-      color: #1e293b;
+      background: rgba(234, 88, 12, 0.08);
+      border-color: #ea580c;
+      color: #ea580c;
     }
 
     /* ========================================================
@@ -566,7 +828,7 @@
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.85);
+      background: rgba(5, 20, 42, 0.88);
       backdrop-filter: blur(8px);
       z-index: 1000;
       align-items: center;
@@ -582,32 +844,39 @@
       to { opacity: 1; transform: scale(1); }
     }
     .modal-card {
-      background: #ffffff;
+      background: var(--modal-bg);
       border-radius: 20px;
-      max-width: 680px;
+      max-width: 600px;
       width: 100%;
       overflow: hidden;
       box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-      position: relative;
+      border: 1.5px solid var(--card-border);
     }
     .modal-header {
       padding: 16px 22px;
-      border-bottom: 1px solid #e2e8f0;
+      background: rgba(0,0,0,0.03);
+      border-bottom: 1px solid var(--card-border);
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
     .modal-title {
-      font-size: 16px;
-      font-weight: 800;
-      color: #1e1b18;
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-title);
     }
     .modal-close {
       background: none;
       border: none;
-      font-size: 22px;
+      font-size: 24px;
       cursor: pointer;
-      color: #64748b;
+      color: var(--text-muted);
+      line-height: 1;
+      transition: color 0.2s;
+    }
+    .modal-close:hover {
+      color: #ea580c;
     }
     .modal-body {
       padding: 24px;
@@ -625,8 +894,8 @@
     .modal-img-wrap img {
       max-height: 100%;
       max-width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
     }
     .modal-actions {
       display: flex;
@@ -636,13 +905,13 @@
       align-items: center;
     }
     .preview-nav-btn {
-      background: #f1f5f9;
-      border: 1px solid #cbd5e1;
-      color: #1e293b;
-      width: 34px;
-      height: 34px;
+      background: var(--card-bg);
+      border: 1.5px solid var(--card-border);
+      color: var(--text-main);
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
-      font-size: 16px;
+      font-size: 20px;
       font-weight: bold;
       cursor: pointer;
       display: flex;
@@ -658,7 +927,7 @@
 
     /* MODAL INFO / SOBRE NOSOTROS */
     .info-modal-card {
-      background: #ffffff;
+      background: var(--modal-bg);
       border-radius: 20px;
       max-width: 560px;
       width: 100%;
@@ -666,28 +935,29 @@
       box-shadow: 0 25px 50px rgba(0,0,0,0.5);
       position: relative;
       animation: modalFade 0.25s ease-out;
+      border: 1.5px solid var(--card-border);
     }
     .info-modal-card h3 {
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Fredoka', cursive, sans-serif;
       font-size: 24px;
-      font-weight: 900;
+      font-weight: 800;
       margin-bottom: 12px;
-      color: #1e1b18;
+      color: var(--text-title);
     }
     .info-modal-card p {
       font-size: 14.5px;
       line-height: 1.6;
-      color: #4b5563;
+      color: var(--text-main);
       margin-bottom: 16px;
     }
 
-    /* RESPONSIVE DESIGN (MÓVIL / TABLET) */
+    /* RESPONSIVE DESIGN */
     .mobile-menu-toggle {
       display: none;
       position: fixed;
       top: 14px;
       left: 14px;
-      background: #0a0e17;
+      background: #051428;
       color: #ffffff;
       border: 1px solid rgba(255,255,255,0.2);
       border-radius: 8px;
@@ -699,7 +969,7 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1100px) {
       .collections-row-exact {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -717,7 +987,7 @@
         left: -250px;
         top: 0;
         bottom: 0;
-        width: 235px;
+        width: 240px;
         box-shadow: 10px 0 30px rgba(0,0,0,0.5);
       }
       aside.sidebar.open {
@@ -745,18 +1015,12 @@
         overflow-x: auto;
         padding-bottom: 8px;
       }
-      .book-card-exact {
-        min-width: 150px;
+      .home-book-card {
+        min-width: 160px;
         flex-shrink: 0;
       }
       .category-view-wrap {
         padding: 18px 14px 40px;
-      }
-      .category-header-banner {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-        padding: 22px;
       }
     }
   </style>
@@ -770,7 +1034,7 @@
   <aside class="sidebar" id="sidebar">
     <div>
       <div class="brand-wrap" onclick="navTo('home', this)">
-        <img src="images/v2_logo_parami.png" alt="Parami Books" class="brand-logo-img">
+        <img src="images/sidebar_logo_clean.png" alt="Parami Books" class="brand-logo-img">
       </div>
 
       <div class="sidebar-group">
@@ -809,6 +1073,13 @@
     </div>
 
     <div class="sidebar-bottom">
+      <!-- SELECTOR DE TEMA: MODO NOCHE MÁGICO / MODO CÁLIDO COZY -->
+      <div class="theme-toggle-wrap">
+        <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()">
+          <span id="themeToggleIcon">🌙</span> <span id="themeToggleText">Modo Noche</span>
+        </button>
+      </div>
+
       <div class="lang-switcher">
         <button class="lang-btn active" id="btnLangEs" onclick="setLang('es')">🇪🇸 Español</button>
         <button class="lang-btn" id="btnLangEn" onclick="setLang('en')">🇬🇧 English</button>
@@ -823,105 +1094,171 @@
   <!-- CUERPO PRINCIPAL DE LA PÁGINA -->
   <main class="main-viewport">
     
+    <!-- CABECERA Y HERO PANORÁMICOS CONTINUOS (PERMANENTE EN TODAS LAS VISTAS) -->
+    <section class="panorama-top-section">
+      <img src="images/exact_panorama_header.jpg" alt="Parami Books - Cozy Halloween Hero" class="panorama-img">
+      <!-- Enlace directo a Amazon en el botón amarillo del Hero -->
+      <a href="https://www.amazon.es/dp/B0HLX7LH8V" target="_blank" class="clickable-amazon-hero" title="Comprar Cozy Halloween en Amazon"></a>
+      <!-- Clic en el libro abierto para hojear las muestras de Halloween -->
+      <div class="clickable-spread-hero" onclick="openSamplesModal('cozy-halloween')" title="Hojear láminas de Cozy Halloween"></div>
+      <!-- Barra de búsqueda funcional interactiva -->
+      <div class="clickable-search-box">
+        <input type="text" id="topSearchInput" placeholder="Buscar..." oninput="handleTopSearch(this.value)" autocomplete="off">
+      </div>
+      <!-- Selector de banderas en cabecera -->
+      <div class="clickable-flags-hero" onclick="toggleLang()" title="Cambiar idioma ES / EN"></div>
+    </section>
+
     <!-- ==========================================
-         VISTA 1: INICIO (HOME VIEW PANORÁMICA)
+         VISTA 1: INICIO (HOME VIEW)
          ========================================== -->
     <div class="view-container active" id="view-home">
-      <!-- CABECERA Y HERO PANORÁMICOS CONTINUOS (SIN HUECOS BLANCOS) -->
-      <section class="panorama-top-section">
-        <img src="images/exact_panorama_header.jpg" alt="Parami Books - Cozy Halloween Hero" class="panorama-img">
-        <!-- Enlace directo a Amazon en el botón amarillo del Hero -->
-        <a href="https://www.amazon.es/dp/B0HLX7LH8V" target="_blank" class="clickable-amazon-hero" title="Comprar Cozy Halloween en Amazon"></a>
-        <!-- Clic en el libro abierto para hojear las muestras de Halloween -->
-        <div class="clickable-spread-hero" onclick="openSamplesModal('cozy-halloween')" title="Hojear láminas de Cozy Halloween"></div>
-      </section>
-
-      <!-- CUERPO INFERIOR CON FONDO CÁLIDO AUTÉNTICO -->
       <div class="content-body-wrap">
         
-        <!-- SECCIÓN 1: NUESTRAS COLECCIONES (4 TARJETAS EXACTAS CON CLIC DINÁMICO) -->
+        <!-- SECCIÓN 1: NUESTRAS COLECCIONES (4 TARJETAS CON CLIC DINÁMICO) -->
         <section class="section-wrap">
           <div class="section-header-exact">
-            <div class="section-title-exact">📖 NUESTRAS COLECCIONES</div>
+            <div class="section-title-exact">📖 Nuestras Colecciones</div>
             <span class="section-link-exact" onclick="navTo('all')">Ver todas las colecciones →</span>
           </div>
 
           <div class="collections-row-exact">
             <!-- MAGICAL COZY -->
             <div class="col-card-exact" onclick="navTo('magical')" title="Abrir Colección Magical Cozy">
-              <img src="images/exact_card_magical.jpg" alt="Magical Cozy" class="col-card-img">
+              <img src="images/exact_card_magical.jpg?v=2" alt="Magical Cozy" class="col-card-img">
             </div>
             <!-- SMILING ANIMALS -->
             <div class="col-card-exact" onclick="navTo('animals')" title="Abrir Colección Smiling Animals">
-              <img src="images/exact_card_animals.jpg" alt="Smiling Animals" class="col-card-img">
+              <img src="images/exact_card_animals.jpg?v=2" alt="Smiling Animals" class="col-card-img">
             </div>
             <!-- MANDALAS & FLORES -->
             <div class="col-card-exact" onclick="navTo('mandalas')" title="Abrir Colección Mandalas & Flores">
-              <img src="images/exact_card_mandalas.jpg" alt="Mandalas & Flores" class="col-card-img">
+              <img src="images/exact_card_mandalas.jpg?v=2" alt="Mandalas & Flores" class="col-card-img">
             </div>
             <!-- PARAMI MACHINES -->
             <div class="col-card-exact" onclick="navTo('machines')" title="Abrir Colección Parami Machines">
-              <img src="images/exact_card_machines.jpg" alt="Parami Machines" class="col-card-img">
+              <img src="images/exact_card_machines.jpg?v=2" alt="Parami Machines" class="col-card-img">
             </div>
           </div>
         </section>
 
-        <!-- SECCIÓN 2: ÚLTIMOS LANZAMIENTOS (TIRA HORIZONTAL) -->
+        <!-- SECCIÓN 2: ÚLTIMOS LANZAMIENTOS (LOS 6 LIBROS ORIGINALES EN ALTA RESOLUCIÓN) -->
         <section class="section-wrap">
           <div class="section-header-exact">
-            <div class="section-title-exact">⭐ ÚLTIMOS LANZAMIENTOS</div>
+            <div class="section-title-exact">⭐ Últimos Lanzamientos</div>
             <span class="section-link-exact" onclick="navTo('all')">Ver todos los libros →</span>
           </div>
 
           <div class="books-row-exact">
-            <!-- 1. Cozy Halloween -->
-            <div class="book-card-exact" title="Cozy Halloween">
-              <img src="images/cozy_halloween_cover_es.jpg" alt="Cozy Halloween" class="book-card-img" onclick="openSamplesModal('cozy-halloween')">
-              <div class="book-card-overlay">
-                <a href="https://www.amazon.es/dp/B0HLX7LH8V" target="_blank" class="card-quick-btn-amazon">🛒 Amazon</a>
-                <button class="card-quick-btn-preview" onclick="openSamplesModal('cozy-halloween')">👁️ Muestras</button>
+            
+            <!-- 1. Christmas Elves (OFICIAL ASIN B0HMP2M3WH) -->
+            <div class="home-book-card" onclick="openSamplesModal('christmas-elves')" title="Christmas Elves">
+              <div class="home-book-strip strip-magical"></div>
+              <div class="home-book-cover-wrap">
+                <span class="home-book-tag">🎄 NAVIDAD 2026</span>
+                <img src="images/christmas_elves_cover.jpg" alt="Christmas Elves" class="home-book-img">
+                <div class="home-book-hover-actions">
+                  <a href="https://www.amazon.es/dp/B0HMP2M3WH" target="_blank" class="quick-btn-amz" onclick="event.stopPropagation()">🛒 Comprar en Amazon</a>
+                  <button class="quick-btn-prev" onclick="openSamplesModal('christmas-elves'); event.stopPropagation()">👁️ Hojear muestras</button>
+                </div>
+              </div>
+              <div class="home-book-info">
+                <span class="card-pill-badge badge-magical">🧙 Magical Cozy</span>
+                <h4 class="home-book-title">Christmas Elves</h4>
+                <div class="home-book-rating">★★★★★ <span>5.0 (50)</span></div>
               </div>
             </div>
-            <!-- 2. Duendes y Gnomos -->
-            <div class="book-card-exact" title="Duendes y Gnomos en Otoño">
-              <img src="images/gnomes_cover_es.jpg" alt="Duendes y Gnomos" class="book-card-img" onclick="openSamplesModal('cozy-gnomes')">
-              <div class="book-card-overlay">
-                <a href="https://www.amazon.es/dp/B0HLWYGTFR" target="_blank" class="card-quick-btn-amazon">🛒 Amazon</a>
-                <button class="card-quick-btn-preview" onclick="openSamplesModal('cozy-gnomes')">👁️ Muestras</button>
+
+            <!-- 2. Cozy Halloween (OFICIAL ASIN B0HLX7LH8V) -->
+            <div class="home-book-card" onclick="openSamplesModal('cozy-halloween')" title="Cozy Halloween">
+              <div class="home-book-strip strip-magical"></div>
+              <div class="home-book-cover-wrap">
+                <span class="home-book-tag">🎃 #1 NOVEDAD</span>
+                <img src="images/cozy_halloween_cover_es.jpg" alt="Cozy Halloween" class="home-book-img">
+                <div class="home-book-hover-actions">
+                  <a href="https://www.amazon.es/dp/B0HLX7LH8V" target="_blank" class="quick-btn-amz" onclick="event.stopPropagation()">🛒 Comprar en Amazon</a>
+                  <button class="quick-btn-prev" onclick="openSamplesModal('cozy-halloween'); event.stopPropagation()">👁️ Hojear muestras</button>
+                </div>
+              </div>
+              <div class="home-book-info">
+                <span class="card-pill-badge badge-magical">🧙 Magical Cozy</span>
+                <h4 class="home-book-title">Cozy Halloween</h4>
+                <div class="home-book-rating">★★★★★ <span>5.0 (148)</span></div>
               </div>
             </div>
-            <!-- 3. Mandalas y Flores -->
-            <div class="book-card-exact" title="Mandalas y Flores">
-              <img src="images/mandalas_cover_es.png" alt="Mandalas y Flores" class="book-card-img" onclick="openSamplesModal('mandalas-flowers')">
-              <div class="book-card-overlay">
-                <a href="https://www.amazon.es/dp/B0HBHJNFZM" target="_blank" class="card-quick-btn-amazon">🛒 Amazon</a>
-                <button class="card-quick-btn-preview" onclick="openSamplesModal('mandalas-flowers')">👁️ Muestras</button>
+
+            <!-- 3. Duendes y Gnomos (OFICIAL ASIN B0HLWYGTFR) -->
+            <div class="home-book-card" onclick="openSamplesModal('cozy-gnomes')" title="Duendes y Gnomos en Otoño">
+              <div class="home-book-strip strip-magical"></div>
+              <div class="home-book-cover-wrap">
+                <span class="home-book-tag">🍄 OTOÑO</span>
+                <img src="images/gnomes_cover_es.jpg" alt="Duendes y Gnomos" class="home-book-img">
+                <div class="home-book-hover-actions">
+                  <a href="https://www.amazon.es/dp/B0HLWYGTFR" target="_blank" class="quick-btn-amz" onclick="event.stopPropagation()">🛒 Comprar en Amazon</a>
+                  <button class="quick-btn-prev" onclick="openSamplesModal('cozy-gnomes'); event.stopPropagation()">👁️ Hojear muestras</button>
+                </div>
+              </div>
+              <div class="home-book-info">
+                <span class="card-pill-badge badge-magical">🧙 Magical Cozy</span>
+                <h4 class="home-book-title">Duendes y Gnomos</h4>
+                <div class="home-book-rating">★★★★★ <span>4.9 (92)</span></div>
               </div>
             </div>
-            <!-- 4. Animales Bebés -->
-            <div class="book-card-exact" title="Animales Bebés (Vol. 3)">
-              <img src="images/baby_animals_cover_es.jpg" alt="Animales Bebés" class="book-card-img" onclick="openSamplesModal('baby-animals')">
-              <div class="book-card-overlay">
-                <a href="https://www.amazon.es/dp/B0HM6XBMCV" target="_blank" class="card-quick-btn-amazon">🛒 Amazon</a>
-                <button class="card-quick-btn-preview" onclick="openSamplesModal('baby-animals')">👁️ Muestras</button>
+
+            <!-- 4. Animales Cozy con Oficios (OFICIAL ASIN B0HMMMD3ST) -->
+            <div class="home-book-card" onclick="openSamplesModal('cozy-animals-work')" title="Animales Cozy con Oficios">
+              <div class="home-book-strip strip-animals"></div>
+              <div class="home-book-cover-wrap">
+                <span class="home-book-tag">🥖 OFICIOS</span>
+                <img src="images/cozy_work_cover_es.jpg" alt="Animales con Oficios" class="home-book-img">
+                <div class="home-book-hover-actions">
+                  <a href="https://www.amazon.es/dp/B0HMMMD3ST" target="_blank" class="quick-btn-amz" onclick="event.stopPropagation()">🛒 Comprar en Amazon</a>
+                  <button class="quick-btn-prev" onclick="openSamplesModal('cozy-animals-work'); event.stopPropagation()">👁️ Hojear muestras</button>
+                </div>
+              </div>
+              <div class="home-book-info">
+                <span class="card-pill-badge badge-animals">🐾 Smiling Animals</span>
+                <h4 class="home-book-title">Animales con Oficios</h4>
+                <div class="home-book-rating">★★★★★ <span>5.0 (29)</span></div>
               </div>
             </div>
-            <!-- 5. Animalitos Adorables -->
-            <div class="book-card-exact" title="Animalitos Adorables">
-              <img src="images/animals_cover_es.png" alt="Animalitos Adorables" class="book-card-img" onclick="openSamplesModal('smiling-animals')">
-              <div class="book-card-overlay">
-                <a href="https://www.amazon.es/dp/B0HCP7343R" target="_blank" class="card-quick-btn-amazon">🛒 Amazon</a>
-                <button class="card-quick-btn-preview" onclick="openSamplesModal('smiling-animals')">👁️ Muestras</button>
+
+            <!-- 5. Animales Bebés (OFICIAL ASIN B0HM6XBMCV) -->
+            <div class="home-book-card" onclick="openSamplesModal('baby-animals')" title="Animales Bebés (Vol. 3)">
+              <div class="home-book-strip strip-animals"></div>
+              <div class="home-book-cover-wrap">
+                <span class="home-book-tag">🐾 BEBÉS</span>
+                <img src="images/baby_animals_cover_es.jpg" alt="Animales Bebés" class="home-book-img">
+                <div class="home-book-hover-actions">
+                  <a href="https://www.amazon.es/dp/B0HM6XBMCV" target="_blank" class="quick-btn-amz" onclick="event.stopPropagation()">🛒 Comprar en Amazon</a>
+                  <button class="quick-btn-prev" onclick="openSamplesModal('baby-animals'); event.stopPropagation()">👁️ Hojear muestras</button>
+                </div>
+              </div>
+              <div class="home-book-info">
+                <span class="card-pill-badge badge-animals">🐾 Smiling Animals</span>
+                <h4 class="home-book-title">Animales Bebés</h4>
+                <div class="home-book-rating">★★★★★ <span>5.0 (38)</span></div>
               </div>
             </div>
-            <!-- 6. Hadas Cozy -->
-            <div class="book-card-exact" title="Hadas Cozy">
-              <img src="images/fairies_cover_es.png" alt="Hadas Cozy" class="book-card-img" onclick="openSamplesModal('cozy-fairies')">
-              <div class="book-card-overlay">
-                <a href="https://www.amazon.es/dp/B0HFKK8CMQ" target="_blank" class="card-quick-btn-amazon">🛒 Amazon</a>
-                <button class="card-quick-btn-preview" onclick="openSamplesModal('cozy-fairies')">👁️ Muestras</button>
+
+            <!-- 6. Mandalas y Flores (OFICIAL ASIN B0HBHJNFZM) -->
+            <div class="home-book-card" onclick="openSamplesModal('mandalas-flowers')" title="Mandalas y Flores">
+              <div class="home-book-strip strip-mandalas"></div>
+              <div class="home-book-cover-wrap">
+                <span class="home-book-tag">🌸 BESTSELLER</span>
+                <img src="images/mandalas_cover_es.png" alt="Mandalas y Flores" class="home-book-img">
+                <div class="home-book-hover-actions">
+                  <a href="https://www.amazon.es/dp/B0HBHJNFZM" target="_blank" class="quick-btn-amz" onclick="event.stopPropagation()">🛒 Comprar en Amazon</a>
+                  <button class="quick-btn-prev" onclick="openSamplesModal('mandalas-flowers'); event.stopPropagation()">👁️ Hojear muestras</button>
+                </div>
+              </div>
+              <div class="home-book-info">
+                <span class="card-pill-badge badge-mandalas">🌸 Mandalas & Flores</span>
+                <h4 class="home-book-title">Mandalas y Flores</h4>
+                <div class="home-book-rating">★★★★★ <span>4.9 (185)</span></div>
               </div>
             </div>
+
           </div>
         </section>
 
@@ -934,15 +1271,19 @@
     <div class="view-container" id="view-catalog">
       <div class="category-view-wrap">
         
-        <!-- BANNER DE LA COLECCIÓN ABIERTA -->
-        <div class="category-header-banner" id="catBanner">
-          <div class="category-header-info">
-            <h2 id="catBannerTitle">🧙 Magical Cozy</h2>
-            <p id="catBannerDesc">Adéntrate en mundos mágicos con hadas adorables, gnomos de otoño y criaturas encantadoras diseñadas para colorear y desconectar.</p>
+        <!-- BARRA DE SUBNAVEGACIÓN Y FILTROS -->
+        <div class="catalog-subnav-row">
+          <div class="catalog-title-group">
+            <h2 id="catBannerTitle" class="catalog-section-title">📖 Todos los libros</h2>
+            <span class="catalog-book-count" id="catBookCount">12 libros oficiales</span>
           </div>
-          <button class="btn-back-home" onclick="navTo('home')">
-            ← Volver al Inicio
-          </button>
+          <div class="category-filter-chips">
+            <button class="chip-btn active" id="chip-all" onclick="filterCatalog('all', this)">✨ Todos</button>
+            <button class="chip-btn" id="chip-magical" onclick="filterCatalog('magical', this)">🧙 Magical Cozy</button>
+            <button class="chip-btn" id="chip-animals" onclick="filterCatalog('animals', this)">🐾 Smiling Animals</button>
+            <button class="chip-btn" id="chip-mandalas" onclick="filterCatalog('mandalas', this)">🌸 Mandalas & Flores</button>
+            <button class="chip-btn" id="chip-machines" onclick="filterCatalog('machines', this)">🚗 Parami Machines</button>
+          </div>
         </div>
 
         <!-- LISTA DE LIBROS DE LA COLECCIÓN -->
@@ -970,10 +1311,10 @@
         </div>
         <div class="modal-actions">
           <button class="preview-nav-btn" onclick="prevModalSample()">‹</button>
-          <span id="samplesModalPageText" style="font-weight:700; color:#64748b; font-size:13px;">Lámina 1 de 5</span>
+          <span id="samplesModalPageText" style="font-family:'Fredoka',cursive; font-weight:700; color:var(--text-muted); font-size:14px;">Lámina 1 de 5</span>
           <button class="preview-nav-btn" onclick="nextModalSample()">›</button>
-          <a href="#" target="_blank" class="btn-buy-amazon" id="samplesModalAmazonBtn" style="padding: 8px 18px; font-size: 13px;">
-            🛒 Ver en Amazon
+          <a href="#" target="_blank" class="btn-buy-amazon" id="samplesModalAmazonBtn" style="padding: 9px 20px; font-size: 13.5px;">
+            🛒 Ver en Amazon Prime
           </a>
         </div>
       </div>
@@ -994,30 +1335,28 @@
   </div>
 
   <script>
-    // BASE DE DATOS COMPLETA DE LIBROS Y COLECCIONES
+    // BASE DE DATOS COMPLETA DE LIBROS Y COLECCIONES CON PORTADAS OFICIALES
     const BOOKS_DB = [
       {
         id: "christmas-elves",
-        title: "Christmas Elves",
+        title: "Christmas Elves Coloring Book",
         category: "magical",
         cover: "images/christmas_elves_cover.jpg",
         asin: "B0HMP2M3WH",
-        tag: "🎄 NAVIDAD",
+        tag: "🎄 NAVIDAD 2026",
         rating: "5.0 (50)",
-        desc: "El taller de Papá Noel en el Polo Norte: 50 ilustraciones con elfos preparando juguetes y trineos.",
         samples: ["images/christmas_elves_page_1.png", "images/christmas_elves_page_2.png", "images/christmas_elves_page_3.png", "images/christmas_elves_page_4.png"],
         isNew: true,
-        isSoon: false
+        isBestseller: true
       },
       {
         id: "cozy-halloween",
-        title: "Cozy Halloween",
+        title: "Cozy Halloween Coloring Book",
         category: "magical",
         cover: "images/cozy_halloween_cover_es.jpg",
         asin: "B0HLX7LH8V",
         tag: "🎃 #1 NOVEDAD",
         rating: "5.0 (148)",
-        desc: "Brujitas, monstruitos chibi, fantasmas tiernos y calabazas. Ilustraciones con trazos gruesos y limpios.",
         samples: ["images/cozy_halloween_page_1.png", "images/cozy_halloween_page_2.png", "images/cozy_halloween_page_3.png", "images/cozy_halloween_page_4.png", "images/cozy_halloween_page_5.png"],
         isNew: true,
         isBestseller: true
@@ -1030,10 +1369,21 @@
         asin: "B0HLWYGTFR",
         tag: "🍄 NOVEDAD",
         rating: "4.9 (92)",
-        desc: "Una aldea mágica de otoño con duendes simpáticos, setas gigantes y calabazas acogedoras.",
         samples: ["images/gnomes_page_1.png", "images/gnomes_page_2.png", "images/gnomes_page_3.png"],
         isNew: true,
         isBestseller: true
+      },
+      {
+        id: "cozy-animals-work",
+        title: "Animales Cozy con Oficios",
+        category: "animals",
+        cover: "images/cozy_work_cover_es.jpg",
+        asin: "B0HMMMD3ST",
+        tag: "🥖 OFICIOS",
+        rating: "5.0 (29)",
+        samples: ["images/cozy_work_page_1.png", "images/cozy_work_page_2.png", "images/cozy_work_page_3.png"],
+        isNew: true,
+        isBestseller: false
       },
       {
         id: "baby-animals",
@@ -1043,10 +1393,21 @@
         asin: "B0HM6XBMCV",
         tag: "🐾 NOVEDAD 2026",
         rating: "5.0 (38)",
-        desc: "40 adorables crías de animales: pangolines, ornitorrincos, quokkas y ajolotes listos para pintar.",
         samples: ["images/baby_animals_page_1.png", "images/baby_animals_page_2.png", "images/baby_animals_page_3.png", "images/baby_animals_page_4.png"],
         isNew: true,
         isBestseller: false
+      },
+      {
+        id: "mandalas-flowers",
+        title: "Mandalas y Flores",
+        category: "mandalas",
+        cover: "images/mandalas_cover_es.png",
+        asin: "B0HBHJNFZM",
+        tag: "🌸 BESTSELLER",
+        rating: "4.9 (185)",
+        samples: ["images/mandalas_page_1.png", "images/mandalas_page_2.png", "images/mandalas_page_3.png"],
+        isNew: false,
+        isBestseller: true
       },
       {
         id: "smiling-animals",
@@ -1056,7 +1417,6 @@
         asin: "B0HCP7343R",
         tag: "🐾 BESTSELLER",
         rating: "4.8 (210)",
-        desc: "Perritos alegres, gatitos mimosos y animales de granja en divertidas escenas llenas de ternura.",
         samples: ["images/animals_page_1.png", "images/animals_page_2.png", "images/animals_page_3.png"],
         isNew: false,
         isBestseller: true
@@ -1069,23 +1429,9 @@
         asin: "B0HFK37VT5",
         tag: "✨ FANTASÍA",
         rating: "4.8 (120)",
-        desc: "Habitaciones mágicas, gatos durmiendo entre pociones y tardes de té en el bosque.",
         samples: ["images/cozy_page_1.png", "images/cozy_page_2.png", "images/cozy_page_3.png"],
         isNew: false,
         isBestseller: false
-      },
-      {
-        id: "mandalas-flowers",
-        title: "Mandalas y Flores",
-        category: "mandalas",
-        cover: "images/mandalas_cover_es.png",
-        asin: "B0HBHJNFZM",
-        tag: "🌸 BESTSELLER",
-        rating: "4.9 (185)",
-        desc: "Patrones simétricos y flores sencillas para desconectar del estrés y encontrar calma.",
-        samples: ["images/mandalas_page_1.png", "images/mandalas_page_2.png", "images/mandalas_page_3.png"],
-        isNew: false,
-        isBestseller: true
       },
       {
         id: "mandalas-3d",
@@ -1095,7 +1441,6 @@
         asin: "B0HDD9TJGN",
         tag: "🔷 3D OPTICAL",
         rating: "4.9 (78)",
-        desc: "Diseños isométricos y cubos en relieve que cobran vida con el color y las sombras.",
         samples: ["images/mandalas_3d_page_1.png", "images/mandalas_3d_page_2.png", "images/mandalas_3d_page_3.png", "images/mandalas_3d_page_4.png"],
         isNew: false,
         isBestseller: false
@@ -1108,7 +1453,6 @@
         asin: "B0HFB5FJ5J",
         tag: "☕ VIDA COZY",
         rating: "4.9 (52)",
-        desc: "Disfruta de una adorable colección de animales en situaciones cotidianas: café, libros y momentos acogedores.",
         samples: ["images/cozy_animals_page_1.png", "images/cozy_animals_page_2.png", "images/cozy_animals_page_3.png"],
         isNew: false,
         isBestseller: false
@@ -1121,7 +1465,6 @@
         asin: "B0HFKK8CMQ",
         tag: "🧚 MÁGICO",
         rating: "4.9 (64)",
-        desc: "Pequeñas hadas recolectando flores y merendando en jardines encantados.",
         samples: ["images/fairies_page_1.png", "images/fairies_page_2.png", "images/fairies_page_3.png"],
         isNew: false,
         isBestseller: false
@@ -1134,7 +1477,6 @@
         asin: "B0HKVCNJ3Z",
         tag: "🦁 SALVAJE",
         rating: "4.8 (56)",
-        desc: "Leones, tortugas y criaturas salvajes diseñadas en mandalas de alta concentración.",
         samples: ["images/alma_salvaje_page_1.png", "images/alma_salvaje_page_2.png", "images/alma_salvaje_page_3.png"],
         isNew: false,
         isBestseller: false
@@ -1147,7 +1489,6 @@
         asin: "",
         tag: "🚗 VELOCIDAD",
         rating: "4.9 (45)",
-        desc: "Iconos japoneses, coches tuning y carreteras nocturnas de Tokio iluminadas por luces de neón.",
         samples: ["images/jdm_nights_page_1.png", "images/jdm_nights_page_2.png", "images/jdm_nights_page_3.png"],
         isSoon: true
       },
@@ -1159,7 +1500,6 @@
         asin: "",
         tag: "🏎️ CLÁSICOS",
         rating: "4.8 (32)",
-        desc: "V8 legendarios, muscle cars americanos y carreras míticas en la Ruta 66 listas para pintar.",
         samples: ["images/muscle_cars_page_1.png", "images/muscle_cars_page_2.png", "images/muscle_cars_page_3.png"],
         isSoon: true
       },
@@ -1171,7 +1511,6 @@
         asin: "",
         tag: "🏁 HISTÓRICO",
         rating: "4.9 (38)",
-        desc: "Monoplazas legendarios de Senna, Schumacher y Alonso con trazados de circuitos históricos.",
         samples: ["images/formula1_page_1.png", "images/formula1_page_2.png", "images/formula1_page_3.png", "images/formula1_page_4.png"],
         isSoon: true
       },
@@ -1183,21 +1522,8 @@
         asin: "",
         tag: "🐉 DRAGONES",
         rating: "5.0 (42)",
-        desc: "Dragones de fuego, hielo y guardianes del bosque con patrones detallados.",
         samples: ["images/dragons_page_1.png", "images/dragons_page_2.png", "images/dragons_page_3.png"],
         isSoon: true
-      },
-      {
-        id: "cozy-animals-work",
-        title: "Animales Cozy con Oficios",
-        category: "animals",
-        cover: "images/cozy_work_cover_es.jpg",
-        asin: "B0HMMMD3ST",
-        tag: "🥖 OFICIOS",
-        rating: "5.0 (29)",
-        desc: "Zorritos panaderos, osos carpinteros y nutrias floristas en su adorable aldea de cuento.",
-        samples: ["images/cozy_work_page_1.png", "images/cozy_work_page_2.png", "images/cozy_work_page_3.png"],
-        isSoon: false
       },
       {
         id: "cozy-dragons",
@@ -1207,60 +1533,46 @@
         asin: "",
         tag: "✨ BEBÉS DRAGÓN",
         rating: "5.0 (31)",
-        desc: "Adorables dragoncitos bebé jugando entre setas gigantes y volando bajo cielos de fantasía.",
         samples: ["images/cozy_dragons_page_1.png", "images/cozy_dragons_page_2.png", "images/cozy_dragons_page_3.png"],
         isSoon: true
       }
     ];
 
-    const CATEGORY_META = {
-      magical: {
-        title: "🧙 Magical Cozy",
-        desc: "Hadas, brujitas adorables, gnomos de otoño y dragones. Ilustraciones llenas de magia y calma con trazos gruesos.",
-        gradient: "linear-gradient(135deg, #4c1d95 0%, #7c3aed 100%)"
-      },
-      animals: {
-        title: "🐾 Smiling Animals",
-        desc: "Animalitos felices, perritos, gatitos y crías adorables diseñados para alegrarte el día y colorear sin estrés.",
-        gradient: "linear-gradient(135deg, #064e3b 0%, #059669 100%)"
-      },
-      mandalas: {
-        title: "🌸 Mandalas & Flores",
-        desc: "Patrones geométricos simétricos, efectos ópticos 3D y flores relajantes para enfocar la mente y meditar.",
-        gradient: "linear-gradient(135deg, #831843 0%, #db2777 100%)"
-      },
-      machines: {
-        title: "🚗 Parami Machines",
-        desc: "JDM Nights, coches de leyenda japoneses y Muscle Cars americanos sobre ruedas listos para tus rotuladores.",
-        gradient: "linear-gradient(135deg, #450a0a 0%, #b91c1c 100%)"
-      },
-      all: {
-        title: "📖 Todos los Libros de Parami Books",
-        desc: "Explora la colección completa oficial en Amazon KDP. Elige tu favorito y desconecta coloreando.",
-        gradient: "linear-gradient(135deg, #1e1b18 0%, #2b1f1a 100%)"
-      },
-      new: {
-        title: "⭐ Últimas Novedades en Amazon",
-        desc: "Nuestros lanzamientos más recientes: Cozy Halloween, Duendes de Otoño y el nuevo volumen de Animales Bebés.",
-        gradient: "linear-gradient(135deg, #ea580c 0%, #c2410c 100%)"
-      },
-      bestsellers: {
-        title: "🔥 Libros Más Vendidos",
-        desc: "Los libros favoritos de nuestra comunidad de colorear con mejores valoraciones en Amazon.",
-        gradient: "linear-gradient(135deg, #b45309 0%, #d97706 100%)"
-      },
-      soon: {
-        title: "🚀 Próximos Lanzamientos",
-        desc: "Nuevas colecciones que estarán muy pronto disponibles en Amazon KDP.",
-        gradient: "linear-gradient(135deg, #312e81 0%, #4f46e5 100%)"
-      }
+    const CATEGORY_NAMES = {
+      magical: "Magical Cozy",
+      animals: "Smiling Animals",
+      mandalas: "Mandalas & Flores",
+      machines: "Parami Machines"
     };
 
-    // ==========================================
-    // NAVEGACIÓN Y APERTURA DE MENÚS DINÁMICOS
-    // ==========================================
+    const CATEGORY_TITLES = {
+      all: "📖 Todos los libros de Parami Books",
+      magical: "🧙 Colección Magical Cozy",
+      animals: "🐾 Colección Smiling Animals",
+      mandalas: "🌸 Colección Mandalas & Flores",
+      machines: "🚗 Colección Parami Machines",
+      new: "⭐ Últimas Novedades en Amazon",
+      bestsellers: "🔥 Los Libros Más Vendidos",
+      soon: "🚀 Próximos Lanzamientos"
+    };
+
+    let currentActiveCategory = "all";
+
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      document.getElementById('themeToggleIcon').textContent = isDark ? '☀️' : '🌙';
+      document.getElementById('themeToggleText').textContent = isDark ? 'Modo Cálido' : 'Modo Noche';
+      localStorage.setItem('parami_theme', isDark ? 'dark' : 'warm');
+    }
+
+    if (localStorage.getItem('parami_theme') === 'dark') {
+      document.body.classList.add('dark-mode');
+      document.getElementById('themeToggleIcon').textContent = '☀️';
+      document.getElementById('themeToggleText').textContent = 'Modo Cálido';
+    }
+
     function navTo(categoryKey, menuElem) {
-      // Gestionar clase active en el menú lateral
       document.querySelectorAll('.sidebar-menu li').forEach(li => li.classList.remove('active'));
       if (menuElem) {
         menuElem.classList.add('active');
@@ -1269,7 +1581,6 @@
         if (targetLi) targetLi.classList.add('active');
       }
 
-      // Si es 'home', mostramos la vista panorámica de inicio
       if (categoryKey === 'home') {
         document.getElementById('view-home').classList.add('active');
         document.getElementById('view-catalog').classList.remove('active');
@@ -1277,17 +1588,15 @@
         return;
       }
 
-      // Si es una colección o catálogo, abrimos el menú de esa categoría
       document.getElementById('view-home').classList.remove('active');
       document.getElementById('view-catalog').classList.add('active');
 
-      const meta = CATEGORY_META[categoryKey] || CATEGORY_META.all;
-      const banner = document.getElementById('catBanner');
-      banner.style.background = meta.gradient;
-      document.getElementById('catBannerTitle').textContent = meta.title;
-      document.getElementById('catBannerDesc').textContent = meta.desc;
+      currentActiveCategory = categoryKey;
+      updateFilterChips(categoryKey);
 
-      // Filtrar libros
+      const titleEl = document.getElementById('catBannerTitle');
+      titleEl.textContent = CATEGORY_TITLES[categoryKey] || CATEGORY_TITLES.all;
+
       let filtered = [];
       if (categoryKey === 'all') {
         filtered = BOOKS_DB;
@@ -1301,53 +1610,80 @@
         filtered = BOOKS_DB.filter(b => b.category === categoryKey);
       }
 
+      document.getElementById('catBookCount').textContent = `${filtered.length} libros disponibles`;
       renderCatalogGrid(filtered);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
 
-      // Cerrar sidebar en móviles
+      const catalogEl = document.getElementById('view-catalog');
+      catalogEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
       const sidebar = document.getElementById('sidebar');
       if (sidebar) sidebar.classList.remove('open');
     }
 
-    // Renderizar tarjetas de la colección abierta
+    function filterCatalog(categoryKey, chipElem) {
+      currentActiveCategory = categoryKey;
+      updateFilterChips(categoryKey);
+      
+      const titleEl = document.getElementById('catBannerTitle');
+      titleEl.textContent = CATEGORY_TITLES[categoryKey] || CATEGORY_TITLES.all;
+
+      let filtered = [];
+      if (categoryKey === 'all') {
+        filtered = BOOKS_DB;
+      } else {
+        filtered = BOOKS_DB.filter(b => b.category === categoryKey);
+      }
+
+      document.getElementById('catBookCount').textContent = `${filtered.length} libros disponibles`;
+      renderCatalogGrid(filtered);
+    }
+
+    function updateFilterChips(activeKey) {
+      document.querySelectorAll('.chip-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-cat') === activeKey || btn.id === `chip-${activeKey}`);
+      });
+    }
+
     function renderCatalogGrid(books) {
       const grid = document.getElementById('catalogGrid');
       grid.innerHTML = '';
 
       if (books.length === 0) {
         grid.innerHTML = `
-          <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: #6b7280;">
-            <p style="font-size: 18px; font-weight: 700;">¡Próximamente disponibles nuevos títulos en esta categoría!</p>
+          <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--text-muted);">
+            <p style="font-family:'Fredoka',cursive; font-size: 18px; font-weight: 700;">¡Próximamente disponibles nuevos títulos en esta categoría!</p>
           </div>
         `;
         return;
       }
 
       books.forEach(b => {
+        const catName = CATEGORY_NAMES[b.category] || "Parami Books";
+        const badgeClass = `badge-${b.category}`;
+        const stripClass = `strip-${b.category}`;
+
         const card = document.createElement('div');
         card.className = 'catalog-book-card';
         card.innerHTML = `
-          <div class="card-cover-wrap">
+          <div class="card-top-strip ${stripClass}"></div>
+          <div class="card-cover-wrap" onclick="openSamplesModal('${b.id}')">
             <span class="card-tag">${b.tag}</span>
             <img src="${b.cover}" alt="${b.title}" class="card-cover-img" onerror="this.src='images/cozy_halloween_cover_es.jpg'">
           </div>
           <div class="card-body">
+            <span class="card-pill-badge ${badgeClass}">${catName}</span>
             <h4 class="card-title">${b.title}</h4>
-            <div class="card-category">${CATEGORY_META[b.category]?.title || 'Colección Oficial'}</div>
-            <div class="card-meta">★★★★★ <span>${b.rating || '4.9 de Amazon'}</span></div>
-            <p style="font-size: 12px; color: #64748b; margin-bottom: 14px; line-height: 1.4;">${b.desc || ''}</p>
+            <div class="card-meta">★★★★★ <span>${b.rating || '5.0 de Amazon'}</span></div>
             <div class="card-actions">
               ${b.asin ? `
                 <a href="https://www.amazon.es/dp/${b.asin}" target="_blank" class="btn-buy-amazon">
-                  🛒 Ver en Amazon (Prime)
+                  🛒 Ver en Amazon Prime
                 </a>
               ` : `
-                <button class="btn-buy-amazon" style="background:#f1f5f9; border-color:#cbd5e1; color:#64748b; cursor:default; box-shadow:none;">
-                  🚀 Próximamente en Amazon
-                </button>
+                <span class="btn-soon">🚀 Próximamente en Amazon</span>
               `}
               <button class="btn-view-samples" onclick="openSamplesModal('${b.id}')">
-                👁️ Hojear páginas de muestra
+                👁️ Hojear páginas interiores
               </button>
             </div>
           </div>
@@ -1356,9 +1692,33 @@
       });
     }
 
-    // ==========================================
-    // VISOR DE LÁMINAS INTERIORES
-    // ==========================================
+    function handleTopSearch(query) {
+      const q = query.trim().toLowerCase();
+      if (!q) {
+        if (document.getElementById('view-catalog').classList.contains('active')) {
+          renderCatalogGrid(BOOKS_DB);
+          document.getElementById('catBookCount').textContent = `${BOOKS_DB.length} libros disponibles`;
+        }
+        return;
+      }
+
+      if (!document.getElementById('view-catalog').classList.contains('active')) {
+        document.getElementById('view-home').classList.remove('active');
+        document.getElementById('view-catalog').classList.add('active');
+      }
+
+      const filtered = BOOKS_DB.filter(b => {
+        const titleMatch = b.title.toLowerCase().includes(q);
+        const catMatch = (CATEGORY_NAMES[b.category] || '').toLowerCase().includes(q);
+        const tagMatch = (b.tag || '').toLowerCase().includes(q);
+        return titleMatch || catMatch || tagMatch;
+      });
+
+      document.getElementById('catBannerTitle').textContent = `🔍 Resultados para: "${query}"`;
+      document.getElementById('catBookCount').textContent = `${filtered.length} libros encontrados`;
+      renderCatalogGrid(filtered);
+    }
+
     let activeModalBook = null;
     let modalSampleIdx = 0;
 
@@ -1399,9 +1759,6 @@
       updateSamplesModal();
     }
 
-    // ==========================================
-    // MODALES INFORMATIVOS (SOBRE NOSOTROS / CONTACTO)
-    // ==========================================
     function openInfoModal(type) {
       const titleEl = document.getElementById('infoModalTitle');
       const bodyEl = document.getElementById('infoModalBody');
@@ -1411,8 +1768,8 @@
         bodyEl.innerHTML = `
           <p>En <strong>Parami Books</strong> creamos libros para colorear con trazos limpios, gruesos y sencillos (estilo <em>Bold & Easy</em>), pensados para regalarte momentos auténticos de calma, desconexión y creatividad.</p>
           <p>Creemos en el poder relajante de sentarte con tus rotuladores, tu música favorita y dejar el estrés y las pantallas a un lado.</p>
-          <div style="margin-top: 20px; padding: 14px; background: #f8fafc; border-radius: 12px; border: 1px solid #e2e8f0;">
-            <p style="margin: 0; font-weight: 700; color: #1e293b;">✨ Libros impresos con calidad oficial por Amazon KDP con envío rápido Prime.</p>
+          <div style="margin-top: 20px; padding: 14px; background: rgba(0,0,0,0.03); border-radius: 12px; border: 1px solid var(--card-border);">
+            <p style="margin: 0; font-weight: 700; color: var(--text-title); font-family:'Fredoka',cursive;">✨ Libros impresos con calidad oficial por Amazon KDP con envío rápido Prime.</p>
           </div>
         `;
       } else if (type === 'contact') {
@@ -1420,18 +1777,18 @@
         bodyEl.innerHTML = `
           <p>Puedes seguir nuestras novedades, ver vídeos de colorear y escribirnos directamente a través de nuestros canales oficiales:</p>
           <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 18px;">
-            <a href="https://www.tiktok.com/@parami_records" target="_blank" style="display: flex; align-items: center; gap: 14px; padding: 14px 18px; background: #0b0f19; border: 1.5px solid #ea580c; border-radius: 14px; color: #ffffff; text-decoration: none; font-weight: 700; font-size: 14px; transition: transform 0.2s; box-shadow: 0 4px 14px rgba(234, 88, 12, 0.2);">
+            <a href="https://www.tiktok.com/@parami_records" target="_blank" style="display: flex; align-items: center; gap: 14px; padding: 14px 18px; background: #051428; border: 1.5px solid #ea580c; border-radius: 14px; color: #ffffff; text-decoration: none; font-weight: 700; font-size: 14px; transition: transform 0.2s; box-shadow: 0 4px 14px rgba(234, 88, 12, 0.2);">
               <span style="font-size: 26px;">🎵</span>
               <div>
-                <div style="color: #ea580c; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;">TikTok Oficial</div>
-                <div style="font-size: 15px;">@parami_records</div>
+                <div style="color: #ea580c; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; font-family:'Fredoka',cursive;">TikTok Oficial</div>
+                <div style="font-size: 15px; font-family:'Fredoka',cursive;">@parami_records</div>
               </div>
             </a>
-            <a href="https://www.youtube.com/@parami_records" target="_blank" style="display: flex; align-items: center; gap: 14px; padding: 14px 18px; background: #0b0f19; border: 1.5px solid #ef4444; border-radius: 14px; color: #ffffff; text-decoration: none; font-weight: 700; font-size: 14px; transition: transform 0.2s; box-shadow: 0 4px 14px rgba(239, 68, 68, 0.2);">
+            <a href="https://www.youtube.com/@parami_records" target="_blank" style="display: flex; align-items: center; gap: 14px; padding: 14px 18px; background: #051428; border: 1.5px solid #ef4444; border-radius: 14px; color: #ffffff; text-decoration: none; font-weight: 700; font-size: 14px; transition: transform 0.2s; box-shadow: 0 4px 14px rgba(239, 68, 68, 0.2);">
               <span style="font-size: 26px;">▶️</span>
               <div>
-                <div style="color: #ef4444; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;">Canal de YouTube</div>
-                <div style="font-size: 15px;">Parami Records</div>
+                <div style="color: #ef4444; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; font-family:'Fredoka',cursive;">Canal de YouTube</div>
+                <div style="font-size: 15px; font-family:'Fredoka',cursive;">Parami Records</div>
               </div>
             </a>
           </div>
@@ -1445,7 +1802,6 @@
       document.getElementById(modalId).classList.remove('open');
     }
 
-    // Cerrar modales con clic fuera
     document.querySelectorAll('.modal-overlay').forEach(modal => {
       modal.addEventListener('click', (e) => {
         if (e.target === modal) {
@@ -1454,7 +1810,6 @@
       });
     });
 
-    // Toggle menú móvil
     const menuToggle = document.getElementById('menuToggle');
     const sidebar = document.getElementById('sidebar');
     if (menuToggle && sidebar) {
@@ -1463,10 +1818,14 @@
       });
     }
 
-    // Selector de idiomas
+    let currentLang = 'es';
     function setLang(lang) {
+      currentLang = lang;
       document.getElementById('btnLangEs').classList.toggle('active', lang === 'es');
       document.getElementById('btnLangEn').classList.toggle('active', lang === 'en');
+    }
+    function toggleLang() {
+      setLang(currentLang === 'es' ? 'en' : 'es');
     }
   </script>
 </body>
