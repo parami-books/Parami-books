@@ -15,6 +15,28 @@ const CONFIG = {
 
   books: [
     {
+      id: "cozy-vikings",
+      prefix: "cozy_vikings",
+      samplePages: 4,
+      comingSoon: true,
+      languages: {
+        es: {
+          title: "Cozy Vikings",
+          subtitle: "Libro para colorear · 50 ilustraciones adorables",
+          description: "¡Grandes aventuras con pequeños vikingos! Zarpa hacia un acogedor mundo invernal lleno de alegres vikingos, simpáticos animales y tiernas escenas cotidianas: relajándose en termas calientes, deslizándose en trineos-escudo, horneando pan y explorando cuevas mágicas de cristal. Con trazos gruesos y limpios (estilo Bold & Easy), ideales para relajarse y disfrutar coloreando.",
+          coverImage: "cozy_vikings_cover_es.jpg",
+          asin: ""
+        },
+        en: {
+          title: "Cozy Vikings",
+          subtitle: "Bold & Easy Coloring Book · 50 Illustrations",
+          description: "Big adventures, cozy little Vikings! Set sail for a snowy storybook world of cheerful Vikings, curious creatures, and everyday adventures: soaking in steaming hot springs, sledding on shields down snowy hills, baking fresh bread, and discovering magical crystal caves. Designed with bold, clean outlines for pure stress relief.",
+          coverImage: "cozy_vikings_cover_en.jpg",
+          asin: ""
+        }
+      }
+    },
+    {
       id: "jdm-nights",
       prefix: "jdm_nights",
       languages: {
