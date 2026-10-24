@@ -15,6 +15,28 @@ const CONFIG = {
 
   books: [
     {
+      id: "beneath-the-snow",
+      prefix: "beneath_the_snow",
+      samplePages: 3,
+      comingSoon: true,
+      languages: {
+        es: {
+          title: "Bajo la Nieve",
+          subtitle: "Libro para colorear · Animales acogedores en invierno",
+          description: "Sumérgete en la quietud del invierno con adorables animales del bosque que se refugian bajo la nieve. Ardillas, tejones, búhos y más comparten momentos de calidez y calma en sus acogedores hogares. Ilustraciones con trazos limpios y relajantes para disfrutar coloreando en los días más fríos del año.",
+          coverImage: "beneath_the_snow_cover_es.jpg",
+          asin: ""
+        },
+        en: {
+          title: "Beneath the Snow",
+          subtitle: "A Cozy Winter Coloring Book",
+          description: "Dive into the stillness of winter with adorable woodland animals sheltering beneath the snow. Squirrels, badgers, owls and more share warm and cozy moments in their snug little homes. Clean, relaxing line art designed to help you unwind on the coldest days of the year.",
+          coverImage: "beneath_the_snow_cover_en.jpg",
+          asin: ""
+        }
+      }
+    },
+    {
       id: "cozy-halloween",
       prefix: "cozy_halloween",
       samplePages: 5,

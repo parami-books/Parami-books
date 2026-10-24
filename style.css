@@ -683,6 +683,26 @@ body {
   border: 2px solid rgba(56, 189, 248, 0.4);
 }
 
+/* 17. Beneath the Snow: Azul Medianoche Invernal / Blanco Hielo y Ámbar Cálido */
+.book-card-beneath-the-snow {
+  background: linear-gradient(135deg, #0c1b33 0%, #1e3a5f 55%, #7e5a3c 100%);
+  border: 2px solid #bfdbfe;
+  box-shadow: 
+    0 10px 24px rgba(12, 27, 51, 0.6), 
+    inset 0 0 15px rgba(191, 219, 254, 0.2), 
+    0 0 20px rgba(126, 90, 60, 0.4);
+}
+.book-card-beneath-the-snow:hover {
+  box-shadow: 
+    0 14px 28px rgba(30, 58, 95, 0.75), 
+    inset 0 0 18px rgba(191, 219, 254, 0.3), 
+    0 0 26px rgba(191, 219, 254, 0.5);
+}
+.book-card-beneath-the-snow .book-cover-container {
+  background: radial-gradient(circle, #1e3a5f 0%, #0c1b33 100%);
+  border: 2px solid rgba(191, 219, 254, 0.35);
+}
+
 
 /* Contenedor de Portadas con Relación de Aspecto Vertical y Carrusel */
 .book-cover-container {
