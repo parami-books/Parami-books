@@ -15,48 +15,6 @@ const CONFIG = {
 
   books: [
     {
-      id: "cozy-vikings",
-      prefix: "cozy_vikings",
-      samplePages: 4,
-      comingSoon: true,
-      languages: {
-        es: {
-          title: "Cozy Vikings",
-          subtitle: "Libro para colorear · 50 ilustraciones adorables",
-          description: "¡Grandes aventuras con pequeños vikingos! Zarpa hacia un acogedor mundo invernal lleno de alegres vikingos, simpáticos animales y tiernas escenas cotidianas: relajándose en termas calientes, deslizándose en trineos-escudo, horneando pan y explorando cuevas mágicas de cristal. Con trazos gruesos y limpios (estilo Bold & Easy), ideales para relajarse y disfrutar coloreando.",
-          coverImage: "cozy_vikings_cover_es.jpg",
-          asin: ""
-        },
-        en: {
-          title: "Cozy Vikings",
-          subtitle: "Bold & Easy Coloring Book · 50 Illustrations",
-          description: "Big adventures, cozy little Vikings! Set sail for a snowy storybook world of cheerful Vikings, curious creatures, and everyday adventures: soaking in steaming hot springs, sledding on shields down snowy hills, baking fresh bread, and discovering magical crystal caves. Designed with bold, clean outlines for pure stress relief.",
-          coverImage: "cozy_vikings_cover_en.jpg",
-          asin: ""
-        }
-      }
-    },
-    {
-      id: "jdm-nights",
-      prefix: "jdm_nights",
-      languages: {
-        es: {
-          title: "JDM Nights",
-          subtitle: "Libro para colorear · Coches, cultura y estilo de vida",
-          description: "Adéntrate en la fascinante cultura automovilística japonesa bajo las luces de neón de Tokio: Skylines GT-R R34, Lancers Evolution IX, Toyota Supra A80 derrapando en puertos de montaña y Celicas de rally. Con ilustraciones hiperdetalladas que capturan la esencia del tuning, las autopistas Shuto y el espíritu JDM.",
-          coverImage: "jdm_nights_cover_es.jpg",
-          asin: "B0HNHLK7G4"
-        },
-        en: {
-          title: "JDM Nights",
-          subtitle: "Coloring Book · Cars, Culture & Lifestyle",
-          description: "Immerse yourself in legendary Japanese car culture under Tokyo's neon glow: Skyline GT-R R34, Lancer Evolution IX, Toyota Supra A80 touge drifters, and Celica rally machines! Packed with high-octane, intricately detailed illustrations capturing the heart of JDM tuning and midnight highway runs.",
-          coverImage: "jdm_nights_cover_en.jpg",
-          asin: "B0HNHLK7G4"
-        }
-      }
-    },
-    {
       id: "cozy-halloween",
       prefix: "cozy_halloween",
       samplePages: 5,
@@ -94,27 +52,6 @@ const CONFIG = {
           description: "Step into a magical autumn village full of cute gnomes, playful elves, pumpkins, and cozy fall adventures! Designed with bold, clean outlines perfect for stress-free coloring with markers.",
           coverImage: "gnomes_cover_en.jpg",
           asin: "B0HLWYGTFR"
-        }
-      }
-    },
-    {
-      id: "baby-animals",
-      prefix: "baby_animals",
-      samplePages: 4,
-      languages: {
-        es: {
-          title: "Animales Bebés",
-          subtitle: "Smiling Animals · Vol. 3",
-          description: "¡Pequeños animales, grandes aventuras! Conoce a 40 adorables crías en escenas divertidas para colorear e imaginar: pangolines, ornitorrincos, quokkas y ajolotes. Diseñado con trazos limpios y simpáticos.",
-          coverImage: "baby_animals_cover_es.jpg",
-          asin: "B0HM6XBMCV"
-        },
-        en: {
-          title: "Baby Animals",
-          subtitle: "Smiling Animals · Vol. 3",
-          description: "Big smiles, little adventures! Meet 40 adorable baby animals in playful scenes made for coloring and imagination: baby pangolins, platypuses, quokkas, and axolotls. Designed with clean lines for fun, stress-free coloring.",
-          coverImage: "baby_animals_cover_en.jpg",
-          asin: "B0HM6XBMCV"
         }
       }
     },
@@ -157,6 +94,69 @@ const CONFIG = {
           description: "Step into a bustling storybook town full of adorable animals working cheerful jobs: baker foxes, carpenter bears, florist otters, and master builders! Featuring bold, clean outlines designed for relaxing, stress-free coloring.",
           coverImage: "cozy_work_cover_en.jpg",
           asin: "B0HMMMD3ST"
+        }
+      }
+    },
+    {
+      id: "baby-animals",
+      prefix: "baby_animals",
+      samplePages: 4,
+      languages: {
+        es: {
+          title: "Animales Bebés",
+          subtitle: "Smiling Animals · Vol. 3",
+          description: "¡Pequeños animales, grandes aventuras! Conoce a 40 adorables crías en escenas divertidas para colorear e imaginar: pangolines, ornitorrincos, quokkas y ajolotes. Diseñado con trazos limpios y simpáticos.",
+          coverImage: "baby_animals_cover_es.jpg",
+          asin: "B0HM6XBMCV"
+        },
+        en: {
+          title: "Baby Animals",
+          subtitle: "Smiling Animals · Vol. 3",
+          description: "Big smiles, little adventures! Meet 40 adorable baby animals in playful scenes made for coloring and imagination: baby pangolins, platypuses, quokkas, and axolotls. Designed with clean lines for fun, stress-free coloring.",
+          coverImage: "baby_animals_cover_en.jpg",
+          asin: "B0HM6XBMCV"
+        }
+      }
+    },
+    {
+      id: "jdm-nights",
+      prefix: "jdm_nights",
+      languages: {
+        es: {
+          title: "JDM Nights",
+          subtitle: "Libro para colorear · Coches, cultura y estilo de vida",
+          description: "Adéntrate en la fascinante cultura automovilística japonesa bajo las luces de neón de Tokio: Skylines GT-R R34, Lancers Evolution IX, Toyota Supra A80 derrapando en puertos de montaña y Celicas de rally. Con ilustraciones hiperdetalladas que capturan la esencia del tuning, las autopistas Shuto y el espíritu JDM.",
+          coverImage: "jdm_nights_cover_es.jpg",
+          asin: "B0HNHLK7G4"
+        },
+        en: {
+          title: "JDM Nights",
+          subtitle: "Coloring Book · Cars, Culture & Lifestyle",
+          description: "Immerse yourself in legendary Japanese car culture under Tokyo's neon glow: Skyline GT-R R34, Lancer Evolution IX, Toyota Supra A80 touge drifters, and Celica rally machines! Packed with high-octane, intricately detailed illustrations capturing the heart of JDM tuning and midnight highway runs.",
+          coverImage: "jdm_nights_cover_en.jpg",
+          asin: "B0HNHLK7G4"
+        }
+      }
+    },
+    {
+      id: "cozy-vikings",
+      prefix: "cozy_vikings",
+      samplePages: 4,
+      comingSoon: true,
+      languages: {
+        es: {
+          title: "Cozy Vikings",
+          subtitle: "Libro para colorear · 50 ilustraciones adorables",
+          description: "¡Grandes aventuras con pequeños vikingos! Zarpa hacia un acogedor mundo invernal lleno de alegres vikingos, simpáticos animales y tiernas escenas cotidianas: relajándose en termas calientes, deslizándose en trineos-escudo, horneando pan y explorando cuevas mágicas de cristal. Con trazos gruesos y limpios (estilo Bold & Easy), ideales para relajarse y disfrutar coloreando.",
+          coverImage: "cozy_vikings_cover_es.jpg",
+          asin: ""
+        },
+        en: {
+          title: "Cozy Vikings",
+          subtitle: "Bold & Easy Coloring Book · 50 Illustrations",
+          description: "Big adventures, cozy little Vikings! Set sail for a snowy storybook world of cheerful Vikings, curious creatures, and everyday adventures: soaking in steaming hot springs, sledding on shields down snowy hills, baking fresh bread, and discovering magical crystal caves. Designed with bold, clean outlines for pure stress relief.",
+          coverImage: "cozy_vikings_cover_en.jpg",
+          asin: ""
         }
       }
     },

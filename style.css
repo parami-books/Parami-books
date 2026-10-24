@@ -663,6 +663,26 @@ body {
     0 0 26px rgba(239, 68, 68, 0.7);
 }
 
+/* 16. Cozy Vikings: Azul Fjord Nórdico / Glaciar y Oro Escandinavo */
+.book-card-cozy-vikings {
+  background: linear-gradient(135deg, #0f2744 0%, #0369a1 50%, #b45309 100%);
+  border: 2px solid #38bdf8;
+  box-shadow: 
+    0 10px 24px rgba(3, 105, 161, 0.5), 
+    inset 0 0 15px rgba(255, 255, 255, 0.25), 
+    0 0 20px rgba(180, 83, 9, 0.45);
+}
+.book-card-cozy-vikings:hover {
+  box-shadow: 
+    0 14px 28px rgba(3, 105, 161, 0.7), 
+    inset 0 0 18px rgba(255, 255, 255, 0.35), 
+    0 0 26px rgba(56, 189, 248, 0.65);
+}
+.book-card-cozy-vikings .book-cover-container {
+  background: radial-gradient(circle, #0c4a6e 0%, #082f49 100%);
+  border: 2px solid rgba(56, 189, 248, 0.4);
+}
+
 
 /* Contenedor de Portadas con Relación de Aspecto Vertical y Carrusel */
 .book-cover-container {
