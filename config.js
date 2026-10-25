@@ -89,6 +89,18 @@ const CONFIG = {
           coverImage: "christmas_elves_cover.jpg",
           asin: "B0HMP2M3WH"
         },
+    {
+      id: "cozy-vikings",
+      prefix: "cozy_vikings",
+      samplePages: 4,
+      languages: {
+        es: {
+          title: "Cozy Vikings",
+          subtitle: "Libro para colorear · 50 ilustraciones adorables",
+          description: "¡Grandes aventuras con pequeños vikingos! Zarpa hacia un acogedor mundo invernal lleno de alegres vikingos, simpáticos animales y tiernas escenas cotidianas: relajándose en termas calientes, deslizándose en trineos-escudo, horneando pan y explorando cuevas mágicas de cristal. Con trazos gruesos y limpios (estilo Bold & Easy), ideales para relajarse y disfrutar coloreando.",
+          coverImage: "cozy_vikings_cover_es.jpg",
+          asin: "B0HP74DYP1"
+        },
         en: {
           title: "Christmas Elves",
           subtitle: "Santa's Elf Workshop · Coloring Book",
@@ -151,6 +163,17 @@ const CONFIG = {
           coverImage: "jdm_nights_cover_es.jpg",
           asin: "B0HNHLK7G4"
         },
+    {
+      id: "muscle-cars",
+      prefix: "muscle_cars",
+      languages: {
+        es: {
+          title: "American Muscle Cars",
+          subtitle: "Libro para colorear",
+          description: "Siente la potencia y la adrenalina de los legendarios deportivos clásicos americanos: Mustangs GT500, Camaros SS, Chevelles y bólidos de aceleración en la Ruta 66 y Hollywood. Con ilustraciones dinámicas y detalladas listas para cobrar vida con tus colores.",
+          coverImage: "muscle_cars_cover_es.jpg",
+          asin: "B0HP7ZMCNR"
+        },
         en: {
           title: "JDM Nights",
           subtitle: "Coloring Book · Cars, Culture & Lifestyle",
@@ -160,18 +183,6 @@ const CONFIG = {
         }
       }
     },
-    {
-      id: "cozy-vikings",
-      prefix: "cozy_vikings",
-      samplePages: 4,
-      languages: {
-        es: {
-          title: "Cozy Vikings",
-          subtitle: "Libro para colorear · 50 ilustraciones adorables",
-          description: "¡Grandes aventuras con pequeños vikingos! Zarpa hacia un acogedor mundo invernal lleno de alegres vikingos, simpáticos animales y tiernas escenas cotidianas: relajándose en termas calientes, deslizándose en trineos-escudo, horneando pan y explorando cuevas mágicas de cristal. Con trazos gruesos y limpios (estilo Bold & Easy), ideales para relajarse y disfrutar coloreando.",
-          coverImage: "cozy_vikings_cover_es.jpg",
-          asin: "B0HP74DYP1"
-        },
         en: {
           title: "Cozy Vikings",
           subtitle: "Bold & Easy Coloring Book · 50 Illustrations",
@@ -359,17 +370,6 @@ const CONFIG = {
         }
       }
     },
-    {
-      id: "muscle-cars",
-      prefix: "muscle_cars",
-      languages: {
-        es: {
-          title: "American Muscle Cars",
-          subtitle: "Libro para colorear",
-          description: "Siente la potencia y la adrenalina de los legendarios deportivos clásicos americanos: Mustangs GT500, Camaros SS, Chevelles y bólidos de aceleración en la Ruta 66 y Hollywood. Con ilustraciones dinámicas y detalladas listas para cobrar vida con tus colores.",
-          coverImage: "muscle_cars_cover_es.jpg",
-          asin: "B0HP7ZMCNR"
-        },
         en: {
           title: "American Muscle Cars",
           subtitle: "Coloring Book",
