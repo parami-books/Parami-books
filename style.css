@@ -703,6 +703,26 @@ body {
   border: 2px solid rgba(191, 219, 254, 0.35);
 }
 
+/* 18. Cozy Animals in Space: Nebulosa Cósmica / Violeta Galáctico y Oro Estelar */
+.book-card-cozy-animals-space {
+  background: linear-gradient(135deg, #130a32 0%, #311b68 50%, #6b21a8 100%);
+  border: 2px solid #c084fc;
+  box-shadow: 
+    0 10px 24px rgba(49, 27, 104, 0.6), 
+    inset 0 0 15px rgba(192, 132, 252, 0.25), 
+    0 0 20px rgba(245, 158, 11, 0.4);
+}
+.book-card-cozy-animals-space:hover {
+  box-shadow: 
+    0 14px 28px rgba(79, 70, 229, 0.75), 
+    inset 0 0 18px rgba(192, 132, 252, 0.35), 
+    0 0 26px rgba(192, 132, 252, 0.6);
+}
+.book-card-cozy-animals-space .book-cover-container {
+  background: radial-gradient(circle, #311b68 0%, #130a32 100%);
+  border: 2px solid rgba(192, 132, 252, 0.4);
+}
+
 
 /* Contenedor de Portadas con Relación de Aspecto Vertical y Carrusel */
 .book-cover-container {

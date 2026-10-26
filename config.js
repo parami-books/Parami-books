@@ -141,6 +141,28 @@ const CONFIG = {
       }
     },
     {
+      id: "cozy-animals-space",
+      prefix: "cozy_space",
+      samplePages: 4,
+      comingSoon: true,
+      languages: {
+        es: {
+          title: "Cozy Animals in Space",
+          subtitle: "Animales Cozy en el Espacio · Libro para colorear",
+          description: "¡Despega hacia una aventura galáctica adorable! Descubre tiernos animalitos astronautas explorando el cosmos: conejitos y osos recolectando rocas lunares, nutrias cocinando en gravedad cero, mapaches reparando robots y simpáticos conejos en invernaderos espaciales. Ilustraciones con trazos gruesos y limpios (Bold & Easy) pensadas para relajarse y disfrutar coloreando.",
+          coverImage: "cozy_space_cover_es.jpg",
+          asin: ""
+        },
+        en: {
+          title: "Cozy Animals in Space",
+          subtitle: "A Bold & Easy Coloring Book",
+          description: "Blast off into an adorable cosmic adventure! Follow cheerful animal astronauts exploring the stars: bunnies and bears collecting moon rocks, otters flipping pancakes in zero gravity, raccoons repairing space robots, and cosmic bunny gardeners. Designed with clean, bold outlines for pure, stress-free coloring.",
+          coverImage: "cozy_space_cover_en.jpg",
+          asin: ""
+        }
+      }
+    },
+    {
       id: "baby-animals",
       prefix: "baby_animals",
       samplePages: 4,
