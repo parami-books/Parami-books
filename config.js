@@ -89,6 +89,15 @@ const CONFIG = {
           coverImage: "christmas_elves_cover.jpg",
           asin: "B0HMP2M3WH"
         },
+        en: {
+          title: "Christmas Elves",
+          subtitle: "Santa's Elf Workshop · Coloring Book",
+          description: "Step into the magical world of Santa's North Pole workshop! Featuring 50 delightful illustrations of cheerful elves crafting toys, caring for reindeer, sledding in the snow, and celebrating Christmas. Bold, clean outlines designed for joyful, stress-free coloring.",
+          coverImage: "christmas_elves_cover.jpg",
+          asin: "B0HMP2M3WH"
+        }
+      }
+    },
     {
       id: "cozy-vikings",
       prefix: "cozy_vikings",
@@ -102,11 +111,11 @@ const CONFIG = {
           asin: "B0HP74DYP1"
         },
         en: {
-          title: "Christmas Elves",
-          subtitle: "Santa's Elf Workshop · Coloring Book",
-          description: "Step into the magical world of Santa's North Pole workshop! Featuring 50 delightful illustrations of cheerful elves crafting toys, caring for reindeer, sledding in the snow, and celebrating Christmas. Bold, clean outlines designed for joyful, stress-free coloring.",
-          coverImage: "christmas_elves_cover.jpg",
-          asin: "B0HMP2M3WH"
+          title: "Cozy Vikings",
+          subtitle: "Bold & Easy Coloring Book · 50 Illustrations",
+          description: "Big adventures, cozy little Vikings! Set sail for a snowy storybook world of cheerful Vikings, curious creatures, and everyday adventures: soaking in steaming hot springs, sledding on shields down snowy hills, baking fresh bread, and discovering magical crystal caves. Designed with bold, clean outlines for pure stress relief.",
+          coverImage: "cozy_vikings_cover_en.jpg",
+          asin: "B0HP74DYP1"
         }
       }
     },
@@ -163,6 +172,15 @@ const CONFIG = {
           coverImage: "jdm_nights_cover_es.jpg",
           asin: "B0HNHLK7G4"
         },
+        en: {
+          title: "JDM Nights",
+          subtitle: "Coloring Book · Cars, Culture & Lifestyle",
+          description: "Immerse yourself in legendary Japanese car culture under Tokyo's neon glow: Skyline GT-R R34, Lancer Evolution IX, Toyota Supra A80 touge drifters, and Celica rally machines! Packed with high-octane, intricately detailed illustrations capturing the heart of JDM tuning and midnight highway runs.",
+          coverImage: "jdm_nights_cover_en.jpg",
+          asin: "B0HNHLK7G4"
+        }
+      }
+    },
     {
       id: "muscle-cars",
       prefix: "muscle_cars",
@@ -175,20 +193,11 @@ const CONFIG = {
           asin: "B0HP7ZMCNR"
         },
         en: {
-          title: "JDM Nights",
-          subtitle: "Coloring Book · Cars, Culture & Lifestyle",
-          description: "Immerse yourself in legendary Japanese car culture under Tokyo's neon glow: Skyline GT-R R34, Lancer Evolution IX, Toyota Supra A80 touge drifters, and Celica rally machines! Packed with high-octane, intricately detailed illustrations capturing the heart of JDM tuning and midnight highway runs.",
-          coverImage: "jdm_nights_cover_en.jpg",
-          asin: "B0HNHLK7G4"
-        }
-      }
-    },
-        en: {
-          title: "Cozy Vikings",
-          subtitle: "Bold & Easy Coloring Book · 50 Illustrations",
-          description: "Big adventures, cozy little Vikings! Set sail for a snowy storybook world of cheerful Vikings, curious creatures, and everyday adventures: soaking in steaming hot springs, sledding on shields down snowy hills, baking fresh bread, and discovering magical crystal caves. Designed with bold, clean outlines for pure stress relief.",
-          coverImage: "cozy_vikings_cover_en.jpg",
-          asin: "B0HP74DYP1"
+          title: "American Muscle Cars",
+          subtitle: "Coloring Book",
+          description: "Feel the raw power and timeless attitude of iconic American muscle cars: Shelby GT500 Mustangs, Camaro SS, Chevelles, and drag strip legends roaring down Route 66 and Hollywood Blvd! Featuring bold, high-octane illustrations ready to color.",
+          coverImage: "muscle_cars_cover_en.jpg",
+          asin: "B0HP7ZMCNR"
         }
       }
     },
@@ -367,15 +376,6 @@ const CONFIG = {
           description: "Step into an enchanting fairytale realm filled with 40 adorable baby dragons in cozy magical scenes: playing among giant mushrooms, making friends with woodland turtles, and soaring across starry skies! Features clean, bold outlines perfect for relaxing coloring.",
           coverImage: "cozy_dragons_cover_en.jpg",
           comingSoon: true
-        }
-      }
-    },
-        en: {
-          title: "American Muscle Cars",
-          subtitle: "Coloring Book",
-          description: "Feel the raw power and timeless attitude of iconic American muscle cars: Shelby GT500 Mustangs, Camaro SS, Chevelles, and drag strip legends roaring down Route 66 and Hollywood Blvd! Featuring bold, high-octane illustrations ready to color.",
-          coverImage: "muscle_cars_cover_en.jpg",
-          asin: "B0HP7ZMCNR"
         }
       }
     },
