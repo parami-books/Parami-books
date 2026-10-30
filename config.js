@@ -37,6 +37,28 @@ const CONFIG = {
       }
     },
     {
+      id: "cozy-polar-animals",
+      prefix: "cozy_polar",
+      samplePages: 4,
+      comingSoon: true,
+      languages: {
+        es: {
+          title: "Cozy Polar Animals",
+          subtitle: "Libro para colorear · Animales polares y auroras boreales",
+          description: "¡Abrígate para una tierna expedición polar bajo las auroras boreales! Descubre simpáticos osos polares, pingüinos, zorros árticos, búhos nivales y renos disfrutando del frío: patinando sobre hielo, compartiendo chocolate caliente frente a un iglú, paseando en trineo y observando las estrellas con telescopio. Ilustraciones adorables con trazos gruesos y limpios (estilo Bold and Easy) pensadas para relajarse.",
+          coverImage: "cozy_polar_cover_es.jpg",
+          asin: ""
+        },
+        en: {
+          title: "Cozy Polar Animals",
+          subtitle: "A Bold & Easy Coloring Book",
+          description: "Bundle up for an adorable Arctic adventure under the northern lights! Meet cheerful polar bears, baby penguins, arctic foxes, snowy owls, and reindeer enjoying cozy winter moments: ice skating across frozen lakes, sipping hot cocoa by an igloo, sledding through the snow, and stargazing through a telescope. Featuring bold, clean outlines designed for pure relaxation.",
+          coverImage: "cozy_polar_cover_en.jpg",
+          asin: ""
+        }
+      }
+    },
+    {
       id: "cozy-halloween",
       prefix: "cozy_halloween",
       samplePages: 5,
