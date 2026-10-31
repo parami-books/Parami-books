@@ -766,6 +766,27 @@ body {
   border: 2px solid rgba(250, 204, 21, 0.4);
 }
 
+
+/* 21. Cozy Patchwork: Mundo de Retales / Violeta Mágico, Rosa Puntada y Oro Botón */
+.book-card-cozy-patchwork {
+  background: linear-gradient(135deg, #2e1065 0%, #701a75 50%, #b45309 100%);
+  border: 2px solid #f472b6;
+  box-shadow: 
+    0 10px 24px rgba(112, 26, 117, 0.55), 
+    inset 0 0 15px rgba(244, 114, 182, 0.25), 
+    0 0 20px rgba(245, 158, 11, 0.4);
+}
+.book-card-cozy-patchwork:hover {
+  box-shadow: 
+    0 14px 28px rgba(147, 51, 234, 0.75), 
+    inset 0 0 18px rgba(244, 114, 182, 0.35), 
+    0 0 26px rgba(244, 114, 182, 0.6);
+}
+.book-card-cozy-patchwork .book-cover-container {
+  background: radial-gradient(circle, #4a044e 0%, #1e1b4b 100%);
+  border: 2px solid rgba(244, 114, 182, 0.4);
+}
+
 /* Contenedor de Portadas con Relación de Aspecto Vertical y Carrusel */
 .book-cover-container {
   width: 100%;
