@@ -18,21 +18,20 @@ const CONFIG = {
       id: "cozy-patchwork",
       prefix: "cozy_patchwork",
       samplePages: 4,
-      comingSoon: true,
       languages: {
         es: {
           title: "Cozy Patchwork",
           subtitle: "Libro para colorear · Muñecos de tela y amigos de retales",
           description: "¡Entra en un mágico y entrañable mundo hecho de retales, botones y puntadas de amor! Descubre tiernas muñequitas de trapo, conejitos cosidos con parches, ositos de peluche y pequeños monstruos amistosos viviendo dulces aventuras: tendiendo bufandas al sol, viajando en trenes de juguete, arreglándose con hilo y aguja, y mirando la luna con telescopio. Ilustraciones adorables con trazos gruesos y limpios (estilo Bold and Easy), pensadas para relajarse y desconectar coloreando.",
           coverImage: "cozy_patchwork_cover_es.jpg",
-          asin: ""
+          asin: "B0HPZCBV1D"
         },
         en: {
           title: "Cozy Patchwork",
           subtitle: "A Bold & Easy Coloring Book",
           description: "Step into an enchanting storybook realm made of stitched patches, cute buttons, and cozy friendship! Meet charming ragdolls, patched bunnies, friendly plush monsters, and cuddly teddy bears on sweet everyday adventures: hanging laundry in sunny cottage gardens, riding little toy trains, mending patches with needle and thread, and stargazing under the moon. Hand-drawn with bold, clean outlines designed for pure relaxation and joyful coloring.",
           coverImage: "cozy_patchwork_cover_en.jpg",
-          asin: ""
+          asin: "B0HPZCBV1D"
         }
       }
     },
@@ -40,21 +39,20 @@ const CONFIG = {
       id: "cozy-polar-animals",
       prefix: "cozy_polar",
       samplePages: 4,
-      comingSoon: true,
       languages: {
         es: {
           title: "Cozy Polar Animals",
           subtitle: "Libro para colorear · Animales polares y auroras boreales",
           description: "¡Abrígate para una tierna expedición polar bajo las auroras boreales! Descubre simpáticos osos polares, pingüinos, zorros árticos, búhos nivales y renos disfrutando del frío: patinando sobre hielo, compartiendo chocolate caliente frente a un iglú, paseando en trineo y observando las estrellas con telescopio. Ilustraciones adorables con trazos gruesos y limpios (estilo Bold and Easy) pensadas para relajarse.",
           coverImage: "cozy_polar_cover_es.jpg",
-          asin: ""
+          asin: "B0HQ1T5RPJ"
         },
         en: {
           title: "Cozy Polar Animals",
           subtitle: "A Bold & Easy Coloring Book",
           description: "Bundle up for an adorable Arctic adventure under the northern lights! Meet cheerful polar bears, baby penguins, arctic foxes, snowy owls, and reindeer enjoying cozy winter moments: ice skating across frozen lakes, sipping hot cocoa by an igloo, sledding through the snow, and stargazing through a telescope. Featuring bold, clean outlines designed for pure relaxation.",
           coverImage: "cozy_polar_cover_en.jpg",
-          asin: ""
+          asin: "B0HQ1T5RPJ"
         }
       }
     },
