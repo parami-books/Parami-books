@@ -15,6 +15,28 @@ const CONFIG = {
 
   books: [
     {
+      id: "cozy-fantasy",
+      prefix: "cozy_fantasy",
+      samplePages: 4,
+      comingSoon: true,
+      languages: {
+        es: {
+          title: "Cozy Fantasy",
+          subtitle: "Libro para colorear · Criaturas mágicas y bosques encantados",
+          description: "¡Adéntrate en un reino de fantasía donde la magia y la ternura se encuentran! Acompaña a unicornios luminosos, hadas traviesas, gnomos jardineros, bebés dragón y simpáticos pegasos en sus aventuras cotidianas: regando cristales mágicos, compartiendo meriendas de fresas sobre nenúfares, chapoteando bajo arcoíris y recogiendo cestas de flores. Ilustraciones con trazos gruesos y limpios (estilo Bold and Easy), pensadas para relajarse y soñar despierto coloreando.",
+          coverImage: "cozy_fantasy_cover_es.jpg",
+          asin: ""
+        },
+        en: {
+          title: "Cozy Fantasy",
+          subtitle: "A Bold & Easy Coloring Book",
+          description: "Step into a magical fairytale world where wonder and sweetness come alive! Follow charming unicorns, playful flower fairies, crystal-gardening gnomes, baby dragons, and friendly little pegasi on whimsical adventures: watering magical crystals, sharing strawberry picnics on giant lily pads, splashing under rainbows, and delivering flower baskets. Hand-drawn with bold, clean outlines designed for pure relaxation and enchanting coloring.",
+          coverImage: "cozy_fantasy_cover_en.jpg",
+          asin: ""
+        }
+      }
+    },
+    {
       id: "cozy-patchwork",
       prefix: "cozy_patchwork",
       samplePages: 4,

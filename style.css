@@ -787,6 +787,27 @@ body {
   border: 2px solid rgba(244, 114, 182, 0.4);
 }
 
+
+/* 22. Cozy Fantasy: Bosque Encantado / Esmeralda Místico, Rosa Champiñón y Oro Hada */
+.book-card-cozy-fantasy {
+  background: linear-gradient(135deg, #064e3b 0%, #1e1b4b 50%, #831843 100%);
+  border: 2px solid #34d399;
+  box-shadow: 
+    0 10px 24px rgba(6, 78, 59, 0.55), 
+    inset 0 0 15px rgba(52, 211, 153, 0.25), 
+    0 0 20px rgba(244, 114, 182, 0.4);
+}
+.book-card-cozy-fantasy:hover {
+  box-shadow: 
+    0 14px 28px rgba(16, 185, 129, 0.75), 
+    inset 0 0 18px rgba(52, 211, 153, 0.35), 
+    0 0 26px rgba(244, 114, 182, 0.6);
+}
+.book-card-cozy-fantasy .book-cover-container {
+  background: radial-gradient(circle, #065f46 0%, #0f172a 100%);
+  border: 2px solid rgba(52, 211, 153, 0.4);
+}
+
 /* Contenedor de Portadas con Relación de Aspecto Vertical y Carrusel */
 .book-cover-container {
   width: 100%;
