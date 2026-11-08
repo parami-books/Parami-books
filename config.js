@@ -81,21 +81,20 @@ const CONFIG = {
       id: "cozy-christmas-animals",
       prefix: "cozy_christmas_animals",
       samplePages: 4,
-      comingSoon: true,
       languages: {
         es: {
           title: "Cozy Christmas Animals",
           subtitle: "Libro para colorear · Animales acogedores en Navidad",
           description: "¡Siente la calidez y la magia de las fiestas! Acompaña a entrañables animalitos celebrando la Navidad en su pueblo nevado: ositos y conejitos decorando el árbol con guirnaldas, Papá Noel repartiendo regalos en chimeneas y madrigueras, perritos probándose su jersey navideño y alegres reuniones festivas. Ilustraciones con trazos gruesos y limpios (estilo Bold and Easy), ideales para relajarse coloreando junto al fuego.",
           coverImage: "cozy_christmas_animals_cover_es.jpg",
-          asin: ""
+          asin: "B0HQY5GD76"
         },
         en: {
           title: "Cozy Christmas Animals",
           subtitle: "A Bold & Easy Coloring Book",
           description: "Feel the warmth and festive joy of the holiday season! Join adorable animals in a snow-covered storybook town: bears and bunnies decorating the Christmas tree, Santa delivering gifts down cozy chimneys and burrow beds, little pups trying on warm holiday sweaters, and sweet winter celebrations. Hand-drawn with bold, clean outlines designed for pure festive relaxation.",
           coverImage: "cozy_christmas_animals_cover_en.jpg",
-          asin: ""
+          asin: "B0HQY5GD76"
         }
       }
     },
