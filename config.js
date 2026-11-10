@@ -15,6 +15,28 @@ const CONFIG = {
 
   books: [
     {
+      id: "cozy-coffee",
+      prefix: "cozy_coffee",
+      samplePages: 4,
+      comingSoon: true,
+      languages: {
+        es: {
+          title: "Cozy Coffee",
+          subtitle: "Libro para colorear · Cafeterías acogedoras y animales baristas",
+          description: "¡Disfruta del aroma a café recién hecho y la calidez de un clásico diner vintage! Acompaña a simpáticos animalitos baristas y clientes en sus momentos de café favoritos: castores horneando cruasanes dorados, koalas apilando tazas con corazones, cervatillos leyendo junto a la ventana y cerditos camareros haciendo equilibrio con torres de café. Ilustraciones con trazos gruesos y limpios (estilo Bold and Easy), pensadas para relajarse y desconectar coloreando.",
+          coverImage: "cozy_coffee_cover_es.jpg",
+          asin: ""
+        },
+        en: {
+          title: "Cozy Coffee",
+          subtitle: "A Bold & Easy Coloring Book",
+          description: "Sip into the comforting aroma of fresh brews and warm retro diners! Join adorable animal baristas and café guests enjoying sweet moments: beaver bakers pulling golden croissants from the oven, koala baristas stacking cute heart mugs, little deer reading with a steaming cup by the window, and cheerful piglets balancing trays of coffee cups. Hand-drawn with bold, clean outlines designed for pure relaxation and cozy coloring.",
+          coverImage: "cozy_coffee_cover_en.jpg",
+          asin: ""
+        }
+      }
+    },
+    {
       id: "cozy-fantasy",
       prefix: "cozy_fantasy",
       samplePages: 4,

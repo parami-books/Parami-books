@@ -808,6 +808,27 @@ body {
   border: 2px solid rgba(52, 211, 153, 0.4);
 }
 
+/* 23. Cozy Coffee: Cafetería Retro / Ámbar Tostado, Neón Turquesa y Rosa Suave */
+.book-card-cozy-coffee {
+  background: linear-gradient(135deg, #1e110a 0%, #78350f 50%, #0f766e 100%);
+  border: 2px solid #2dd4bf;
+  box-shadow: 
+    0 10px 24px rgba(120, 53, 15, 0.6), 
+    inset 0 0 15px rgba(45, 212, 191, 0.25), 
+    0 0 20px rgba(245, 158, 11, 0.4);
+}
+.book-card-cozy-coffee:hover {
+  box-shadow: 
+    0 14px 28px rgba(180, 83, 9, 0.75), 
+    inset 0 0 18px rgba(45, 212, 191, 0.35), 
+    0 0 26px rgba(45, 212, 191, 0.6);
+}
+.book-card-cozy-coffee .book-cover-container {
+  background: radial-gradient(circle, #451a03 0%, #0a0604 100%);
+  border: 2px solid rgba(45, 212, 191, 0.4);
+}
+
+
 /* Contenedor de Portadas con Relación de Aspecto Vertical y Carrusel */
 .book-cover-container {
   width: 100%;
